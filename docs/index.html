@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8">
+<meta name="description" content="Basic jamstack site">
+<meta name="keywords" content="python, jamstack">
+<meta name="author" content="R Ja">
+<meta name="theme-color" content="#ffb74d" />
+<link rel="icon" href="">
+<script type="text/javascript" src="js/script.js"></script>
+<link rel="stylesheet" type="text/css" href="css/styles.css">
+<link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre.min.css">
+<link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-exp.min.css">
+<link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-icons.min.css">
+</head>
+
+<body class="">
+
+<div class="off-canvas">
+  <!-- off-screen toggle button -->
+  <a class="off-canvas-toggle btn btn-primary bg-dark btn-action" href="#sidebar-id">
+    <i class="icon icon-menu"></i>
+  </a>
+
+  <div id="sidebar-id" class="off-canvas-sidebar">
+    <!-- off-screen sidebar -->
+    <ul class="nav">
+      <li class="nav-item">
+        <a href="#why">Why</a>
+      </li>
+      <li class="nav-item">
+        <a href="#aim">Aim</a>
+      </li>
+      <li class="nav-item">
+        <a href="#takeover">Takeover</a>
+      </li>
+      <li class="nav-item">
+        <a href="#join">Join</a>
+      </li>
+      <li class="nav-item">
+        <a href="#translations">Translations</a>
+      </li>
+      <li class="nav-item">
+        <a href="#posts">Blog Posts</a>
+      </li>
+      <li class="nav-item">
+        <a href="#office">Office</a>
+      </li>
+      <li class="nav-item">
+        <a href="#github">Github & Contact</a>
+      </li>
+      <!--
+      <li class="nav-item active">
+        <a href="#">Layout</a>
+        <ul class="nav">
+          <li class="nav-item">
+            <a href="#">Flexbox grid</a>
+          </li>
+          <li class="nav-item">
+            <a href="#">Responsive</a>
+          </li>
+          <li class="nav-item">
+            <a href="#">Navbar</a>
+          </li>
+          <li class="nav-item">
+            <a href="#">Empty states</a>
+          </li>
+        </ul>
+      </li>
+    -->
+    </ul>
+  </div>
+
+  <a class="off-canvas-overlay" href="#close"></a>
+
+  <div class="off-canvas-content">
+    <!-- off-screen content -->
+    <div class="contaner">
+        <h1>Flask Community Workgroup</h1>
+        <div id="why">
+<h3>The Why</h3>
+<p>
+Flask is a great library with great people and great extensions, but it can be even greater with a structured approach to the community aspect. Being around for 10 years and yet, still maintaining relevance is a feat of it’s own. It’s simple to get started with all while being a battle-proven framework. We also notice that it’s a smooth flow from a proof of concept to production. It also influences other frameworks upto this day. Technically it is sound, no doubt about it.<br><br>
+However, there are many Flask-related issues which deserve some attention. The fix to those issues lies not in mere merges or code fixes. One such example is the plugins/extensions ecosystem. A recurrent and commonly observed pattern is that a project rises in popularity and becomes the de-facto reference for a specific task then the maintainer goes offline, cut off from the project. Sometimes other maintainers themselves have no merge right, leaving the project as good as dead.<br><br>
+Due to many factors, the projects soon become obsolete, less efficient or outright broken. But people still use them sometimes unknowingly exposing their applications to vulnerabilities. One help point from the WG is keep an eye on extensions and prevent those kinds of failures. One concrete initiative is to set up an organization (github) to care about extensions. It will have a minimum required number of developers who are willing to look after those extensions. This can also further the Flask education cause by having mentoring, much like Google Code-In.
+Another aspect is that the Flask community is very fragmented. Flask people don’t have a  point of regrouping. Events are organised and then die peacefully. A community WG helps to knit together the community, making Flask users feeling very welcome. It also encourages Flask users to adhere to a code of conduct when organising events, rather than letting every event be as free electrons.
+Events will also help to grow the community and introduce new members to the ecosystem, especially if these events can keep a high quality standard consistently. The WG would help independent organisers by providing guidelines and knowledge for hosting great events.<br><br>
+A point to further the Flask cause is the organising of monthly/quarterly Flask chats where people are invited to talk about flask-related issues including projects.
+One other function that this workgroup may help to achieve is to bring to a minimum, if possible, is the increasing options and fragmentations in the Flask-type of building framework, for example, Hug, Sanic, FastAPI are all taking after the Flask model of doing things and may benefit as one whole project, all streamlined to be able to help increase productivity. (Flask enhancement proposals?)
+In it’s preliminary stage the WG would prepare the event grants requests guidelines and maybe act as the grants WG members until (if needed) such a body is formed.
+Lastly the WG would provide guidelines as to its own running and constant improvement and provide a consistent plan of action in this regard.<br><br>
+The WG also endeavours to take care of translations
+</p>
+</div>
+        <div id='aim'>
+    <h3>Aim</h3>
+    <div>
+        <ul>
+            <li>Education</li>
+            <li>Ecosystem</li>
+            <li>Events</li>
+        </ul>
+    </div>
+</div>
+        <div id='takeover'>
+    <h3>Request the WG to take over and maintain your plugin or project</h3>
+    <p>
+        There are some criterias to respect before we can accept the project:
+        <ol>
+            <li>
+                <h6 class="d-inline-block">Usefulness</h6><br>
+                The project must be a useful one
+            </li>
+            <li>
+                <h6 class="d-inline-block">Documentation</h6><br>
+                The project must documented upto a nice level
+            </li>
+            <li>
+                <h6 class="d-inline-block">Tests</h6><br>
+                Tests must have  a high coverage and be easy to run
+            </li>
+        </ol>
+        Then mail to flaskcwg at python.org with the project detail as well as why you want to relinquish the project.
+    </p>
+</div>
+        <div id='join'>
+    <h3>Join the WG as maintainer</h3>
+    <p>
+        The project needs volunteers BUT in order to maintain quality, you need to have some great Flask experience. Mail flaskcwg at python.org with a description of your Flask experience.
+    </p>
+</div>
+        <div id="translations">
+    <h3>Translations</h3>
+    <p>
+        <p>
+            First fork the docs and translate the tutorial. Then mail us and present yourself and request to be appointed a coordinator for your lang.
+        </p>
+        <h4>Spanish</h4>
+        <p>
+            Link: https://flask-doc-spanish.readthedocs.io/es/master/tutorial/<br>
+            Coordinator: Jhalkov, https://github.com/Jalkhov
+        </p>
+    </p>
+</div>
+        <div id='posts'>
+    <h3>Blog Posts</h3>
+    <p>
+   		<ul>
+   			<li>---</li>
+   		</ul>
+    </p>
+</div>
+        <div id='office'>
+    <h3>Office for 2021-2022</h3>
+    <p>
+        <ul>
+            <li>Alexander Hultnér</li>
+            <li>Jürgen Gmach</li>
+            <li>Abdur-Rahmaan Janhangeer</li>
+            <li>Chukwudi Nwachukwu</li>
+            <li>Kumar Anirudha</li>
+            <li>Grey Li</li>
+            <li>Hans Maulloo</li>
+            <li>Abhiram R</li>
+            <li>Azeez Ibrahim Akinkunmi</li>
+            <li>Shamsuddin Rehmani</li>
+        </ul>
+    </p>
+</div>
+        <div id='github'>
+    <h3>Edit on Github</h3>
+    <p>
+        https://github.com/flaskcwg/flaskcwg.github.io | flaskcwg at python.org
+    </p>
+</div>
+    </div>
+  </div>
+</div>
+
+</body>
+
+</html>

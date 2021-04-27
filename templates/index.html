@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+
+
+{% block head %}
+<title>Flask CWG</title>
+{% endblock %}
+
+
+{% block body %}
+<div class="off-canvas">
+  <!-- off-screen toggle button -->
+  <a class="off-canvas-toggle btn btn-primary bg-dark btn-action" href="#sidebar-id">
+    <i class="icon icon-menu"></i>
+  </a>
+
+  <div id="sidebar-id" class="off-canvas-sidebar">
+    <!-- off-screen sidebar -->
+    <ul class="nav">
+      <li class="nav-item">
+        <a href="#why">Why</a>
+      </li>
+      <li class="nav-item">
+        <a href="#aim">Aim</a>
+      </li>
+      <li class="nav-item">
+        <a href="#takeover">Takeover</a>
+      </li>
+      <li class="nav-item">
+        <a href="#join">Join</a>
+      </li>
+      <li class="nav-item">
+        <a href="#translations">Translations</a>
+      </li>
+      <li class="nav-item">
+        <a href="#posts">Blog Posts</a>
+      </li>
+      <li class="nav-item">
+        <a href="#office">Office</a>
+      </li>
+      <li class="nav-item">
+        <a href="#github">Github & Contact</a>
+      </li>
+      <!--
+      <li class="nav-item active">
+        <a href="#">Layout</a>
+        <ul class="nav">
+          <li class="nav-item">
+            <a href="#">Flexbox grid</a>
+          </li>
+          <li class="nav-item">
+            <a href="#">Responsive</a>
+          </li>
+          <li class="nav-item">
+            <a href="#">Navbar</a>
+          </li>
+          <li class="nav-item">
+            <a href="#">Empty states</a>
+          </li>
+        </ul>
+      </li>
+    -->
+    </ul>
+  </div>
+
+  <a class="off-canvas-overlay" href="#close"></a>
+
+  <div class="off-canvas-content">
+    <!-- off-screen content -->
+    <div class="contaner">
+        <h1>Flask Community Workgroup</h1>
+        {% include 'sections/why.html' %}
+        {% include 'sections/aim.html' %}
+        {% include 'sections/takeover.html' %}
+        {% include 'sections/join.html' %}
+        {% include 'sections/translations.html' %}
+        {% include 'sections/posts.html' %}
+        {% include 'sections/office.html' %}
+        {% include 'sections/github.html' %}
+    </div>
+  </div>
+</div>
+{% endblock %}

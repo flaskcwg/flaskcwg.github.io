@@ -1,0 +1,8 @@
+{
+	"head":{
+		"description": "Basic jamstack site",
+		"keywords": "python, jamstack",
+		"author": "R Ja",
+		"theme-color": "#111"
+	}
+}
