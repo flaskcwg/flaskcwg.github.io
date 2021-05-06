@@ -1,12 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-{% include 'sections/head.html' %}
-</head>
-
-<body class="">
-{% block body %}{% endblock %}
-</body>
-
+	<head>
+		{% include 'sections/head.html' %}
+		{% block head %}{% endblock %}
+	</head>
+	<body class="">
+		{% block body %}{% endblock %}
+	</body>
 </html>

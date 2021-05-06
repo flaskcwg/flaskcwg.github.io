@@ -3,12 +3,10 @@
 import sys
 from os.path import join
 
-from jamstack.api.template import generate
-from jamstack.api.template import base_context
-from flask import Flask
-from livereload import Server
-
 import settings
+from flask import Flask
+from jamstack.api.template import base_context, generate
+from livereload import Server
 
 context = base_context()
 context.update({
@@ -18,7 +16,10 @@ context.update({
 
 def main(args):
     def gen():
-        generate('index.html', join(settings.OUTPUT_FOLDER, 'index.html'), **context)
+        generate('index.html', join(
+            settings.OUTPUT_FOLDER, 'index.html'), **context)
+        generate('translations.html', join(
+            settings.OUTPUT_FOLDER, 'translations.html'), **context)
 
     if len(args) > 1 and args[1] == '--server':
         app = Flask(__name__)
@@ -42,6 +43,7 @@ def main(args):
         server.serve()
     else:
         gen()
+
 
 if __name__ == '__main__':
     main(sys.argv)
