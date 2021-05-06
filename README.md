@@ -1,27 +1,40 @@
-# flaskcwg.github.io
+# Flask Community Workgroup
 
-# How does the site gets built
+## How does the site gets built
 
-Edit files in templates, generated files live in docs
+Edit files in templates, generated files live in docs.
 
-# What is the techstack behind?
+## What is the techstack behind?
 
-jamstack: generate pages using Jinja templates
+**[jamstack](https://jamstack.org)**: Generate pages using Jinja templates.
 
-flask + livewatch: if you want to auto regenerate files without executing static.py
+**flask + livewatch**: If you want to auto regenerate files without executing `static.py`.
 
-# How are the docs generated?
+## How are the docs generated?
 
-Run static.py
+You need to have the **[jamstack library](https://pypi.org/project/jamstack/)** installed.
 
-# How to add a new page?
+Run `static.py`.
 
-In static.py, under generate, add another generate function
+## How to add a new page?
 
-```
+In `static.py`, under generate, add another generate function:
+
+```python
 def main(args):
     def gen():
         generate('index.html', join(settings.OUTPUT_FOLDER, 'index.html'), **context)
 ```
 
-See index.html in templates
+Like this:
+
+```python
+def main(args):
+    def gen():
+        generate('index.html', join(settings.OUTPUT_FOLDER, 'index.html'), **context)
+        generate('source_file.html', join(settings.OUTPUT_FOLDER, 'output_file.html'), **context)
+```
+
+Where `source_file.html` is the name of the file located in `templates/` and `output_file.html` is the output file which will be located in `docs/`.
+
+See `index.html` in templates.
