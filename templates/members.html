@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block head %}
+  <title>Members</title>
+{% endblock %}
+{% block body %}
+<div id='office'>
+    <h3>Members</h3>
+    <p>
+        <ul>
+            {% for member in info['members']['normal'] %}
+                <li>{{ member[0] }}</li>
+            {% endfor %}
+        </ul>
+    </p>
+    <h3>Translation Coordinators</h3>
+    <p>
+        <ul>
+            {% for member in info['members']['translation'] %}
+                <li>{{ member[0] }}: {{ member[1] }}</li>
+            {% endfor %}
+        </ul>
+    </p>
+</div>
+{% endblock %}

@@ -13,13 +13,22 @@ context.update({
     "info": settings.info
 })
 
-
 def main(args):
     def gen():
         generate('index.html', join(
             settings.OUTPUT_FOLDER, 'index.html'), **context)
         generate('translations.html', join(
             settings.OUTPUT_FOLDER, 'translations.html'), **context)
+        generate('takeover.html', join(
+            settings.OUTPUT_FOLDER, 'takeover.html'), **context)
+        generate('join.html', join(
+            settings.OUTPUT_FOLDER, 'join.html'), **context)
+        generate('blog.html', join(
+            settings.OUTPUT_FOLDER, 'blog.html'), **context)
+        generate('members.html', join(
+            settings.OUTPUT_FOLDER, 'members.html'), **context)
+        generate('aim.html', join(
+            settings.OUTPUT_FOLDER, 'aim.html'), **context)
 
     if len(args) > 1 and args[1] == '--server':
         app = Flask(__name__)

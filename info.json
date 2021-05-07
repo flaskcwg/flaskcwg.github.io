@@ -1,8 +1,25 @@
 {
 	"head":{
-		"description": "Basic jamstack site",
-		"keywords": "python, jamstack",
-		"author": "R Ja",
+		"description": "Flask Community Workgroup",
+		"keywords": "python, Flask, community",
+		"author": "Flask Community",
 		"theme-color": "#111"
+	},
+	"members":{
+		"normal":[
+			["Alexander Hultnér"],
+			["Jürgen Gmach"],
+			["Abdur-Rahmaan Janhangeer"],
+			["Chukwudi Nwachukwu"],
+			["Kumar Anirudha"],
+			["Grey Li"],
+			["Abhiram R"],
+			["Hans Maulloo"],
+			["Azeez Ibrahim Akinkunmi"],
+			["Shamsuddin Rehmani"]
+		],
+		"translation": [
+			["Spanish", "Pedro Torcatt"]
+		]
 	}
 }

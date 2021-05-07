@@ -1,4 +1,9 @@
-<div id='takeover'>
+{% extends 'base.html' %}
+{% block head %}
+  <title>Takeover</title>
+{% endblock %}
+{% block body %}
+  <div id='takeover'>
     <h3>Request the WG to take over and maintain your plugin or project</h3>
     <p>
         There are some criterias to respect before we can accept the project:
@@ -18,4 +23,5 @@
         </ol>
         Then mail to flaskcwg at python.org with the project detail as well as why you want to relinquish the project.
     </p>
-</div>
+  </div>
+{% endblock %}
