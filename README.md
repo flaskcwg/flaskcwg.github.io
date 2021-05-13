@@ -2,19 +2,11 @@
 
 ## How does the site gets built
 
-Edit files in templates, generated files live in docs.
+**Note:** You need to have the **[jamstack library](https://pypi.org/project/jamstack/)** installed.
 
-## What is the techstack behind?
-
-**[jamstack](https://jamstack.org)**: Generate pages using Jinja templates.
-
-**flask + livewatch**: If you want to auto regenerate files without executing `static.py`.
-
-## How are the docs generated?
-
-You need to have the **[jamstack library](https://pypi.org/project/jamstack/)** installed.
-
-Run `static.py`.
+1. Edit files in the [**/templates**](/templates) folder
+2. Run [**static.py**](static.py) file
+3. The final files are generated in the [**/docs**](/docs) folder.
 
 ## How to add a new page?
 
@@ -37,4 +29,8 @@ def main(args):
 
 Where `source_file.html` is the name of the file located in `templates/` and `output_file.html` is the output file which will be located in `docs/`.
 
-See `index.html` in templates.
+## What is the techstack behind?
+
+**[jamstack](https://jamstack.org)**: Generate pages using Jinja templates.
+
+**flask + livewatch**: If you want to auto regenerate files without executing `static.py`.
