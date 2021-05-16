@@ -5,8 +5,9 @@
 **Note:** You need to have the **[jamstack library](https://pypi.org/project/jamstack/)** installed.
 
 1. Edit files in the [**/templates**](/templates) folder
-2. Run [**static.py**](static.py) file
-3. The final files are generated in the [**/docs**](/docs) folder.
+2. Run [**docs/serve.py**](docs/serve.py) in another terminal
+3. Run [**static.py**](static.py) file then refresh the url of 2.
+4. The final files are generated in the [**/docs**](/docs) folder.
 
 Alternatively, you can also run `tox`.
 

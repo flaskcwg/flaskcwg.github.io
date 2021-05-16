@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block head %}
+  <title>{{ data['name'] }}</title>
+{% endblock %}
+{% block body %}
+    <h5><a href="https://github.com/{{ github_username }}">{{ data['name'] }} (@{{ github_username }})</a>
+        {% if data['retired'] == 'n' %}
+            <span class="chip bg-success">active</span>
+        {% else %}
+            <span class="chip bg-error">active</span>
+        {% endif %}
+    </h5>
+    <p class="container">
+        <h6>Bio</h6>
+        <p></p>
+        <h6>Volunteer</h6>
+        <p>
+            {% for topic in data['volunteer'] %}
+                <li>{{topic}}
+                    {% if topic == 'translation' %}
+                        <span class="chip">{{data['volunteer']['translation']['lang']}}</span>
+                        {% if 'coordinator' in data['volunteer']['translation']%}
+                            <span class="chip bg-success">coordinator</span>
+                        {% endif %}
+                    {% endif %}
+                </li>
+            {% endfor %}
+        </p>
+    </p>
+{% endblock %}
