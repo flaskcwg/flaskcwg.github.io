@@ -8,6 +8,8 @@
 2. Run [**static.py**](static.py) file
 3. The final files are generated in the [**/docs**](/docs) folder.
 
+Alternatively, you can also run `tox`.
+
 ## How to add a new page?
 
 In `static.py`, under generate, add another generate function:
