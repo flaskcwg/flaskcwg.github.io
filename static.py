@@ -25,8 +25,8 @@ def ensure_output_folder(path):
         os.mkdir(join(settings.OUTPUT_FOLDER, path))
 
 def ensure_exist():
-    if not os.path.exists('docs'):
-        os.mkdir('docs')
+    if not os.path.exists(settings.OUTPUT_FOLDER):
+        os.mkdir(settings.OUTPUT_FOLDER)
 
 
 
