@@ -11,6 +11,10 @@
 
 Alternatively, you can also run `tox`.
 
+## How does the site runs in production?
+
+PRs are made to source branch. The source branch is automatically extrapolated to the main branch where gh-pages is deployed
+
 ## How to add a new page?
 
 In `static.py`, under generate, add another generate function:
