@@ -3,11 +3,16 @@
     <head>
         {% include 'sections/head.html' %}
         {% block head %}{% endblock %}
+        <style type="text/css">
+            .underline {
+                text-decoration: underline;
+            }
+        </style>
     </head>
     <body class="">
         <div class="off-canvas">
             <!-- off-screen toggle button -->
-            <a class="off-canvas-toggle btn btn-primary bg-dark btn-action" href="#sidebar-id">
+            <a class="off-canvas-toggle btn btn-primary bg-dark btn-action show-xs show-sm" href="#sidebar-id">
               <i class="icon icon-menu"></i>
             </a>
             {% include 'sections/sidebar.html' %}
@@ -15,7 +20,16 @@
             <div class="off-canvas-content">
               <!-- off-screen content -->
               <div class="container">
-                <h1><a href="{{path}}index.html">Flask Community Workgroup</a></h1>
+                <h1><a href="{{path}}">Flask Community Workgroup</a></h1>
+                <div class="hide-sx hide-sm">
+                    [ <a class="{{'underline' if section == 'why'}}" href="{{path}}">The Why</a> ]
+                    [ <a class="{{'underline' if section == 'aim'}}" href="{{path}}aim">The Aim</a> ]
+                    [ <a class="{{'underline' if section == 'takeover'}}" href="{{path}}takeover">Project Takeover</a> ]
+                    [ <a class="{{'underline' if section == 'join'}}" href="{{path}}join">Join</a> ]
+                    [ <a class="{{'underline' if section == 'translations'}}" href="{{path}}translations">Translations</a> ]
+                    [ <a class="{{'underline' if section == 'blog'}}" href="{{path}}blog">Blog Posts</a> ]
+                    [ <a class="{{'underline' if section == 'members'}}" href="{{path}}members">Members</a> ]
+                </div><br>
                 {% block body %}{% endblock %}
               </div>
             </div>

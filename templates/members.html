@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% set section = 'members' %}
 {% block head %}
   <title>Members</title>
 {% endblock %}
@@ -21,7 +22,7 @@
             {% for github_username in info['profiles'] %}
                 {% set data = info['profiles'][github_username] %}
                     <tr>
-                      <td><a href="/u/{{ github_username }}.html">{{ data['name'] }}</a></td>
+                      <td><a href="/u/{{ github_username }}">{{ data['name'] }}</a></td>
                         {% if 'code' in data['volunteer'] %}
                             <td>o</td>
                         {% else %}

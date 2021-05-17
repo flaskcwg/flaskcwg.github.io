@@ -1,5 +1,3 @@
-# https://github.com/pymug/website-AV19-AV20
-
 import sys
 import os
 from os.path import join
@@ -10,16 +8,26 @@ from jamstack.api.template import base_context
 from jamstack.api.template import generate
 from livereload import Server
 
+# path is the path to main page and is required on every page
+
+def profile_url(path, github_username):
+    return '{}u/{}.html'.format(path, github_username)
+
 context = base_context()
 context.update({
     "info": settings.info,
-    'path': '/'
+    'path': '/',
+    'profile_url': profile_url
 })
 
+def ensure_output_folder(path):
+    if not os.path.exists(join(settings.OUTPUT_FOLDER, path)):
+        os.mkdir(join(settings.OUTPUT_FOLDER, path))
 
 def ensure_exist():
-    if not os.path.exists(join(settings.OUTPUT_FOLDER, 'u')):
-        os.mkdir(join(settings.OUTPUT_FOLDER, 'u'))
+    pass
+
+
 
 
 def generate_profiles():
@@ -28,27 +36,45 @@ def generate_profiles():
         context.update({
             'github_username': github_username,
             'data': profiles[github_username],
-            'path': '../'
+            'path': '../' * 2
             })
+        ensure_output_folder('u')
+        ensure_output_folder('u/{}'.format(github_username))
         generate('profile.html', join(
-            settings.OUTPUT_FOLDER, 'u', '{}.html'.format(github_username)), **context)
+            settings.OUTPUT_FOLDER, 'u', '{}'.format(github_username), 'index.html'), **context)
 
 
 def generate_menu_pages():
     generate('index.html', join(
         settings.OUTPUT_FOLDER, 'index.html'), **context)
+
+    context.update({
+            'path': '../'
+            })
+
+    ensure_output_folder('translations')
     generate('translations.html', join(
-        settings.OUTPUT_FOLDER, 'translations.html'), **context)
+        settings.OUTPUT_FOLDER, 'translations', 'index.html'), **context)
+
+    ensure_output_folder('takeover')
     generate('takeover.html', join(
-        settings.OUTPUT_FOLDER, 'takeover.html'), **context)
+        settings.OUTPUT_FOLDER, 'takeover', 'index.html'), **context)
+
+    ensure_output_folder('join')
     generate('join.html', join(
-        settings.OUTPUT_FOLDER, 'join.html'), **context)
+        settings.OUTPUT_FOLDER, 'join', 'index.html'), **context)
+
+    ensure_output_folder('blog')
     generate('blog.html', join(
-        settings.OUTPUT_FOLDER, 'blog.html'), **context)
+        settings.OUTPUT_FOLDER, 'blog', 'index.html'), **context)
+
+    ensure_output_folder('members')
     generate('members.html', join(
-        settings.OUTPUT_FOLDER, 'members.html'), **context)
+        settings.OUTPUT_FOLDER, 'members', 'index.html'), **context)
+
+    ensure_output_folder('aim')
     generate('aim.html', join(
-        settings.OUTPUT_FOLDER, 'aim.html'), **context)
+        settings.OUTPUT_FOLDER, 'aim', 'index.html'), **context)
 
 
 def main(args):
