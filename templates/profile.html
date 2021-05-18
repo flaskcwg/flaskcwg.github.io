@@ -8,13 +8,15 @@
         {% if data['retired'] == 'n' %}
             <span class="chip bg-success">active</span>
         {% else %}
-            <span class="chip bg-error">active</span>
+            <span class="chip bg-error">retired</span>
         {% endif %}
     </h5>
     <p class="container">
-        <h6>Bio</h6>
-        <p></p>
-        <h6>Volunteer</h6>
+        <h5>Bio</h5>
+        <p>
+            {{ bio_to_html(data['bio']) }}
+        </p>
+        <h5>Volunteer</h5>
         <p>
             {% for topic in data['volunteer'] %}
                 <li>{{topic}}
@@ -25,6 +27,12 @@
                         {% endif %}
                     {% endif %}
                 </li>
+            {% endfor %}
+        </p>
+        <h5>Presence</h5>
+        <p>
+            {% for presence in data['links'] %}
+                <a href="{{ data['links'][presence] }}">{{ presence }}</a><br>
             {% endfor %}
         </p>
     </p>

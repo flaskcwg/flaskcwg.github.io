@@ -1,1 +1,2 @@
 jamstack==0.0.5
+markdown==3.3.4

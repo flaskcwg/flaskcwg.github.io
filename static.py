@@ -11,14 +11,26 @@ from livereload import Server
 # path is the path to main page and is required on every page
 
 def profile_url(path, github_username):
-    return '{}u/{}.html'.format(path, github_username)
+    return '{}u/{}'.format(path, github_username)
+
+
+def bio_to_html(biolist):
+    final_list = []
+    for l in biolist:
+        if l.strip() == '':
+            final_list.append('<br/>')
+        else:
+            final_list.append(l)
+    return ' '.join(final_list)
 
 context = base_context()
 context.update({
     "info": settings.info,
     'path': '/',
-    'profile_url': profile_url
+    'profile_url': profile_url,
+    'bio_to_html': bio_to_html
 })
+
 
 def ensure_output_folder(path):
     if not os.path.exists(join(settings.OUTPUT_FOLDER, path)):
@@ -27,8 +39,6 @@ def ensure_output_folder(path):
 def ensure_exist():
     if not os.path.exists(settings.OUTPUT_FOLDER):
         os.mkdir(settings.OUTPUT_FOLDER)
-
-
 
 
 def generate_profiles():

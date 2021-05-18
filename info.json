@@ -51,7 +51,15 @@
 		},
 		"Abdur-RahmaanJ":{
 			"name": "Abdur-Rahmaan Janhangeer",
-			"bio": [],
+			"bio": [
+				"Some phrase.",
+				"Another phrase.",
+				"blank line next",
+				"",
+				"Another paragraph",
+				"", "",
+				"Some text whihf wrf"
+			],
 			"volunteer": {
 				"event": {},
 				"code": {},
@@ -145,6 +153,23 @@
 			},
 			"links":{
 				"twitter": ""
+			},
+			"retired": "n"
+		},
+		"yuxiaoy1":{
+			"name": "Yuxiaoy",
+			"bio": [],
+			"volunteer": {
+				"translation":{
+					"lang": "chinese"
+				},
+				"event": {},
+				"code": {},
+				"education": {}
+			},
+			"links":{
+				"twitter": "https://twitter.com/yuxiaoy1/",
+				"weibo": "https://weibo.com/u/1802713725/"
 			},
 			"retired": "n"
 		}
