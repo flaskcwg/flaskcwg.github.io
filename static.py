@@ -1,12 +1,14 @@
 import sys
 import os
 from os.path import join
+import markdown
 
 import settings
 from flask import Flask
 from jamstack.api.template import base_context
 from jamstack.api.template import generate
 from livereload import Server
+import validators
 
 # path is the path to main page and is required on every page
 
@@ -43,19 +45,81 @@ def ensure_exist():
 
 def generate_profiles():
     profiles = settings.info['profiles']
+    ensure_output_folder('u')
     for github_username in profiles:
         context.update({
             'github_username': github_username,
             'data': profiles[github_username],
             'path': '../' * 2
             })
-        ensure_output_folder('u')
         ensure_output_folder('u/{}'.format(github_username))
         generate('profile.html', join(
             settings.OUTPUT_FOLDER, 'u', '{}'.format(github_username), 'index.html'), **context)
 
 
+def generate_blog_posts():
+    posts = []
+    blog_data = 'data/blog'
+    for category in settings.BLOG_CATEGORIES:
+        category_path = join(blog_data, category)
+        # html = markdown.markdown(md, extensions=extensions, output_format='html5')
+        for mdfile in os.listdir(category_path):
+            blog_post_path = join(category_path, mdfile)
+            with open(blog_post_path) as f:
+                text = f.read()
+            md = markdown.Markdown(extensions=['extra', 'smarty', 'meta'])
+            html = md.convert(text)
+            metadata = md.Meta
+            to_ensure = ['slug', 'authors', 'date', 'title', 'summary']
+            for meta in to_ensure:
+                if meta not in metadata:
+                    print('Missing meta attribute:', "'{}'".format(meta), 'in blog post:', blog_post_path)
+                    sys.exit()
+
+            ensure_output_folder('b')
+
+            slug = metadata['slug'][0]
+
+            if (not validators.slug(slug)):
+                print("Invalid slug '{slug}' for file {mdfile}".format(slug=slug, mdfile=mdfile))
+                sys.exit()
+            ensure_output_folder('b/{}'.format(slug))
+            authors = metadata['authors']
+
+            for author in authors:
+                if author not in context['info']['profiles']:
+                    print("Cannot find author '{author}' in profiles for file {mdfile}".format(author=author, mdfile=mdfile))
+                    sys.exit()
+
+            date = metadata['date'][0]
+            title = metadata['title'][0]
+            summary = metadata['summary'][0]
+            post = {
+                'slug': slug,
+                'content': html,
+                'authors': authors,
+                'date': date,
+                'title': title,
+                'summary': summary
+            }
+            posts.append(post)
+            context.update({
+                'post': post
+                })
+            generate('blog_post.html', join(
+                settings.OUTPUT_FOLDER, 'b', slug, 'index.html'), **context)
+
+    ensure_output_folder('blog')
+
+    context.update({'posts': posts})
+    generate('blog.html', join(
+        settings.OUTPUT_FOLDER, 'blog', 'index.html'), **context)
+
+
+
+
 def generate_menu_pages():
+    # excluding blog post
     generate('index.html', join(
         settings.OUTPUT_FOLDER, 'index.html'), **context)
 
@@ -75,10 +139,6 @@ def generate_menu_pages():
     generate('join.html', join(
         settings.OUTPUT_FOLDER, 'join', 'index.html'), **context)
 
-    ensure_output_folder('blog')
-    generate('blog.html', join(
-        settings.OUTPUT_FOLDER, 'blog', 'index.html'), **context)
-
     ensure_output_folder('members')
     generate('members.html', join(
         settings.OUTPUT_FOLDER, 'members', 'index.html'), **context)
@@ -93,6 +153,7 @@ def main(args):
         ensure_exist()
         generate_menu_pages()
         generate_profiles()
+        generate_blog_posts()
 
     if len(args) > 1 and args[1] == '--server':
         app = Flask(__name__)

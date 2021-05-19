@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% set section = 'blog' %}
+{% block head %}
+  <title>{{ post['title'] }}</title>
+  <link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/atelier-forest-light.min.css">
+    <style type="text/css">
+        .hbottom{
+            padding-bottom: 5px;
+            border-bottom: 1px solid #eaeaea;
+        }
+    </style>
+{% endblock %}
+{% block body %}
+    <p class="container">
+        <p class="text-small hbottom">Author/s: 
+            {% set authors = post['authors'] %}
+            {% for author in  authors %}
+                <a href="{{ profile_url(path, author) }}">{{ author }}</a>{% if (not loop.index == len(authors)) %},{% endif %}
+            {% endfor %}
+        | Date: {{ post['date'] }}</p>
+        <h3>{{ post['title'] }}</h3>
+        <p class="container">
+            {{ post['content'] }}
+        </p>
+    </p>
+
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+{% endblock %}

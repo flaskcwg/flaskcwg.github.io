@@ -6,10 +6,37 @@
 {% block body %}
     <div id='posts'>
     <h3>Blog Posts</h3>
+    <div>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Title</th>
+              <th>Author/s</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+                {% for blog_post in posts %}
+                <td>
+                    {{ blog_post['date'] }}
+                </td>
+                <td>
+                    <a href="/b/{{ blog_post['slug'] }}">{{ blog_post['title'] }}</a>
+                </td>
+                <td>
+                    {% set authors = blog_post['authors'] %}
+                    {% for author in authors %}
+                        <a href="/u/{{ author }}">{{ author }}</a>{% if (not loop.index == len(authors)) %},{% endif %}
+                    {% endfor %}
+                </td>
+                {% endfor %}
+            </tr>
+          </tbody>
+        </table>
+    </div>
     <p>
-        <ul>
-            <li>---</li>
-        </ul>
+        
     </p>
     </div>
 {% endblock %}
