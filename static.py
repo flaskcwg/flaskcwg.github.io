@@ -2,6 +2,7 @@ import sys
 import os
 from os.path import join
 import markdown
+import datetime
 
 import settings
 from flask import Flask
@@ -24,6 +25,32 @@ def bio_to_html(biolist):
         else:
             final_list.append(l)
     return ' '.join(final_list)
+
+def valid_date_str(datestr):
+    '''May 19, 2021'''
+    months = ['january', 'february', 'march', 'april',
+    'may', 'june', 'july', 'august', 'september', 'october', 
+    'november', 'december']
+    if (
+        (datestr.count(' ') == 2) and
+        (datestr.count(',') == 1)
+        ):
+        month = datestr.split(' ')[0]
+        if (month.casefold() not in months):
+            return False
+        year = datestr.split(' ')[2]
+        if (not year.isdigit() ):
+            return False
+        day = datestr.split(' ')[1].strip(',')
+        if (
+            (not day.isdigit()) and
+            (not (1 <= int(day) <= 31))
+            ):
+            return False
+    else:
+        return False
+    return True
+
 
 context = base_context()
 context.update({
@@ -60,6 +87,8 @@ def generate_profiles():
 def generate_blog_posts():
     posts = []
     blog_data = 'data/blog'
+
+    # n**2 solution
     for category in settings.BLOG_CATEGORIES:
         category_path = join(blog_data, category)
         # html = markdown.markdown(md, extensions=extensions, output_format='html5')
@@ -70,6 +99,8 @@ def generate_blog_posts():
             md = markdown.Markdown(extensions=['extra', 'smarty', 'meta'])
             html = md.convert(text)
             metadata = md.Meta
+
+            # validating metadata
             to_ensure = ['slug', 'authors', 'date', 'title', 'summary']
             for meta in to_ensure:
                 if meta not in metadata:
@@ -79,7 +110,6 @@ def generate_blog_posts():
             ensure_output_folder('b')
 
             slug = metadata['slug'][0]
-
             if (not validators.slug(slug)):
                 print("Invalid slug '{slug}' for file {mdfile}".format(slug=slug, mdfile=mdfile))
                 sys.exit()
@@ -91,7 +121,12 @@ def generate_blog_posts():
                     print("Cannot find author '{author}' in profiles for file {mdfile}".format(author=author, mdfile=mdfile))
                     sys.exit()
 
-            date = metadata['date'][0]
+            raw_date = metadata['date'][0]
+            if valid_date_str(raw_date):
+                date = raw_date
+            else:
+                print("Date '{date}' should be in the format 'May 19, 2021' in file '{mdfile}'".format(date=raw_date, mdfile=mdfile))
+                sys.exit()
             title = metadata['title'][0]
             summary = metadata['summary'][0]
             post = {
@@ -100,7 +135,8 @@ def generate_blog_posts():
                 'authors': authors,
                 'date': date,
                 'title': title,
-                'summary': summary
+                'summary': summary,
+                'category': category
             }
             posts.append(post)
             context.update({
@@ -110,7 +146,7 @@ def generate_blog_posts():
                 settings.OUTPUT_FOLDER, 'b', slug, 'index.html'), **context)
 
     ensure_output_folder('blog')
-
+    posts.sort(key=lambda x: datetime.datetime.strptime(x['date'], '%B %d, %Y')) # May 19, 2021
     context.update({'posts': posts})
     generate('blog.html', join(
         settings.OUTPUT_FOLDER, 'blog', 'index.html'), **context)

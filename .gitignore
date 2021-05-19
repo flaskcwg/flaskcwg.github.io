@@ -129,4 +129,5 @@ dmypy.json
 .pyre/
 
 secret-dir/
-docs/
+docs/*
+!docs/serve.py
