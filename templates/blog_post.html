@@ -18,7 +18,15 @@
             {% for author in  authors %}
                 <a href="{{ profile_url(path, author) }}">{{ author }}</a>{% if (not loop.index == len(authors)) %},{% endif %}
             {% endfor %}
-        | Date: {{ post['date'] }} | Category: {{ post['category'] }}</p>
+        | Date: {{ post['date'] }} 
+        | Category: <a href="{{ path }}category/{{ post['category'] }}">{{ post['category'] }}</a>
+        | Tags:
+            {% set tags = post['tags'] %}
+            {% for tag in  tags %}
+                <a href="{{ path }}tag/{{ tag }}">{{ tag }}</a>{% if (not loop.index == len(tags)) %},{% endif %}
+            {% endfor %}
+
+        </p>
         <h3>{{ post['title'] }}</h3>
         <p class="container">
             {{ post['content'] }}

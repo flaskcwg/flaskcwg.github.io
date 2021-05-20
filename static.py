@@ -101,7 +101,7 @@ def generate_blog_posts():
             metadata = md.Meta
 
             # validating metadata
-            to_ensure = ['slug', 'authors', 'date', 'title', 'summary']
+            to_ensure = ['slug', 'authors', 'date', 'title', 'summary', 'tags']
             for meta in to_ensure:
                 if meta not in metadata:
                     print('Missing meta attribute:', "'{}'".format(meta), 'in blog post:', blog_post_path)
@@ -129,6 +129,7 @@ def generate_blog_posts():
                 sys.exit()
             title = metadata['title'][0]
             summary = metadata['summary'][0]
+            tags = metadata['tags']
             post = {
                 'slug': slug,
                 'content': html,
@@ -136,22 +137,67 @@ def generate_blog_posts():
                 'date': date,
                 'title': title,
                 'summary': summary,
-                'category': category
+                'category': category,
+                'tags': tags
             }
             posts.append(post)
             context.update({
-                'post': post
+                'post': post,
+                'path': '../' * 2
                 })
             generate('blog_post.html', join(
                 settings.OUTPUT_FOLDER, 'b', slug, 'index.html'), **context)
 
+    # Blog post main page
     ensure_output_folder('blog')
     posts.sort(key=lambda x: datetime.datetime.strptime(x['date'], '%B %d, %Y')) # May 19, 2021
     context.update({'posts': posts})
     generate('blog.html', join(
         settings.OUTPUT_FOLDER, 'blog', 'index.html'), **context)
 
+    # Category & tags scouting
+    # Could also be done above but cleaner code here
+    ensure_output_folder('category')
+    ensure_output_folder('tag')
+    categories = {}
+    tags_registry = {}
+    for post in posts:
+        category = post['category']
+        tags = post['tags']
 
+        if category not in categories:
+            ensure_output_folder(join('category', category))
+            categories[category] = []
+            categories[category].append(post)
+        else:
+            categories[category].append(post)
+
+        for tag in tags:
+            if tag not in tags_registry:
+                ensure_output_folder(join('tag', tag))
+                tags_registry[tag] = []
+                tags_registry[tag].append(post)
+            else:
+                tags_registry[tag].append(post)
+
+    # Generating category pages
+    for category in categories:
+        context.update({
+            'category': category,
+            'posts': categories[category],
+            'path': '../' *2
+            })
+        generate('category.html', join(
+                    settings.OUTPUT_FOLDER, 'category', category, 'index.html'), **context)
+
+    for tag in tags_registry:
+        context.update({
+            'tag': tag,
+            'posts': tags_registry[tag],
+            'path': '../' *2
+            })
+        generate('tag.html', join(
+                    settings.OUTPUT_FOLDER, 'tag', tag, 'index.html'), **context)
 
 
 def generate_menu_pages():

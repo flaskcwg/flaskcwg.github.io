@@ -4,7 +4,8 @@ OUTPUT_FOLDER = 'docs/'
 info = None
 
 BLOG_CATEGORIES = [
-    'main'
+    'main',
+    'protocol'
 ]
 
 with open('info.json') as f:
