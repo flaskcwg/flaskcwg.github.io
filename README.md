@@ -1,5 +1,56 @@
 # Flask Community Workgroup
 
+## Setup Instructions
+
+* [Fork](https://github.com/flaskcwg/flaskcwg.github.io/fork) the repo
+* Clone your forked repo
+
+    ```bash
+    git https://github.com/{username}/flaskcwg.github.io.git
+    cd flaskcwg.github.io
+    ```
+
+* Setup the upstream to original repo
+
+    ```bash
+    git remote add upstream https://github.com/flaskcwg/flaskcwg.github.io.git
+    ```
+
+* Create a virtual env and activate it
+
+    For Linux/Mac:
+
+    ```bash
+    python -m venv env
+    source env/bin/activate
+    ```
+
+    For Windows:
+
+    ```bash
+    py -m venv env
+    source env\Scripts\activate
+    ```
+
+* install dependencies
+
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+* run `static.py`. This will build html content in `docs/`
+
+    ```bash
+    python static.py
+    ```
+
+* run `serve.py`. Go to the IP address shown in the printout to view the generated site
+
+    ```bash
+    cd docs
+    python serve.py
+    ```
+
 ## How does the site gets built
 
 **Note:** You need to have the **[jamstack library](https://pypi.org/project/jamstack/)** installed.
@@ -53,23 +104,23 @@ Where `source_file.html` is the name of the file located in `templates/` and `ou
 In info.json, a profile looks like this
 
 ```json
-		"greyli":{
-			"name": "Grey Li",
-			"bio": [],
-			"volunteer": {
-				"translation":{
-					"lang": "chinese",
-					"coordinator": "y"
-				},
-				"event": {},
-				"code": {},
-				"education": {}
-			},
-			"links":{
-				"twitter": ""
-			},
-			"retired": "n"
-		},
+        "greyli":{
+            "name": "Grey Li",
+            "bio": [],
+            "volunteer": {
+                "translation":{
+                    "lang": "chinese",
+                    "coordinator": "y"
+                },
+                "event": {},
+                "code": {},
+                "education": {}
+            },
+            "links":{
+                "twitter": ""
+            },
+            "retired": "n"
+        },
 ```
 
 
@@ -86,10 +137,10 @@ The bio is generated such that `''` are converted into `<br\>`. a bio would look
 
 ```json
 "bio": [
-	"Line iwue hfowherf  oewrhfje.", 
-	"woihfjerewoi tgfreh  eroh gfrehre greh g.", 
-	"", "",
-	"Some more lines"],
+    "Line iwue hfowherf  oewrhfje.", 
+    "woihfjerewoi tgfreh  eroh gfrehre greh g.", 
+    "", "",
+    "Some more lines"],
 ```
 
 - links are generated as links with text as the key and link as the value
