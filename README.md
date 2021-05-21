@@ -16,20 +16,22 @@
     git remote add upstream https://github.com/flaskcwg/flaskcwg.github.io.git
     ```
 
-* Create a virtual env and activate it
+* Create a [virtual environment](https://docs.python.org/3/tutorial/venv.html) and activate it
 
     For Linux/Mac:
 
     ```bash
     python -m venv env
-    source env/bin/activate
+    source env/bin/activate 
+    # The following also works: `. env/bin/activate` 
     ```
 
     For Windows:
 
     ```bash
     py -m venv env
-    source env\Scripts\activate
+    env\Scripts\activate.bat # if using command prompt
+    # if using bash in windows, you can also do `source env/Scripts/activate`
     ```
 
 * install dependencies
