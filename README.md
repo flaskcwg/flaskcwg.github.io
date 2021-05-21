@@ -44,25 +44,12 @@
     python static.py
     ```
 
-* run `serve.py`. Go to the IP address shown in the printout to view the generated site
+* run `serve.py` as shown below. Go to the IP address shown in the printout to view the generated site. To see the changes made in [`/templates`](/templates) reflect on the generated site, run `python static.py` again (in separate terminal) and refresh the url.
 
     ```bash
     cd docs
     python serve.py
     ```
-
-## How does the site gets built
-
-**Note:** You need to have the **[jamstack library](https://pypi.org/project/jamstack/)** installed.
-
-1. Run [**docs/serve.py**](docs/serve.py)
-2. You will be provided with the **IP** and **PORT** to view the site
-3. Edit files in the [**/templates**](/templates) folder
-4. Run [**static.py**](static.py) file in another terminal
-5. Refresh the url provided in step **2** to see the changes
-6. The final files are generated in the [**/docs**](/docs) folder
-
-Alternatively, you can also run `tox`.
 
 ## How does the site runs in production?
 
