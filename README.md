@@ -1,17 +1,57 @@
 # Flask Community Workgroup
 
-## How does the site gets built
+## Setup Instructions
 
-**Note:** You need to have the **[jamstack library](https://pypi.org/project/jamstack/)** installed.
+* [Fork](https://github.com/flaskcwg/flaskcwg.github.io/fork) the repo
+* Clone your forked repo
 
-1. Run [**docs/serve.py**](docs/serve.py)
-2. You will be provided with the **IP** and **PORT** to view the site
-3. Edit files in the [**/templates**](/templates) folder
-4. Run [**static.py**](static.py) file in another terminal
-5. Refresh the url provided in step **2** to see the changes
-6. The final files are generated in the [**/docs**](/docs) folder
+    ```bash
+    git https://github.com/{username}/flaskcwg.github.io.git
+    cd flaskcwg.github.io
+    ```
 
-Alternatively, you can also run `tox`.
+* Setup the upstream to original repo
+
+    ```bash
+    git remote add upstream https://github.com/flaskcwg/flaskcwg.github.io.git
+    ```
+
+* Create a [virtual environment](https://docs.python.org/3/tutorial/venv.html) and activate it
+
+    For Linux/Mac:
+
+    ```bash
+    python -m venv env
+    source env/bin/activate 
+    # The following also works: `. env/bin/activate` 
+    ```
+
+    For Windows:
+
+    ```bash
+    py -m venv env
+    env\Scripts\activate.bat # if using command prompt
+    # if using bash in windows, you can also do `source env/Scripts/activate`
+    ```
+
+* install dependencies
+
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+* run `static.py`. This will build html content in `docs/`
+
+    ```bash
+    python static.py
+    ```
+
+* run `serve.py` as shown below. Go to the IP address shown in the printout to view the generated site. To see the changes made in [`/templates`](/templates) reflect on the generated site, run `python static.py` again (in separate terminal) and refresh the url.
+
+    ```bash
+    cd docs
+    python serve.py
+    ```
 
 ## How does the site runs in production?
 
@@ -53,23 +93,23 @@ Where `source_file.html` is the name of the file located in `templates/` and `ou
 In info.json, a profile looks like this
 
 ```json
-		"greyli":{
-			"name": "Grey Li",
-			"bio": [],
-			"volunteer": {
-				"translation":{
-					"lang": "chinese",
-					"coordinator": "y"
-				},
-				"event": {},
-				"code": {},
-				"education": {}
-			},
-			"links":{
-				"twitter": ""
-			},
-			"retired": "n"
-		},
+        "greyli":{
+            "name": "Grey Li",
+            "bio": [],
+            "volunteer": {
+                "translation":{
+                    "lang": "chinese",
+                    "coordinator": "y"
+                },
+                "event": {},
+                "code": {},
+                "education": {}
+            },
+            "links":{
+                "twitter": ""
+            },
+            "retired": "n"
+        },
 ```
 
 
@@ -86,10 +126,10 @@ The bio is generated such that `''` are converted into `<br\>`. a bio would look
 
 ```json
 "bio": [
-	"Line iwue hfowherf  oewrhfje.", 
-	"woihfjerewoi tgfreh  eroh gfrehre greh g.", 
-	"", "",
-	"Some more lines"],
+    "Line iwue hfowherf  oewrhfje.", 
+    "woihfjerewoi tgfreh  eroh gfrehre greh g.", 
+    "", "",
+    "Some more lines"],
 ```
 
 - links are generated as links with text as the key and link as the value
