@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% set section = 'resources' %}
+{% block head %}
+  <title>Resources</title>
+{% endblock %}
+{% block body %}
+<h3>Resource/s for category: {{ resource_name }}</h3>
+<table class="table table-striped table-hover">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Info</th>
+      <th>Tags</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for project in current_resource %}
+    <tr>
+      <td><a href="{{ project['link'] }}">{{ project['name'] }}</a></td>
+      <td>{{ bio_to_html(project['info']) }}</td>
+      <td>{% set tags = project['tags'] %}
+            {% for tag in  tags %}
+                <a href="/resources/tag/{{ tag }}">{{ tag }}</a>{% if (not loop.index == len(tags)) %},{% endif %}
+            {% endfor %}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

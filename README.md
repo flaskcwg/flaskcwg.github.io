@@ -174,3 +174,40 @@ BLOG_CATEGORIES = [
 
 For authors, the author must occur in profiles.
 
+### Projects
+
+```json
+{
+    "name": "Flask-Dance",
+    "link": "https://github.com/singingwolfboy/flask-dance",
+    "info": ["Doing the OAuth dance with style using Flask, requests, and oauthlib."],
+    "tags": ["auth", "oauth"]
+}
+```
+
+### FaQ
+
+In data/faq, create a .md file with whatever name you want .md
+
+The content should look like this
+
+
+`````md
+title:   Demo faq question
+tags: demo
+      flask
+      lol
+slug: demo-faq-question
+
+
+This is the first paragraph of the document.
+
+
+```python
+def x():
+    pass
+```
+
+
+And hence [link demo](https://flaskcwg.github.io)
+`````

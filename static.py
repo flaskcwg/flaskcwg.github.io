@@ -200,6 +200,124 @@ def generate_blog_posts():
                     settings.OUTPUT_FOLDER, 'tag', tag, 'index.html'), **context)
 
 
+def generate_resources():
+    resources = settings.info['resources']
+
+    # /resources
+    ensure_output_folder('resources')
+    ensure_output_folder('resources/c')
+    generate('resources/index.html', join(
+                settings.OUTPUT_FOLDER, 'resources', 'index.html'), **context)
+
+    tags_registry = {}
+    # /resources/c/api/ # for category. category name cannot be tag
+    for resource in resources:
+        current_resource = resources[resource]
+        ensure_output_folder(join('resources', 'c', resource))
+        context.update({
+            'resource_name': resource,
+            'current_resource': current_resource,
+            'path': '../' *3
+            })
+        generate('resources/category.html', join(
+                settings.OUTPUT_FOLDER, 'resources', 'c', resource, 'index.html'), **context)
+
+        for project in current_resource:
+            tags = project['tags']
+            for tag in tags:
+                if tag not in tags_registry:
+                    tags_registry[tag] = []
+                    tags_registry[tag].append(project)
+                else:
+                    tags_registry[tag].append(project)
+
+    # /resources/tag/asgi
+    ensure_output_folder(join('resources', 'tag'))
+    for tag in tags_registry:
+        ensure_output_folder(join('resources', 'tag', tag))
+        context.update({
+            'tag': tag,
+            'projects': tags_registry[tag],
+            'path': '../' *3
+            })
+        generate('resources/tag.html', join(
+                    settings.OUTPUT_FOLDER, 'resources', 'tag', tag, 'index.html'), **context)
+
+
+def generate_faq():
+    faq_path = 'data/faq'
+    faqs = []
+    tags_registry = {}
+    ensure_output_folder('faq')
+
+    for mdfile in os.listdir(faq_path):
+        faq_post_path = join(faq_path, mdfile)
+        with open(faq_post_path) as f:
+            text = f.read()
+        md = markdown.Markdown(extensions=['extra', 'smarty', 'meta'])
+        html = md.convert(text)
+        metadata = md.Meta
+
+        # validating metadata
+        to_ensure = ['slug', 'title', 'tags']
+        for meta in to_ensure:
+            if meta not in metadata:
+                print('Missing meta attribute:', "'{}'".format(meta), 'in blog post:', faq_post_path)
+                sys.exit()
+
+        title = metadata['title'][0]
+        tags = metadata['tags']
+        slug = metadata['slug'][0]
+        if (not validators.slug(slug)):
+            print("Invalid slug '{slug}' for file {mdfile}".format(slug=slug, mdfile=mdfile))
+            sys.exit()
+
+        content = html
+
+        faq = {
+            'title': title,
+            'tags': tags,
+            'slug': slug,
+            'content': content
+        }
+        faqs.append(faq)
+
+
+        for tag in tags:
+            if tag not in tags_registry:
+                tags_registry[tag] = []
+                tags_registry[tag].append(faq)
+            else:
+                tags_registry[tag].append(faq)
+
+    context.update({
+        'faqs': faqs
+        })
+    generate('faq/index.html', join(
+                    settings.OUTPUT_FOLDER, 'faq', 'index.html'), **context)
+
+    # /faq/some-question
+    for faq in faqs:
+        ensure_output_folder(join('faq', faq['slug']))
+        context.update({
+            'faq': faq
+            })
+        generate('faq/post.html', join(
+                    settings.OUTPUT_FOLDER, 'faq', slug, 'index.html'), **context)
+
+    ensure_output_folder(join('faq', 'tag'))
+    for tag in tags_registry:
+        # /faq/tag/api
+        context.update({
+            'tag_name': tag,
+            'faqs': tags_registry[tag]
+            })
+        ensure_output_folder(join('faq', 'tag', tag))
+        generate('faq/tag.html', join(
+                    settings.OUTPUT_FOLDER, 'faq', 'tag', tag, 'index.html'), **context)
+
+
+
 def generate_menu_pages():
     # excluding blog post
     generate('index.html', join(
@@ -236,6 +354,8 @@ def main(args):
         generate_menu_pages()
         generate_profiles()
         generate_blog_posts()
+        generate_resources()
+        generate_faq()
 
     if len(args) > 1 and args[1] == '--server':
         app = Flask(__name__)

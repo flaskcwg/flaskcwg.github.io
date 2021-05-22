@@ -173,5 +173,85 @@
 			},
 			"retired": "n"
 		}
+	},
+	"resources": {
+		"ecommerce": [
+			{
+				"name": "Flask Marketplace",
+				"link": "https://github.com/EwetoyeIbrahim/Flask-Marketplace",
+				"info": ["A modular marketplace in Flask with multiple stores"],
+				"tags": ["flutterwave", "ecommerce", "marketplace"]
+			},
+			{
+				"name": "ShopCube",
+				"link": "https://github.com/shopyo/ShopCube",
+				"info": ["Ecommerce solution with cart, orders and anonymous buying"],
+				"tags": ["ecommerce"]
+			},
+			{
+				"name": "MarketFlow",
+				"link": "https://github.com/shopyo/MarketFlow",
+				"info": ["Modular marketplace with multi-vendor option"],
+				"tags": ["ecommerce", "marketplace"]
+			}
+		],
+		"power_frameworks": [
+			{
+				"name": "Quart",
+				"link": "https://gitlab.com/pgjones/quart",
+				"info": ["Python ASGI web microframework with the same API as Flask."],
+				"tags": ["async", "asgi"]
+			},
+			{
+				"name": "Shopyo",
+				"link": "https://github.com/shopyo/shopyo",
+				"info": [
+					"SQLAchemy-first framework allowing you to have pure modules in Flask.", 
+					"Supports some Django commands."],
+				"tags": ["modular", "django"]
+			}
+		],
+		"orm": [
+			{
+				"name": "Flask-Sqlalchemy",
+				"link": "https://github.com/pallets/flask-sqlalchemy",
+				"info": ["Adds SQLAlchemy support to Flask."],
+				"tags": ["sqlalchemy", "orm"]
+			}
+		],
+		"api": [
+			{
+				"name": "Flask-rebar",
+				"link": "https://github.com/plangrid/flask-rebar",
+				"info": ["Flask-Rebar combines flask, marshmallow, and swagger for robust REST services."],
+				"tags": ["swagger", "marshmallow", "api"]
+			},
+			{
+				"name": "APIFlask",
+				"link": "https://github.com/greyli/apiflask",
+				"info": ["Web APIs for Flask"],
+				"tags": ["swagger", "marshmallow", "api"]
+			},
+			{
+				"name": "Flask-Restx",
+				"link": "https://github.com/python-restx/flask-restx",
+				"info": ["Fork of Flask-RESTPlus: Fully featured framework for fast, easy and documented API development with Flask."],
+				"tags": ["swagger", "marshmallow", "api"]
+			}
+		],
+		"auth": [
+			{
+				"name": "Flask-Login",
+				"link": "https://github.com/maxcountryman/flask-login",
+				"info": ["Flask user session management."],
+				"tags": ["auth", "session"]
+			},
+			{
+				"name": "Flask-Dance",
+				"link": "https://github.com/singingwolfboy/flask-dance",
+				"info": ["Doing the OAuth dance with style using Flask, requests, and oauthlib."],
+				"tags": ["auth", "oauth"]
+			}
+		]
 	}
 }
