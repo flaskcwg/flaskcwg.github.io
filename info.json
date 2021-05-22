@@ -223,7 +223,7 @@
 			{
 				"name": "Flask-rebar",
 				"link": "https://github.com/plangrid/flask-rebar",
-				"info": ["Flask-Rebar combines flask, marshmallow, and swagger for robust REST services."],
+				"info": ["Flask-Rebar combines Flask, marshmallow, and swagger for robust REST services."],
 				"tags": ["swagger", "marshmallow", "api"]
 			},
 			{
