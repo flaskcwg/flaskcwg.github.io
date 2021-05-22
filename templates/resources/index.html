@@ -4,15 +4,15 @@
   <title>Resources</title>
 {% endblock %}
 {% block body %}
-<div class="row">
+
+Flask Projects (Including Plugins. List not endorsed by the Pallets)
+<ul>
   {% for category in info['resources'] %}
-  <a href="/resources/c/{{ category }}/" style="display: inline-block;">
-    <div class="card" style="width: 200px; height: 200px;">
-      <div class="card-body">
-        {{ category.replace('_', ' ').capitalize() }}
-      </div>
-    </div>
-  </a>
+  <li>
+    <a href="/resources/c/{{ category }}/" style="display: inline-block;">
+      {{ category.replace('_', ' ').capitalize() }}
+    </a>
+  </li>
   {% endfor %}
-</div>
+</ul>
 {% endblock %}
