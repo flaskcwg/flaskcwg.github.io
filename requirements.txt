@@ -2,7 +2,7 @@ click==7.1.2
 decorator==5.0.9
 Flask==1.1.2
 itsdangerous==1.1.0
-jamstack==0.0.5
+jamstack==0.1.0
 Jinja2==2.11.3
 livereload==2.6.3
 Markdown==3.3.4

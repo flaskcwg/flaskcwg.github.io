@@ -282,6 +282,13 @@ def generate_faq():
         }
         faqs.append(faq)
 
+        # faq/some-question
+        ensure_output_folder(join('faq', slug))
+        context.update({
+            'faq': faq
+            })
+        generate('faq/post.html', join(
+                    settings.OUTPUT_FOLDER, 'faq', slug, 'index.html'), **context)
 
         for tag in tags:
             if tag not in tags_registry:
@@ -290,20 +297,13 @@ def generate_faq():
             else:
                 tags_registry[tag].append(faq)
 
+
+
     context.update({
         'faqs': faqs
         })
     generate('faq/index.html', join(
                     settings.OUTPUT_FOLDER, 'faq', 'index.html'), **context)
-
-    # /faq/some-question
-    for faq in faqs:
-        ensure_output_folder(join('faq', faq['slug']))
-        context.update({
-            'faq': faq
-            })
-        generate('faq/post.html', join(
-                    settings.OUTPUT_FOLDER, 'faq', slug, 'index.html'), **context)
 
     ensure_output_folder(join('faq', 'tag'))
     for tag in tags_registry:
