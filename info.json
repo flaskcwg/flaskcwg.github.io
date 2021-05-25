@@ -213,7 +213,7 @@
 		],
 		"orm": [
 			{
-				"name": "Flask-Sqlalchemy",
+				"name": "Flask-SQLAlchemy",
 				"link": "https://github.com/pallets/flask-sqlalchemy",
 				"info": ["Adds SQLAlchemy support to Flask."],
 				"tags": ["sqlalchemy", "orm"]
@@ -221,9 +221,9 @@
 		],
 		"api": [
 			{
-				"name": "Flask-rebar",
+				"name": "Flask-Rebar",
 				"link": "https://github.com/plangrid/flask-rebar",
-				"info": ["Flask-Rebar combines flask, marshmallow, and swagger for robust REST services."],
+				"info": ["Flask-Rebar combines Flask, Marshmallow, and Swagger for robust REST services."],
 				"tags": ["swagger", "marshmallow", "api"]
 			},
 			{
@@ -233,8 +233,8 @@
 				"tags": ["swagger", "marshmallow", "api"]
 			},
 			{
-				"name": "Flask-Restx",
-				"link": "https://github.com/python-restx/flask-restx",
+				"name": "Flask-RESTX",
+				"link": "https://github.com/python-restx/flask-RESTX",
 				"info": ["Fork of Flask-RESTPlus: Fully featured framework for fast, easy and documented API development with Flask."],
 				"tags": ["swagger", "marshmallow", "api"]
 			}
