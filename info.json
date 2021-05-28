@@ -255,12 +255,6 @@
 				"tags": ["swagger", "marshmallow", "api"]
 			},
 			{
-				"name": "Flask-Restful",
-				"link": "https://github.com/flask-restful/flask-restful",
-				"info": ["Flask-RESTful is an extension for Flask that adds support for quickly building REST APIs."],
-				"tags": ["api"]
-			},
-			{
 				"name": "Flask-Flasgger",
 				"link": "https://github.com/flasgger/flasgger",
 				"info": ["Flasgger is a Flask extension to extract OpenAPI-Specification from all Flask views registered in your API."],
