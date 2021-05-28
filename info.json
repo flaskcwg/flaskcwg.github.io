@@ -209,6 +209,12 @@
 					"SQLAchemy-first framework allowing you to have pure modules in Flask.", 
 					"Supports some Django commands."],
 				"tags": ["modular", "django"]
+			},
+			{
+				"name": "Flask-SocketIO",
+				"link": "https://github.com/miguelgrinberg/Flask-SocketIO",
+				"info": ["Socket.IO integration for Flask applications."],
+				"tags": ["sockets"]
 			}
 		],
 		"orm": [
@@ -216,6 +222,12 @@
 				"name": "Flask-SQLAlchemy",
 				"link": "https://github.com/pallets/flask-sqlalchemy",
 				"info": ["Adds SQLAlchemy support to Flask."],
+				"tags": ["sqlalchemy", "orm"]
+			},
+			{
+				"name": "Flask-Migrate",
+				"link": "https://github.com/miguelgrinberg/Flask-Migrate",
+				"info": ["Flask-Migrate is an extension that handles SQLAlchemy database migrations for Flask applications using Alembic."],
 				"tags": ["sqlalchemy", "orm"]
 			}
 		],
@@ -237,6 +249,18 @@
 				"link": "https://github.com/python-restx/flask-RESTX",
 				"info": ["Fork of Flask-RESTPlus: Fully featured framework for fast, easy and documented API development with Flask."],
 				"tags": ["swagger", "marshmallow", "api"]
+			},
+			{
+				"name": "Flask-Restful",
+				"link": "https://github.com/flask-restful/flask-restful",
+				"info": ["Flask-RESTful is an extension for Flask that adds support for quickly building REST APIs."],
+				"tags": ["api"]
+			},
+			{
+				"name": "Flask-Flasgger",
+				"link": "https://github.com/flasgger/flasgger",
+				"info": ["Flasgger is a Flask extension to extract OpenAPI-Specification from all Flask views registered in your API."],
+				"tags": ["swagger", "api"]
 			}
 		],
 		"auth": [
@@ -251,6 +275,38 @@
 				"link": "https://github.com/singingwolfboy/flask-dance",
 				"info": ["Doing the OAuth dance with style using Flask, requests, and oauthlib."],
 				"tags": ["auth", "oauth"]
+			},
+			{
+				"name": "Flask-JWT",
+				"link": "https://github.com/mattupstate/flask-jwt",
+				"info": ["Add basic JWT features to your Flask application."],
+				"tags": ["auth", "jwt"]
+			},
+			{
+				"name": "Flask-JWT-Extended",
+				"link": "https://github.com/vimalloc/flask-jwt-extended",
+				"info": ["Flask-JWT-Extended not only adds support for using JSON Web Tokens (JWT) to Flask for protecting routes, but also many helpful (and optional) features built in to make working with JSON Web Tokens easier."],
+				"tags": ["auth", "jwt"]
+			}
+		],
+		"security" : [
+			{
+				"name": "Flask-Talisman",
+				"link": "https://github.com/GoogleCloudPlatform/flask-talisman",
+				"info": ["Talisman is a small Flask extension that handles setting HTTP headers that can help protect against a few common web application security issues."],
+				"tags": ["security"]
+			},
+			{
+				"name": "Flask-Seasurf",
+				"link": "https://github.com/maxcountryman/flask-seasurf",
+				"info": ["SeaSurf is a Flask extension for preventing cross-site request forgery (CSRF)."],
+				"tags": ["security"]
+			},
+			{
+				"name": "Flask-CORS",
+				"link": "https://github.com/corydolphin/flask-cors",
+				"info": ["A Flask extension for handling Cross Origin Resource Sharing (CORS), making cross-origin AJAX possible."],
+				"tags": ["security"]
 			}
 		]
 	}
