@@ -209,12 +209,14 @@
 					"SQLAchemy-first framework allowing you to have pure modules in Flask.", 
 					"Supports some Django commands."],
 				"tags": ["modular", "django"]
-			},
+			}
+		],
+		"realtime": [
 			{
 				"name": "Flask-SocketIO",
 				"link": "https://github.com/miguelgrinberg/Flask-SocketIO",
 				"info": ["Socket.IO integration for Flask applications."],
-				"tags": ["sockets"]
+				"tags": ["realtime", "sockets"]
 			}
 		],
 		"orm": [
@@ -223,12 +225,14 @@
 				"link": "https://github.com/pallets/flask-sqlalchemy",
 				"info": ["Adds SQLAlchemy support to Flask."],
 				"tags": ["sqlalchemy", "orm"]
-			},
+			}
+		],
+		"migration": [
 			{
 				"name": "Flask-Migrate",
 				"link": "https://github.com/miguelgrinberg/Flask-Migrate",
 				"info": ["Flask-Migrate is an extension that handles SQLAlchemy database migrations for Flask applications using Alembic."],
-				"tags": ["sqlalchemy", "orm"]
+				"tags": ["migration", "sqlalchemy"]
 			}
 		],
 		"api": [
