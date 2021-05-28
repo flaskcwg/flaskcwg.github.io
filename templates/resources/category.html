@@ -17,7 +17,7 @@
     {% for project in current_resource %}
     <tr>
       <td><a href="{{ project['link'] }}">{{ project['name'] }}</a></td>
-      <td>{{ bio_to_html(project['info']) }}</td>
+      <td>{{ info_to_html(project['info']) }}</td>
       <td>{% set tags = project['tags'] %}
             {% for tag in  tags %}
                 <a href="/resources/tag/{{ tag }}">{{ tag }}</a>{% if (not loop.index == len(tags)) %},{% endif %}
