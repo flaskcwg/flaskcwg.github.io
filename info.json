@@ -177,11 +177,11 @@
 			"name": "Miquel ViR",
 			"bio": [],
 			"volunteer": {
-				"code": {},
 				"education": {}
 			},
 			"links":{
-				"StackOverflow": "https://stackoverflow.com/users/9415337/miquelvir"
+				"StackOverflow": "https://stackoverflow.com/users/9415337/miquelvir",
+				"GitHub": "https://github.com/miquelvir"
 			},
 			"retired": "n"
 		}
