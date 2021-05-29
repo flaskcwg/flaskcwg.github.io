@@ -296,6 +296,12 @@
 				"info": ["Flask-Marshmallow is a thin integration layer for Flask and marshmallow that adds additional features to marshmallow, including URL and Hyperlinks fields for HATEOAS-ready APIs.",
 					"It also (optionally) integrates with Flask-SQLAlchemy."],
 				"tags": ["marshmallow", "(de)serialization", "api"]
+			},
+			{
+				"name": "APIFairy",
+				"link": "https://github.com/miguelgrinberg/APIFairy",
+				"info": ["A minimalistic API framework built on top of Flask, Marshmallow and friends."],
+				"tags": ["marshmallow", "apispec", "api"]
 			}
 		],
 		"auth": [
