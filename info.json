@@ -235,6 +235,12 @@
                 "link": "https://github.com/miguelgrinberg/flask-sock",
                 "info": ["WebSocket support without gevent for Flask and other WSGI frameworks."],
                 "tags": ["realtime", "sockets"]
+            },
+            {
+                "name": "Flask-Meld",
+                "link": "https://github.com/mikeabrahamsen/Flask-Meld",
+                "info": ["Meld is a full-stack framework for Flask that allows you to create reactive applications with no Javascript."],
+                "tags": ["realtime", "components", "sockets"]
             }
 		],
 		"orm": [
