@@ -174,13 +174,14 @@
 			"retired": "n"
 		},
 		"miquelvir":{
-			"name": "Miquel Vázquez",
+			"name": "Miquel ViR",
 			"bio": [],
 			"volunteer": {
 				"education": {}
 			},
 			"links":{
-				"twitter": ""
+				"StackOverflow": "https://stackoverflow.com/users/9415337/miquelvir",
+				"GitHub": "https://github.com/miquelvir"
 			},
 			"retired": "n"
 		}
@@ -228,7 +229,13 @@
 				"link": "https://github.com/miguelgrinberg/Flask-SocketIO",
 				"info": ["Socket.IO integration for Flask applications."],
 				"tags": ["realtime", "sockets"]
-			}
+			},
+            {
+                "name": "Flask-Sock",
+                "link": "https://github.com/miguelgrinberg/flask-sock",
+                "info": ["WebSocket support without gevent for Flask and other WSGI frameworks."],
+                "tags": ["realtime", "sockets"]
+            }
 		],
 		"orm": [
 			{

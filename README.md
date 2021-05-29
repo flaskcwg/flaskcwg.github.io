@@ -6,7 +6,7 @@
 * Clone your forked repo
 
     ```bash
-    git https://github.com/{username}/flaskcwg.github.io.git
+    git clone https://github.com/{username}/flaskcwg.github.io.git
     cd flaskcwg.github.io
     ```
 
@@ -80,9 +80,9 @@ Where `source_file.html` is the name of the file located in `templates/` and `ou
 
 ## What is the techstack behind?
 
-**[jamstack](https://jamstack.org)**: Generate pages using Jinja templates.
+**[jamstack](https://pypi.org/project/jamstack)**: Generate pages using Jinja templates.
 
-**flask + livewatch**: If you want to auto regenerate files without executing `static.py`.
+**flask + [livereload](https://pypi.org/project/livereload/)**: If you want to auto regenerate files without executing `static.py`.
 
 
 ## Data Formats
