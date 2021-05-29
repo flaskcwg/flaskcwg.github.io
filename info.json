@@ -277,6 +277,19 @@
 				"link": "https://github.com/flasgger/flasgger",
 				"info": ["Flasgger is a Flask extension to extract OpenAPI-Specification from all Flask views registered in your API."],
 				"tags": ["swagger", "api"]
+			},
+			{
+				"name": "Flask-Pydantic",
+				"link": "https://github.com/bauerji/flask_pydantic",
+				"info": ["Flask extension for integration of the awesome pydantic package with Flask."],
+				"tags": ["pydantic", "(de)serialization", "api"]
+			},
+			{
+				"name": "Flask-Marshmallow",
+				"link": "https://github.com/marshmallow-code/flask-marshmallow",
+				"info": ["Flask-Marshmallow is a thin integration layer for Flask and marshmallow that adds additional features to marshmallow, including URL and Hyperlinks fields for HATEOAS-ready APIs.",
+					"It also (optionally) integrates with Flask-SQLAlchemy."],
+				"tags": ["marshmallow", "(de)serialization", "api"]
 			}
 		],
 		"auth": [
