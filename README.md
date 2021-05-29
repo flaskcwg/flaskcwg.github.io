@@ -6,7 +6,7 @@
 * Clone your forked repo
 
     ```bash
-    git https://github.com/{username}/flaskcwg.github.io.git
+    git clone https://github.com/{username}/flaskcwg.github.io.git
     cd flaskcwg.github.io
     ```
 
