@@ -228,7 +228,7 @@ def generate_blog_posts():
         # html = markdown.markdown(md, extensions=extensions, output_format='html5')
         for mdfile in os.listdir(category_path):
             blog_post_path = join(category_path, mdfile)
-            with open(blog_post_path) as f:
+            with open(blog_post_path, encoding="utf-8") as f:
                 text = f.read()
             md = markdown.Markdown(extensions=["extra", "smarty", "meta"])
             html = md.convert(text)
@@ -389,7 +389,7 @@ def generate_faq():
 
     for mdfile in os.listdir(faq_path):
         faq_post_path = join(faq_path, mdfile)
-        with open(faq_post_path) as f:
+        with open(faq_post_path, encoding='utf-8') as f:
             text = f.read()
         md = markdown.Markdown(extensions=["extra", "smarty", "meta"])
         html = md.convert(text)
