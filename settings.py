@@ -8,5 +8,5 @@ BLOG_CATEGORIES = [
     'protocol'
 ]
 
-with open('info.json') as f:
+with open('info.json', encoding='utf-8') as f:
     info = json.load(f)
