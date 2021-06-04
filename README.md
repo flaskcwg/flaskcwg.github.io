@@ -93,23 +93,23 @@ Where `source_file.html` is the name of the file located in `templates/` and `ou
 In info.json, a profile looks like this
 
 ```json
-        "greyli":{
-            "name": "Grey Li",
-            "bio": [],
-            "volunteer": {
-                "translation":{
-                    "lang": "chinese",
-                    "coordinator": "y"
-                },
-                "event": {},
-                "code": {},
-                "education": {}
-            },
-            "links":{
-                "twitter": ""
-            },
-            "retired": "n"
+"greyli":{
+    "name": "Grey Li",
+    "bio": [],
+    "volunteer": {
+        "translation":{
+            "lang": "chinese",
+            "coordinator": "y"
         },
+        "event": {},
+        "code": {},
+        "education": {}
+    },
+    "links":{
+        "twitter": ""
+    },
+    "retired": "n"
+},
 ```
 
 
