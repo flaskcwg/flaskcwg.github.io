@@ -22,8 +22,8 @@
 
     ```bash
     python -m venv env
-    source env/bin/activate 
-    # The following also works: `. env/bin/activate` 
+    source env/bin/activate
+    # The following also works: `. env/bin/activate`
     ```
 
     For Windows:
@@ -37,21 +37,25 @@
 * install dependencies
 
     ```bash
-    pip install -r requirements.txt
+    python -m pip install -r requirements.txt
     ```
 
-* run `static.py`. This will build html content in `docs/`
+* run `static.py`. This will build html content in `docs/`.
 
     ```bash
     python static.py
     ```
 
-* run `serve.py` as shown below. Go to the IP address shown in the printout to view the generated site. To see the changes made in [`/templates`](/templates) reflect on the generated site, run `python static.py` again (in separate terminal) and refresh the url.
+    > ***_NOTE:_*** If you want the files to auto regenerate on changes, run `python static.py --server` instead.
+
+* run `serve.py` as shown below. Go to the IP address shown in the printout to view the generated site.
 
     ```bash
     cd docs
     python serve.py
     ```
+
+* To see changes made in [`/templates`](/templates) reflect on the generated site, run `python static.py` again in separate terminal (not needed if you ran `python static.py --server` ) and refresh the url.
 
 ## How does the site runs in production?
 
@@ -126,8 +130,8 @@ The bio is generated such that `''` are converted into `<br\>`. a bio would look
 
 ```json
 "bio": [
-    "Line iwue hfowherf  oewrhfje.", 
-    "woihfjerewoi tgfreh  eroh gfrehre greh g.", 
+    "Line iwue hfowherf  oewrhfje.",
+    "woihfjerewoi tgfreh  eroh gfrehre greh g.",
     "", "",
     "Some more lines"],
 ```
