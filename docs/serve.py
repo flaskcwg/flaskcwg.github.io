@@ -8,10 +8,12 @@ import socketserver
 hostname = socket.gethostname()
 PORT = 8000
 IP = socket.gethostbyname(hostname)
-print('serving on:', IP)
 
 Handler = http.server.SimpleHTTPRequestHandler
 with socketserver.TCPServer(('', PORT), Handler) as httpd:
-    print('PORT:', PORT)
-    httpd.serve_forever()
+    print(f"Serving on: {IP}:{PORT}")
+    try:
+        httpd.serve_forever()
+    except KeyboardInterrupt:
+        print("Shutting down serve.py...")
 
