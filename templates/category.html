@@ -4,41 +4,41 @@
   <title>Posts for {{ category }}</title>
 {% endblock %}
 {% block body %}
-    <div id='posts'>
+<div id='posts'>
     <h3>Blog Posts For Category: {{ category }}</h3>
     <div>
         <table class="table table-striped">
-          <thead>
-            <tr>
-              <th>Title</th>
-              <th>Date</th>
-              <th>Author/s</th>
-            </tr>
-          </thead>
-          <tbody>
-            
-              {% for blog_post in posts %}
+            <thead>
                 <tr>
-                <td>
-                    <a href="{{path}}b/{{ blog_post['slug'] }}">{{ blog_post['title'] }}</a>
-                </td>
-                <td>
-                    {{ blog_post['date'] }}
-                </td>
-                <td>
-                    {% set authors = blog_post['authors'] %}
-                    {% for author in authors %}
-                        <a href="{{path}}u/{{ author }}">{{ author }}</a>{% if (not loop.index == len(authors)) %},{% endif %}
-                    {% endfor %}
-                </td>
+                    <th>Title</th>
+                    <th>Date</th>
+                    <th>Author/s</th>
                 </tr>
-              {% endfor %}
-            
-          </tbody>
+            </thead>
+            <tbody>
+                
+                {% for blog_post in posts %}
+                    <tr>
+                        <td>
+                            <a href="{{path}}b/{{ blog_post['slug'] }}">{{ blog_post['title'] }}</a>
+                        </td>
+                        <td>
+                            {{ blog_post['date'] }}
+                        </td>
+                        <td>
+                            {% set authors = blog_post['authors'] %}
+                            {% for author in authors %}
+                                <a href="{{path}}u/{{ author }}">{{ author }}</a>{% if (not loop.index == len(authors)) %},{% endif %}
+                            {% endfor %}
+                        </td>
+                    </tr>
+                {% endfor %}
+                
+            </tbody>
         </table>
     </div>
     <p>
         
     </p>
-    </div>
+</div>
 {% endblock %}
