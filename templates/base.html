@@ -46,9 +46,20 @@
                 font-weight: normal;
                 font-family: 'EB Garamond', serif;
             }
+            /*The docs.min.css stylesheet affects also the off-canvas
+            class and causes problems in the sidebar, the original styles
+            are set manually.*/
+            .off-canvas .off-canvas-toggle {
+                display: block;
+                left: .4rem;
+                position: absolute;
+                top: .4rem;
+                transition: none;
+                z-index: 1;
+            }
         </style>
     </head>
-    <body class="container">
+    <body class="">
         <div class="off-canvas">
             <!-- off-screen toggle button -->
             <a class="off-canvas-toggle btn btn-primary bg-dark btn-action show-xs show-sm" href="#sidebar-id">
