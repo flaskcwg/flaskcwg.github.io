@@ -4,57 +4,59 @@
   <title>Translations</title>
 {% endblock %}
 {% block body %}
-  <h1>Translations</h1>
-  <h3>Contribute to Flask translation</h3>
-  <ul>
-    <li>To request a new translation, <a target="_blank" href="https://github.com/flaskcwg/translation-coordination/issues/new?assignees=&labels=language&template=new-translation.md">submit an issue</a> and follow the instruction in the issue template.</li>
-    <li>To help translate an exist language, see the README of the corresponding repository for the deatils.</li>
-  </ul>
-  <h3>Recomendations</h3>
-  <ul>
-    <li><b>If you use translator</b>
-      <ul>
-        <li>
-        Do not put the whole content of a file into the translator, this can cause problems with code snippets, reserved words of the programming language, special ReStructuredText tags and so on, the best way is to translate paragraph by paragraph, header by header.</li>
-      </ul>
-    </li>
-    <li>
-      <b>Maintaining the essence</b>
-      <ul>
-        <li>Although the translator does a large part of the work, sometimes the resulting translation does not match the meaning of the original resource. It is important to correct this so that the original meaning is not lost.</li>
-        <li>Do not change names of functions, classes, variables methods etc in the codes, it is possible that they will stop working.</li>
-      </ul>
-    </li>
-  </ul>
-  <h3>Flask translations</h3>
-  <h5><u>Spanish - Español</u></h5>
-  <ul>
-    <li><b>Coordinator</b></li>
-    <ul>
-      <li><a target="_blank" href="{{ profile_url(path, 'Jalkhov') }}">Pedro Torcatt (Jalkhov)</a></li>
-    </ul>
-  </ul>
-  <ul>
-    <li><b>Sources</b>
-      <ul>
-        <li><a target="_blank" href="https://github.com/flaskcwg/flask-docs-es">Repository</a></li>
-        <li><a target="_blank" href="https://flask-es.readthedocs.io/">Readthedocs</a></li>
-      </ul>
-    </li>
-  </ul>
-  <h5><u>Chinese -简体中文</u></h5>
-  <ul>
-    <li><b>Coordinator</b></li>
-    <ul>
-      <li><a target="_blank" href="{{ profile_url(path, 'greyli') }}">Grey Li (@greyli)</a></li>
-    </ul>
-  </ul>
-  <ul>
-    <li><b>Sources</b>
-      <ul>
-        <li><a target="_blank" href="https://github.com/greyli/flask-docs-zh">Repository</a></li>
-        <li><a target="_blank" href="https://flask-zh.readthedocs.io/">Readthedocs</a></li>
-      </ul>
-    </li>
-  </ul>
+<div id="translations">
+	<h2 class="text-center titles">Translations</h2>
+	<h3>Contribute to Flask translation</h3>
+	<ul>
+		<li>To request a new translation, <a target="_blank" href="https://github.com/flaskcwg/translation-coordination/issues/new?assignees=&labels=language&template=new-translation.md">submit an issue</a> and follow the instruction in the issue template.</li>
+		<li>To help translate an exist language, see the README of the corresponding repository for the deatils.</li>
+	</ul>
+	<h3>Recomendations</h3>
+	<ul>
+		<li><b>If you use translator</b>
+			<ul>
+				<li>
+				Do not put the whole content of a file into the translator, this can cause problems with code snippets, reserved words of the programming language, special ReStructuredText tags and so on, the best way is to translate paragraph by paragraph, header by header.</li>
+			</ul>
+		</li>
+		<li>
+			<b>Maintaining the essence</b>
+			<ul>
+				<li>Although the translator does a large part of the work, sometimes the resulting translation does not match the meaning of the original resource. It is important to correct this so that the original meaning is not lost.</li>
+				<li>Do not change names of functions, classes, variables methods etc in the codes, it is possible that they will stop working.</li>
+			</ul>
+		</li>
+	</ul>
+	<h3>Flask translations</h3>
+	<h5><u>Spanish - Español</u></h5>
+	<ul>
+		<li><b>Coordinator</b></li>
+		<ul>
+			<li><a target="_blank" href="{{ profile_url(path, 'Jalkhov') }}">Pedro Torcatt (Jalkhov)</a></li>
+		</ul>
+	</ul>
+	<ul>
+		<li><b>Sources</b>
+			<ul>
+				<li><a target="_blank" href="https://github.com/flaskcwg/flask-docs-es">Repository</a></li>
+				<li><a target="_blank" href="https://flask-es.readthedocs.io/">Readthedocs</a></li>
+			</ul>
+		</li>
+	</ul>
+	<h5><u>Chinese -简体中文</u></h5>
+	<ul>
+		<li><b>Coordinator</b></li>
+		<ul>
+			<li><a target="_blank" href="{{ profile_url(path, 'greyli') }}">Grey Li (@greyli)</a></li>
+		</ul>
+	</ul>
+	<ul>
+		<li><b>Sources</b>
+			<ul>
+				<li><a target="_blank" href="https://github.com/greyli/flask-docs-zh">Repository</a></li>
+				<li><a target="_blank" href="https://flask-zh.readthedocs.io/">Readthedocs</a></li>
+			</ul>
+		</li>
+	</ul>
+</div>
 {% endblock %}

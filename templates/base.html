@@ -2,50 +2,100 @@
 <html lang="en">
     <head>
         {% include 'sections/head.html' %}
-        <link href='/static/flaskcwg-icon.png' rel='icon' />
+            <link href='/static/flaskcwg-icon.png' rel='icon' />
         {% block head %}{% endblock %}
+        
         <style type="text/css">
-            .underline {
-                text-decoration: underline;
+            @import url('https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap');
+            
+            .active-page {
+                font-weight: bolder;
+            }
+            .brand2{
+                font-weight: bolder;
             }
 
             #footer {
-                padding-left: 4rem;
+                margin-top: 1.2rem;
             }
 
             #footer p {
                 border-top: 1px solid #eaeaea;
                 padding-top: 1rem;
             }
+            .navbar-section > a {
+                border-bottom: 2px transparent solid;
+            }
+            .navbar-section > a:hover,
+            .navbar-section > .dropdown:hover {
+                border-bottom-color: #111;
+            }
+
+            .first-letter {
+                float: left;
+                font-size: 55px;
+                line-height: 1;
+                font-weight: bold;
+                margin-right: 9px;
+                font-family: 'EB Garamond', serif;
+            }
+
+            .titles {
+                color: #111;
+                font-size: 60px;
+                font-weight: normal;
+                font-family: 'EB Garamond', serif;
+            }
         </style>
     </head>
-    <body class="">
+    <body class="container">
         <div class="off-canvas">
             <!-- off-screen toggle button -->
             <a class="off-canvas-toggle btn btn-primary bg-dark btn-action show-xs show-sm" href="#sidebar-id">
-              <i class="icon icon-menu"></i>
+                <i class="icon icon-menu"></i>
             </a>
             {% include 'sections/sidebar.html' %}
             <a class="off-canvas-overlay" href="#close"></a>
             <div class="off-canvas-content">
-              <!-- off-screen content -->
-              <div class="container">
-                <h1><a href="{{path}}">Flask Community Workgroup</a></h1>
-                <div class="hide-sx hide-sm">
-                    [ <a class="{{'underline' if section == 'why'}}" href="{{path}}">The Why</a> ]
-                    [ <a class="{{'underline' if section == 'aim'}}" href="{{path}}aim">The Aim</a> ]
-                    [ <a class="{{'underline' if section == 'takeover'}}" href="{{path}}takeover">Project Takeover</a> ]
-                    [ <a class="{{'underline' if section == 'join'}}" href="{{path}}join">Join</a> ]
-                    [ <a class="{{'underline' if section == 'translations'}}" href="{{path}}translations">Translations</a> ]
-                    [ <a class="{{'underline' if section == 'blog'}}" href="{{path}}blog">Blog Posts</a> ]
-                    [ <a class="{{'underline' if section == 'members'}}" href="{{path}}members">Members</a> ]
-                    [ <a class="{{'underline' if section == 'resources'}}" href="{{path}}resources">Curated Resources</a> ]
-                    [ <a class="{{'underline' if section == 'faq'}}" href="{{path}}faq">Flask FaQs</a> ]
-                </div><br>
-                {% block body %}{% endblock %}
-              </div>
+                <!-- off-screen content -->
+                <div class="container">
+                    <center>
+                        <a href="{{path}}"><img src="/static/flaskcwgbanner.png" class="img-responsive hide-sx hide-sm" alt="FlaskCWG Banner"></a>
+                    </center>
+                    <header class="navbar hide-sx hide-sm">
+                        <section class="navbar-section">
+                            <a href="{{path}}" class="navbar-brand mr-2" style="font-weight:bolder;">FlaskCWG</a>
+                            <!--<a href="{{path}}" class="btn btn-link">Join</a>-->
+                            <a class="btn btn-link {{'active-page' if section == 'members'}}" href="{{path}}members"> Members</a>
+                            <a class="btn btn-link {{'active-page' if section == 'resources'}}" href="{{path}}resources"> Curated Resources</a>
+                            
+                            <a class="btn btn-link {{'active-page' if section == 'translations'}}" href="{{path}}translations">Translations</a>
+                            <a class="btn btn-link {{'active-page' if section == 'blog'}}" href="{{path}}blog">Blog Posts</a>
+                            <a class="btn btn-link {{'active-page' if section == 'faq'}}" href="{{path}}faq">Flask FaQs</a>
+                            <!-- menu component -->
+                            <div class="dropdown">
+                                <a href="#" class="btn btn-link dropdown-toggle" tabindex="0">
+                                    About project <i class="icon icon-caret"></i>
+                                </a>
+                                <ul class="menu">
+                                    <li class="menu-item">
+                                        <a href="{{path}}">The why</a>
+                                    </li>
+                                    <li class="menu-item">
+                                        <a href="{{path}}aim">The aim</a>
+                                    </li>
+                                    <li class="menu-item">
+                                        <a href="{{path}}takeover">Project takeover</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </section>
+                    </header>
+                    <br>
+                    <br>
+                    {% block body %}{% endblock %}
+                </div>
             </div>
-
         </div>
         {% include 'sections/footer.html' %}
     </body>

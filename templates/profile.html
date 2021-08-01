@@ -4,36 +4,59 @@
   <title>{{ data['name'] }}</title>
 {% endblock %}
 {% block body %}
-    <h5><a href="https://github.com/{{ github_username }}">{{ data['name'] }} (@{{ github_username }})</a>
-        {% if data['retired'] == 'n' %}
-            <span class="chip bg-success">active</span>
-        {% else %}
-            <span class="chip bg-error">retired</span>
-        {% endif %}
+<style>
+    hr.style-two {
+        width: 300px;
+        border: 0;
+        height: 1px;
+        background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+    }
+</style>
+<div class="container">
+    <h5 class="text-center">
+        <div>
+            <figure class="avatar avatar-xl">
+                <img class="s-circle" src="https://avatars.githubusercontent.com/{{ github_username }}" alt="{{ github_username }} avatar">
+                {% if data['retired'] == 'n' %}
+                    <i class="avatar-presence online" title="Active"></i>
+                {% else %}
+                    <i class="avatar-presence away" title="Retired"></i>
+                {% endif %}
+            </figure>
+        </div>
+        <a href="https://github.com/{{ github_username }}"><b>{{ data['name'] }} (@{{ github_username }})</b></a>
     </h5>
-    <p class="container">
-        <h5>Bio</h5>
+    <hr class="style-two">
+    <div class="text-center">
+        <h6><b>Bio</b></h6>
         <p>
             {{ info_to_html(data['bio']) }}
         </p>
-        <h5>Volunteer</h5>
-        <p>
+
+        <h6><b>Volunteer</b></h6>
+        <dl>
             {% for topic in data['volunteer'] %}
-                <li>{{topic}}
+                <dd><i>{{topic.capitalize()}}</i>
                     {% if topic == 'translation' %}
-                        <span class="chip">{{data['volunteer']['translation']['lang']}}</span>
-                        {% if 'coordinator' in data['volunteer']['translation']%}
-                            <span class="chip bg-success">coordinator</span>
-                        {% endif %}
+                        <br>
+                        <div style="font-size: 12px;">
+                            <span class="chip">{{data['volunteer']['translation']['lang'].capitalize()}}</span>
+                            {% if 'coordinator' in data['volunteer']['translation']%}
+                                <span class="chip" style="background-color: gold;">Coordinator</span>
+                            {% else %}
+                                <span class="chip bg-primary">Member</span>
+                            {% endif %}
+                        </div>
                     {% endif %}
-                </li>
+                </dd>
             {% endfor %}
-        </p>
-        <h5>Presence</h5>
+        </dl>
+        <h6><b>Presence</b></h6>
         <p>
             {% for presence in data['links'] %}
                 <a href="{{ data['links'][presence] }}">{{ presence }}</a><br>
             {% endfor %}
         </p>
-    </p>
+    </div>
+</div>
 {% endblock %}
