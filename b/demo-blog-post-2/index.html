@@ -9,12 +9,15 @@
 <meta name="author" content="Flask Community">
 <meta name="theme-color" content="#111" />
 <link rel="icon" href="">
+<!--
 <script type="text/javascript" src="js/script.js"></script>
 <link rel="stylesheet" type="text/css" href="css/styles.css">
+-->
 <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre.min.css">
 <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-exp.min.css">
+<link rel="stylesheet" href="https://picturepan2.github.io/spectre/dist/docs.min.css">
 <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-icons.min.css">
-        <link href='/static/flaskcwg-icon.png' rel='icon' />
+            <link href='/static/flaskcwg-icon.png' rel='icon' />
         
   <title>Demo blog post 2</title>
   <link rel="stylesheet"
@@ -26,26 +29,55 @@
         }
     </style>
 
+        
         <style type="text/css">
-            .underline {
-                text-decoration: underline;
+            @import url('https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap');
+            
+            .active-page {
+                font-weight: bolder;
+            }
+            .brand2{
+                font-weight: bolder;
             }
 
             #footer {
-                padding-left: 4rem;
+                margin-top: 1.2rem;
             }
 
             #footer p {
                 border-top: 1px solid #eaeaea;
                 padding-top: 1rem;
             }
+            .navbar-section > a {
+                border-bottom: 2px transparent solid;
+            }
+            .navbar-section > a:hover,
+            .navbar-section > .dropdown:hover {
+                border-bottom-color: #111;
+            }
+
+            .first-letter {
+                float: left;
+                font-size: 55px;
+                line-height: 1;
+                font-weight: bold;
+                margin-right: 9px;
+                font-family: 'EB Garamond', serif;
+            }
+
+            .titles {
+                color: #111;
+                font-size: 60px;
+                font-weight: normal;
+                font-family: 'EB Garamond', serif;
+            }
         </style>
     </head>
-    <body class="">
+    <body class="container">
         <div class="off-canvas">
             <!-- off-screen toggle button -->
             <a class="off-canvas-toggle btn btn-primary bg-dark btn-action show-xs show-sm" href="#sidebar-id">
-              <i class="icon icon-menu"></i>
+                <i class="icon icon-menu"></i>
             </a>
             <div id="sidebar-id" class="off-canvas-sidebar">
   <!-- off-screen sidebar -->
@@ -100,59 +132,78 @@
 </div>
             <a class="off-canvas-overlay" href="#close"></a>
             <div class="off-canvas-content">
-              <!-- off-screen content -->
-              <div class="container">
-                <h1><a href="../../">Flask Community Workgroup</a></h1>
-                <div class="hide-sx hide-sm">
-                    [ <a class="" href="../../">The Why</a> ]
-                    [ <a class="" href="../../aim">The Aim</a> ]
-                    [ <a class="" href="../../takeover">Project Takeover</a> ]
-                    [ <a class="" href="../../join">Join</a> ]
-                    [ <a class="" href="../../translations">Translations</a> ]
-                    [ <a class="underline" href="../../blog">Blog Posts</a> ]
-                    [ <a class="" href="../../members">Members</a> ]
-                    [ <a class="" href="../../resources">Curated Resources</a> ]
-                    [ <a class="" href="../../faq">Flask FaQs</a> ]
-                </div><br>
-                
-    <p class="container">
-        <p class="text-small hbottom">Author/s: 
-            
-            
-                <a href="../../u/jugmac00">jugmac00</a>,
-            
-                <a href="../../u/Abdur-RahmaanJ">Abdur-RahmaanJ</a>
-            
-        | Date: May 19, 2021 
+                <!-- off-screen content -->
+                <div class="container">
+                    <center>
+                        <a href="../../"><img src="/static/flaskcwgbanner.png" class="img-responsive hide-sx hide-sm" alt="FlaskCWG Banner"></a>
+                    </center>
+                    <header class="navbar hide-sx hide-sm">
+                        <section class="navbar-section">
+                            <a href="../../" class="navbar-brand mr-2" style="font-weight:bolder;">FlaskCWG</a>
+                            <!--<a href="../../" class="btn btn-link">Join</a>-->
+                            <a class="btn btn-link " href="../../members"> Members</a>
+                            <a class="btn btn-link " href="../../resources"> Curated Resources</a>
+                            
+                            <a class="btn btn-link " href="../../translations">Translations</a>
+                            <a class="btn btn-link active-page" href="../../blog">Blog Posts</a>
+                            <a class="btn btn-link " href="../../faq">Flask FaQs</a>
+                            <!-- menu component -->
+                            <div class="dropdown">
+                                <a href="#" class="btn btn-link dropdown-toggle" tabindex="0">
+                                    About project <i class="icon icon-caret"></i>
+                                </a>
+                                <ul class="menu">
+                                    <li class="menu-item">
+                                        <a href="../../">The why</a>
+                                    </li>
+                                    <li class="menu-item">
+                                        <a href="../../aim">The aim</a>
+                                    </li>
+                                    <li class="menu-item">
+                                        <a href="../../takeover">Project takeover</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </section>
+                    </header>
+                    <br>
+                    <br>
+                    
+<p class="container">
+    <p class="text-small hbottom">Author/s:
+        
+        
+            <a href="../../u/jugmac00">jugmac00</a>,
+        
+            <a href="../../u/Abdur-RahmaanJ">Abdur-RahmaanJ</a>
+        
+        | Date: May 19, 2021
         | Category: <a href="../../category/main">main</a>
         | Tags:
-            
-            
-                <a href="../../tag/demo">demo</a>,
-            
-                <a href="../../tag/flask">flask</a>,
-            
-                <a href="../../tag/asgi">asgi</a>
-            
-
-        </p>
-        <h3>Demo blog post 2</h3>
-        <p class="container">
-            <p>This is the first paragraph of the document.</p>
+        
+        
+            <a href="../../tag/demo">demo</a>,
+        
+            <a href="../../tag/flask">flask</a>,
+        
+            <a href="../../tag/asgi">asgi</a>
+        
+    </p>
+    <h3>Demo blog post 2</h3>
+    <p class="container">
+        <p>This is the first paragraph of the document.</p>
 <pre><code class="language-python">def x():
     pass
 </code></pre>
 <p>And hence <a href="https://flaskcwg.github.io">link demo</a></p>
 <p>demo 2</p>
-        </p>
     </p>
+</p>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
-    <script>hljs.initHighlightingOnLoad();</script>
-
-              </div>
+                </div>
             </div>
-
         </div>
         <div id="footer">
 	<div class="container">
