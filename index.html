@@ -19,7 +19,7 @@
 <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-icons.min.css">
             <link href='/static/flaskcwg-icon.png' rel='icon' />
         
-  <title>Flask CWG</title>
+	<title>Flask CWG</title>
 
         
         <style type="text/css">
@@ -75,13 +75,18 @@
                 z-index: 1;
             }
 
-            #container{
-                padding: 70px;
+            #navbar-items {
+                padding: 10px;
+                justify-content: center;
+            }
+
+            #body-container {
+                padding-top: 20px;
             }
 
         </style>
     </head>
-    <body id="container">
+    <body id="body-container">
         <div class="off-canvas">
             <!-- off-screen toggle button -->
             <a class="off-canvas-toggle btn btn-primary bg-dark btn-action show-xs show-sm" href="#sidebar-id">
@@ -139,11 +144,16 @@
   </ul>
 </div>
             <a class="off-canvas-overlay" href="#close"></a>
-            <div class="off-canvas-content">
+            <div class="off-canvas-content container">
                 <!-- off-screen content -->
-                <div class="container">
-                    <header class="navbar hide-sx hide-sm">
-                        <section class="navbar-section">
+                <div class="columns" id="banner">
+                    <a class="col-4 col-mx-auto"href="/">
+                        <img src="/static/flaskcwgbanner.png" class="img-responsive hide-sx hide-sm" alt="FlaskCWG Banner">
+                    </a>
+                </div>
+                <div class="columns">
+                    <header class="navbar col-8 col-mx-auto hide-sx hide-sm">
+                        <section id="navbar-items" class="navbar-section">
                             <a href="/" class="navbar-brand mr-2" style="font-weight:bolder;">FlaskCWG</a>
                             <a class="btn btn-link " href="/members"> Members</a>
                             <a class="btn btn-link " href="/resources"> Curated Resources</a>
@@ -168,59 +178,56 @@
                                 </ul>
                             </div>
                         </section>
-                        <section id="banner">
-                            <a href="/">
-                                <img src="/static/flaskcwgbanner.png" class="img-responsive hide-sx hide-sm" alt="FlaskCWG Banner">
-                            </a>
-                        </section>
                     </header>
-                    
-<div id="why">
-	<div class="columns">
-		<div class="column col-12">
-			<h2 class="text-center titles">The Why</h2>
-			<p>
-				<span class="first-letter">F</span>lask is a great library with great people and great extensions, but it can be even greater with a structured approach to the community aspect. Being around for 10 years and yet, still maintaining relevance is a feat of it’s own. It’s simple to get started with all while being a battle-proven framework. We also notice that it’s a smooth flow from a proof of concept to production. It also influences other frameworks upto this day. Technically it is sound, no doubt about it.
-			</p>
+                </div>
+                <div id="main-content-container" class="columns">
+                    <div id="main-content" class="column col-8 col-mx-auto">
+                        
+	<div id="why">
+		<h2 class="text-center titles">The Why</h2>
+		<p>
+			<span class="first-letter">F</span>lask is a great library with great people and great extensions, but it can be even greater with a structured approach to the community aspect. Being around for 10 years and yet, still maintaining relevance is a feat of it’s own. It’s simple to get started with all while being a battle-proven framework. We also notice that it’s a smooth flow from a proof of concept to production. It also influences other frameworks upto this day. Technically it is sound, no doubt about it.
+		</p>
 
-			<p>
-				However, there are many Flask-related issues which deserve some attention. The fix to those issues lies not in mere merges or code fixes. One such example is the plugins/extensions ecosystem. A recurrent and commonly observed pattern is that a project rises in popularity and becomes the de-facto reference for a specific task then the maintainer goes offline, cut off from the project. Sometimes other maintainers themselves have no merge right, leaving the project as good as dead.
-			</p>
+		<p>
+			However, there are many Flask-related issues which deserve some attention. The fix to those issues lies not in mere merges or code fixes. One such example is the plugins/extensions ecosystem. A recurrent and commonly observed pattern is that a project rises in popularity and becomes the de-facto reference for a specific task then the maintainer goes offline, cut off from the project. Sometimes other maintainers themselves have no merge right, leaving the project as good as dead.
+		</p>
 
-			<p>
-				Due to many factors, the projects soon become obsolete, less efficient or outright broken. But people still use them sometimes unknowingly exposing their applications to vulnerabilities. One help point from the WG is keep an eye on extensions and prevent those kinds of failures. One concrete initiative is to set up an organization (github) to care about extensions. It will have a minimum required number of developers who are willing to look after those extensions. This can also further the Flask education cause by having mentoring, much like Google Code-In.
-				
-				Another aspect is that the Flask community is very fragmented. Flask people don’t have a  point of regrouping. Events are organised and then die peacefully. A community WG helps to knit together the community, making Flask users feeling very welcome. It also encourages Flask users to adhere to a code of conduct when organising events, rather than letting every event be as free electrons.
-				
-				Events will also help to grow the community and introduce new members to the ecosystem, especially if these events can keep a high quality standard consistently. The WG would help independent organisers by providing guidelines and knowledge for hosting great events.
-			</p>
+		<p>
+			Due to many factors, the projects soon become obsolete, less efficient or outright broken. But people still use them sometimes unknowingly exposing their applications to vulnerabilities. One help point from the WG is keep an eye on extensions and prevent those kinds of failures. One concrete initiative is to set up an organization (github) to care about extensions. It will have a minimum required number of developers who are willing to look after those extensions. This can also further the Flask education cause by having mentoring, much like Google Code-In.
 			
-			<p>
-				A point to further the Flask cause is the organising of monthly/quarterly Flask chats where people are invited to talk about flask-related issues including projects.
-				
-				One other function that this workgroup may help to achieve is to bring to a minimum, if possible, is the increasing options and fragmentations in the Flask-type of building framework, for example, Hug, Sanic, FastAPI are all taking after the Flask model of doing things and may benefit as one whole project, all streamlined to be able to help increase productivity. (Flask enhancement proposals?)
-				
-				In it’s preliminary stage the WG would prepare the event grants requests guidelines and maybe act as the grants WG members until (if needed) such a body is formed.
-				
-				Lastly the WG would provide guidelines as to its own running and constant improvement and provide a consistent plan of action in this regard.
-			</p>
+			Another aspect is that the Flask community is very fragmented. Flask people don’t have a  point of regrouping. Events are organised and then die peacefully. A community WG helps to knit together the community, making Flask users feeling very welcome. It also encourages Flask users to adhere to a code of conduct when organising events, rather than letting every event be as free electrons.
 			
-			<p>
-				The WG also endeavours to take care of translations.
-			</p>
-		</div>
+			Events will also help to grow the community and introduce new members to the ecosystem, especially if these events can keep a high quality standard consistently. The WG would help independent organisers by providing guidelines and knowledge for hosting great events.
+		</p>
+		
+		<p>
+			A point to further the Flask cause is the organising of monthly/quarterly Flask chats where people are invited to talk about flask-related issues including projects.
+			
+			One other function that this workgroup may help to achieve is to bring to a minimum, if possible, is the increasing options and fragmentations in the Flask-type of building framework, for example, Hug, Sanic, FastAPI are all taking after the Flask model of doing things and may benefit as one whole project, all streamlined to be able to help increase productivity. (Flask enhancement proposals?)
+			
+			In it’s preliminary stage the WG would prepare the event grants requests guidelines and maybe act as the grants WG members until (if needed) such a body is formed.
+			
+			Lastly the WG would provide guidelines as to its own running and constant improvement and provide a consistent plan of action in this regard.
+		</p>
+		
+		<p>
+			The WG also endeavours to take care of translations.
+		</p>
 	</div>
-</div>
 
+                    </div>
+                </div>
+                <div class="columns">
+                    <div id="main-content" class="column col-8 col-mx-auto">
+                        <div id="footer">
+	<p>
+		<a href="https://github.com/flaskcwg/flaskcwg.github.io">Edit on GitHub</a> | Email: flaskcwg at python.org
+	</p>
+</div>
+                    </div>
                 </div>
             </div>
         </div>
-        <div id="footer">
-	<div class="container">
-		<p>
-			<a href="https://github.com/flaskcwg/flaskcwg.github.io">Edit on GitHub</a> | Email: flaskcwg at python.org
-		</p>
-	</div>
-</div>
     </body>
 </html>
