@@ -1,36 +1,39 @@
 {% extends 'base.html' %}
 {% set section = 'blog' %}
 {% block head %}
-  <title>{{ post['title'] }}</title>
-  <link rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/atelier-forest-light.min.css">
-    <style type="text/css">
-        .hbottom{
-            padding-bottom: 5px;
-            border-bottom: 1px solid #eaeaea;
-        }
-    </style>
+    <title>{{ post['title'] }}</title>
 {% endblock %}
 {% block body %}
-<p class="container">
-    <p class="text-small hbottom">Author/s:
-        {% set authors = post['authors'] %}
-        {% for author in  authors %}
-            <a href="{{ profile_url(path, author) }}">{{ author }}</a>{% if (not loop.index == len(authors)) %},{% endif %}
-        {% endfor %}
-        | Date: {{ post['date'] }}
-        | Category: <a href="{{ path }}category/{{ post['category'] }}">{{ post['category'] }}</a>
-        | Tags:
-        {% set tags = post['tags'] %}
-        {% for tag in  tags %}
-            <a href="{{ path }}tag/{{ tag }}">{{ tag }}</a>{% if (not loop.index == len(tags)) %},{% endif %}
-        {% endfor %}
-    </p>
-    <h3>{{ post['title'] }}</h3>
-    <p class="container">
-        {{ post['content'] }}
-    </p>
-</p>
+<br>
+<h3 style="font-size: 27px;">{{ post['title'] }}</h3>
+<div style="font-size: 13px;">
+    <span class="lab"><i class="im im-user-circle"></i> </span>
+    {% set authors = post['authors'] %}
+    {% for author in  authors %}
+        <a class="label-secondary" href="{{ profile_url(path, author) }}">{{ author }}</a>{% if (not loop.index == len(authors)) %}, {% endif %}
+    {% endfor %}
+    <span class="sep2"></span>
+
+    <span class="lab"><i class="im im-calendar"></i> </span><span class="val">{{ post['date'] }}</span>
+    
+    <span class="sep2"></span>
+    
+    <span class="lab"><i class="im im-folder-open"></i></span>
+    <a class="label-secondary" href="{{ path }}category/{{ post['category'] }}">{{ post['category'] }}</a>
+</div>
+<div class="sep3"></div>
+<div style="font-size: 13px;">
+    <span class="lab"><i class="im im-tags"></i> </span>
+    {% set tags = post['tags'] %}
+    {% for tag in  tags %}
+        <a class="tag label" href="{{ path }}tag/{{ tag }}">{{ tag }}</a>{% if (not loop.index == len(tags)) %}{% endif %}
+    {% endfor %}
+</div>
+<div class="sep"></div>
+<div class="container post-content">
+    {{ post['content'] }}
+</div>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
 {% endblock %}
