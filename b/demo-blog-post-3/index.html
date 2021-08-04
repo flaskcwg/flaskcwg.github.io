@@ -13,21 +13,14 @@
 <script type="text/javascript" src="js/script.js"></script>
 <link rel="stylesheet" type="text/css" href="css/styles.css">
 -->
+<link rel="stylesheet" href="https://cdn.iconmonstr.com/1.3.0/css/iconmonstr-iconic-font.min.css">
 <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre.min.css">
 <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-exp.min.css">
 <link rel="stylesheet" href="https://picturepan2.github.io/spectre/dist/docs.min.css">
 <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-icons.min.css">
             <link href='/static/flaskcwg-icon.png' rel='icon' />
         
-  <title>Demo blog post 3</title>
-  <link rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/atelier-forest-light.min.css">
-    <style type="text/css">
-        .hbottom{
-            padding-bottom: 5px;
-            border-bottom: 1px solid #eaeaea;
-        }
-    </style>
+    <title>Demo blog post 3</title>
 
         
         <style type="text/css">
@@ -92,6 +85,49 @@
                 padding-top: 20px;
             }
 
+            /*POST AND FAQS TAGS STYLES*/
+            a.tag {
+                text-decoration: none;
+            }
+
+            a.tag.label:hover {
+                color: #111;
+                background-color: #B0E0E6;
+            }
+
+            .sep {
+                border-color: #e4e6e8 !important;
+                border-bottom-style: solid !important;
+                border-bottom-width: 1px !important;
+                margin-top: 15px;
+                margin-bottom: 15px;
+            }
+
+            .sep2 {
+                padding-left: 5px;
+                padding-right: 5px;
+            }
+
+            .sep3 {
+                margin-top: 8px;
+                margin-bottom: 8px;
+            }
+
+            .lab {
+                color: rgb(106, 115, 124);
+            }
+
+            .val {
+                color: rgb(36, 39, 41);
+            }
+
+            .im {
+                font-size: 14px;
+            }
+
+            .post-content {
+                color: #747474;
+            }
         </style>
     </head>
     <body id="body-container">
@@ -191,36 +227,47 @@
                 <div id="main-content-container" class="columns">
                     <div id="main-content" class="column col-8 col-mx-auto">
                         
-<p class="container">
-    <p class="text-small hbottom">Author/s:
-        
-        
-            <a href="../../u/jugmac00">jugmac00</a>,
-        
-            <a href="../../u/Abdur-RahmaanJ">Abdur-RahmaanJ</a>
-        
-        | Date: May 19, 2021
-        | Category: <a href="../../category/protocol">protocol</a>
-        | Tags:
-        
-        
-            <a href="../../tag/demo">demo</a>,
-        
-            <a href="../../tag/flask">flask</a>,
-        
-            <a href="../../tag/lol">lol</a>
-        
-    </p>
-    <h3>Demo blog post 3</h3>
-    <p class="container">
-        <p>This is the first paragraph of the document.</p>
+<br>
+<h3 style="font-size: 27px;">Demo blog post 3</h3>
+<div style="font-size: 13px;">
+    <span class="lab"><i class="im im-user-circle"></i> </span>
+    
+    
+        <a class="label-secondary" href="../../u/jugmac00">jugmac00</a>, 
+    
+        <a class="label-secondary" href="../../u/Abdur-RahmaanJ">Abdur-RahmaanJ</a>
+    
+    <span class="sep2"></span>
+
+    <span class="lab"><i class="im im-calendar"></i> </span><span class="val">May 19, 2021</span>
+    
+    <span class="sep2"></span>
+    
+    <span class="lab"><i class="im im-folder-open"></i></span>
+    <a class="label-secondary" href="../../category/protocol">protocol</a>
+</div>
+<div class="sep3"></div>
+<div style="font-size: 13px;">
+    <span class="lab"><i class="im im-tags"></i> </span>
+    
+    
+        <a class="tag label" href="../../tag/demo">demo</a>
+    
+        <a class="tag label" href="../../tag/flask">flask</a>
+    
+        <a class="tag label" href="../../tag/lol">lol</a>
+    
+</div>
+<div class="sep"></div>
+<div class="container post-content">
+    <p>This is the first paragraph of the document.</p>
 <pre><code class="language-python">def x():
     pass
 </code></pre>
 <p>And hence <a href="https://flaskcwg.github.io">link demo</a></p>
 <p>demo 3</p>
-    </p>
-</p>
+</div>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
 
