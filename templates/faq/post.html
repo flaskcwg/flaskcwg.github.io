@@ -1,28 +1,23 @@
 {% extends 'base.html' %}
 {% set section = 'faq' %}
 {% block head %}
-  <title>{{ faq['title'] }}</title>
-  <link rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/atelier-forest-light.min.css">
-    <style type="text/css">
-        .hbottom{
-            padding-bottom: 5px;
-            border-bottom: 1px solid #eaeaea;
-        }
-    </style>
+    <title>{{ faq['title'] }}</title>
 {% endblock %}
 {% block body %}
-<p class="container">
-    Tags:
-    {% set tags = faq['tags'] %}
+<br>
+<h3 style="font-size: 27px;">{{ faq['title'] }}</h3>
+<div style="font-size: 13px;">
+    <span class="lab"><i class="im im-tags"></i> </span>
+    {% set tags = post['tags'] %}
     {% for tag in  tags %}
-        <a href="/faq/tag/{{ tag }}">{{ tag }}</a>{% if (not loop.index == len(tags)) %},{% endif %}
+        <a class="tag label" href="{{ path }}tag/{{ tag }}">{{ tag }}</a>{% if (not loop.index == len(tags)) %}{% endif %}
     {% endfor %}
-</p>
-<h3>{{ faq['title'] }}</h3>
-<p class="container">
+</div>
+<div class="sep"></div>
+<div class="container post-content">
     {{ faq['content'] }}
-</p>
+</div>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
 {% endblock %}
