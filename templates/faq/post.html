@@ -8,7 +8,7 @@
 <h3 style="font-size: 27px;">{{ faq['title'] }}</h3>
 <div style="font-size: 13px;">
     <span class="lab"><i class="im im-tags"></i> </span>
-    {% set tags = post['tags'] %}
+    {% set tags = faq['tags'] %}
     {% for tag in  tags %}
         <a class="tag label" href="{{ path }}tag/{{ tag }}">{{ tag }}</a>{% if (not loop.index == len(tags)) %}{% endif %}
     {% endfor %}
