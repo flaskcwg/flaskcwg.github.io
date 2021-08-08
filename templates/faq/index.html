@@ -4,25 +4,51 @@
   <title>FaQ</title>
 {% endblock %}
 {% block body %}
-<h2 class="text-center titles">Community-contributed FAQs</h2>
-<p class="text-center">Not endorsed by the Pallets</p>
-<table class="table table-striped table-hover">
-    <thead>
-        <tr>
-            <th>Title</th>
-            <th>Tags</th>
-        </tr>
-    </thead>
-    <tbody>
-        {% for faq in faqs %}
+<div id='faqs'>
+    <h2 class="text-center titles">Community-contributed FAQs</h2>
+    <p class="text-center">Not endorsed by the Pallets</p>
+    {% raw %}
+    <!--
+    <table class="table table-striped table-hover">
+        <thead>
             <tr>
-                <td> <a href="/faq/{{ faq['slug'] }}"> {{ faq['title'] }} </a> </td>
-                <td>{% set tags = faq['tags'] %}
+                <th>Title</th>
+                <th>Tags</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for faq in faqs %}
+                <tr>
+                    <td> <a href="/faq/{{ faq['slug'] }}"> {{ faq['title'] }} </a> </td>
+                    <td>{% set tags = faq['tags'] %}
+                        {% for tag in  tags %}
+                            <a href="/faq/tag/{{ tag }}">{{ tag }}</a>{% if (not loop.index == len(tags)) %},{% endif %}
+                        {% endfor %}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    -->
+    {% endraw %}
+    {% for faq in faqs %}
+    <a href="/faq/{{ faq['slug'] }}" class="panel post-link">
+        <div class="tile tile-centered">
+            <div class="tile-icon">
+                <div class="example-tile-icon">
+                    <i class="icon icon-file centered"></i>
+                </div>
+            </div>
+            <div class="tile-content">
+                <div class="tile-title">{{ faq['title'] }}</div>
+                <small class="tile-subtitle text-gray">
+                    {% set tags = faq['tags'] %}
                     {% for tag in  tags %}
-                        <a href="/faq/tag/{{ tag }}">{{ tag }}</a>{% if (not loop.index == len(tags)) %},{% endif %}
-                    {% endfor %}</td>
-                </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+                        {{ tag }}{% if (not loop.index == len(tags)) %},{% endif %}
+                    {% endfor %}
+                </small>
+            </div>
+        </div>
+    </a>
+    {% endfor %}
+</div>
 {% endblock %}

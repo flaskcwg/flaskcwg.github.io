@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap');
+
+hr.style-two {
+    width: 300px;
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+}
+
+.active-page {
+    font-weight: bolder;
+}
+
+#footer {
+    margin-top: 1.2rem;
+}
+
+#footer p {
+    border-top: 1px solid #eaeaea;
+    padding-top: 1rem;
+}
+
+.navbar-section > a {
+    border-bottom: 2px transparent solid;
+}
+
+.navbar-section > a:hover,
+.navbar-section > .dropdown:hover {
+    border-bottom-color: #111;
+}
+
+.first-letter {
+    float: left;
+    font-size: 55px;
+    line-height: 1;
+    font-weight: bold;
+    margin-right: 9px;
+    font-family: 'EB Garamond', serif;
+}
+
+.titles {
+    color: #111;
+    font-size: 40px;
+    font-weight: normal;
+    font-family: 'EB Garamond', serif;
+}
+
+/*The docs.min.css stylesheet affects also the off-canvas
+class and causes problems in the sidebar, the original styles
+are set manually.*/
+.off-canvas .off-canvas-toggle {
+    left: 15px;
+    top: 15px;
+    z-index: 1;
+}
+
+#navbar-items {
+    padding: 10px;
+    justify-content: center;
+}
+
+#body-container {
+    padding-top: 20px;
+}
+
+a.tag {
+    text-decoration: none;
+}
+
+a.tag.label:hover {
+    color: #111;
+    background-color: #B0E0E6;
+}
+
+.sep {
+    border-color: #e4e6e8 !important;
+    border-bottom-style: solid !important;
+    border-bottom-width: 1px !important;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.sep2 {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.sep3 {
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+.lab {
+    color: rgb(106, 115, 124);
+}
+
+.val {
+    color: rgb(36, 39, 41);
+}
+
+.im {
+    font-size: 14px;
+}
+
+.post-content {
+    color: #747474;
+}
+
+.post-link {
+    margin-bottom: 10px;
+}
+
+.post-link:hover {
+    border-color: grey;
+}
+
+a.post-link {
+    text-decoration: none;
+}

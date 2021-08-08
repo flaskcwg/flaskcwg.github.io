@@ -2,7 +2,6 @@ title:   Migrate doc translation repo to FlaskCWG org
 tags: migration
       flask
       repo
-      demo
 slug: migrate-repo-to-flaskcwg-org
 
 > **Note**: In order to transfer ownership you must be a member of the organization.
