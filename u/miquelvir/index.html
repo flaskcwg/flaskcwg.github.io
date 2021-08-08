@@ -11,9 +11,10 @@
 <link rel="icon" href="">
 <!--
 <script type="text/javascript" src="js/script.js"></script>
-<link rel="stylesheet" type="text/css" href="css/styles.css">
 -->
+
 <link rel="stylesheet" href="https://cdn.iconmonstr.com/1.3.0/css/iconmonstr-iconic-font.min.css">
+<!--https://iconmonstr.com-->
 <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre.min.css">
 <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-exp.min.css">
 <link rel="stylesheet" href="https://picturepan2.github.io/spectre/dist/docs.min.css">
@@ -22,112 +23,127 @@
         
   <title>Miquel ViR</title>
 
-        
-        <style type="text/css">
+        <!--<link rel="stylesheet" href="/static/css/styles.css">-->
+        <style>
             @import url('https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap');
 
-            .active-page {
-                font-weight: bolder;
-            }
-            .brand2{
-                font-weight: bolder;
-            }
+hr.style-two {
+    width: 300px;
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+}
 
-            #footer {
-                margin-top: 1.2rem;
-            }
+.active-page {
+    font-weight: bolder;
+}
 
-            #footer p {
-                border-top: 1px solid #eaeaea;
-                padding-top: 1rem;
-            }
+#footer {
+    margin-top: 1.2rem;
+}
 
-            .navbar-section > a {
-                border-bottom: 2px transparent solid;
-            }
+#footer p {
+    border-top: 1px solid #eaeaea;
+    padding-top: 1rem;
+}
 
-            .navbar-section > a:hover,
-            .navbar-section > .dropdown:hover {
-                border-bottom-color: #111;
-            }
+.navbar-section > a {
+    border-bottom: 2px transparent solid;
+}
 
-            .first-letter {
-                float: left;
-                font-size: 55px;
-                line-height: 1;
-                font-weight: bold;
-                margin-right: 9px;
-                font-family: 'EB Garamond', serif;
-            }
+.navbar-section > a:hover,
+.navbar-section > .dropdown:hover {
+    border-bottom-color: #111;
+}
 
-            .titles {
-                color: #111;
-                font-size: 60px;
-                font-weight: normal;
-                font-family: 'EB Garamond', serif;
-            }
+.first-letter {
+    float: left;
+    font-size: 55px;
+    line-height: 1;
+    font-weight: bold;
+    margin-right: 9px;
+    font-family: 'EB Garamond', serif;
+}
 
-            /*The docs.min.css stylesheet affects also the off-canvas
-            class and causes problems in the sidebar, the original styles
-            are set manually.*/
-            .off-canvas .off-canvas-toggle {
-                left: 15px;
-                top: 15px;
-                z-index: 1;
-            }
+.titles {
+    color: #111;
+    font-size: 40px;
+    font-weight: normal;
+    font-family: 'EB Garamond', serif;
+}
 
-            #navbar-items {
-                padding: 10px;
-                justify-content: center;
-            }
+/*The docs.min.css stylesheet affects also the off-canvas
+class and causes problems in the sidebar, the original styles
+are set manually.*/
+.off-canvas .off-canvas-toggle {
+    left: 15px;
+    top: 15px;
+    z-index: 1;
+}
 
-            #body-container {
-                padding-top: 20px;
-            }
+#navbar-items {
+    padding: 10px;
+    justify-content: center;
+}
 
-            /*POST AND FAQS TAGS STYLES*/
-            a.tag {
-                text-decoration: none;
-            }
+#body-container {
+    padding-top: 20px;
+}
 
-            a.tag.label:hover {
-                color: #111;
-                background-color: #B0E0E6;
-            }
+a.tag {
+    text-decoration: none;
+}
 
-            .sep {
-                border-color: #e4e6e8 !important;
-                border-bottom-style: solid !important;
-                border-bottom-width: 1px !important;
-                margin-top: 15px;
-                margin-bottom: 15px;
-            }
+a.tag.label:hover {
+    color: #111;
+    background-color: #B0E0E6;
+}
 
-            .sep2 {
-                padding-left: 5px;
-                padding-right: 5px;
-            }
+.sep {
+    border-color: #e4e6e8 !important;
+    border-bottom-style: solid !important;
+    border-bottom-width: 1px !important;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
 
-            .sep3 {
-                margin-top: 8px;
-                margin-bottom: 8px;
-            }
+.sep2 {
+    padding-left: 5px;
+    padding-right: 5px;
+}
 
-            .lab {
-                color: rgb(106, 115, 124);
-            }
+.sep3 {
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
 
-            .val {
-                color: rgb(36, 39, 41);
-            }
+.lab {
+    color: rgb(106, 115, 124);
+}
 
-            .im {
-                font-size: 14px;
-            }
+.val {
+    color: rgb(36, 39, 41);
+}
 
-            .post-content {
-                color: #747474;
-            }
+.im {
+    font-size: 14px;
+}
+
+.post-content {
+    color: #747474;
+}
+
+.post-link {
+    margin-bottom: 10px;
+}
+
+.post-link:hover {
+    border-color: grey;
+}
+
+a.post-link {
+    text-decoration: none;
+}
         </style>
     </head>
     <body id="body-container">
@@ -227,14 +243,6 @@
                 <div id="main-content-container" class="columns">
                     <div id="main-content" class="column col-8 col-mx-auto">
                         
-<style>
-    hr.style-two {
-        width: 300px;
-        border: 0;
-        height: 1px;
-        background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
-    }
-</style>
 <div class="container">
     <h5 class="text-center">
         <div>
