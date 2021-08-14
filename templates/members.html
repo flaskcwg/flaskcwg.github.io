@@ -36,6 +36,9 @@
                         <!--NAME TD-->
                         <td class="text-left">
                             <a href="/u/{{ github_username }}">{{ data['name'] }}</a>
+                            {% if data['founder'] == 'y' %}
+                            <span title="Founder"><i style="color: gold; font-size: 16px;" class="im im-star"></i></span>
+                            {% endif %}
                         </td>
 
                         <!--CODE TD-->
@@ -79,6 +82,9 @@
                             {% else %}
                                 <div class="bg-secondary docs-dot"></div>
                             {% endif %}
+                        </td>
+                        <td>
+
                         </td>
                     </tr>
                 {% endfor %}

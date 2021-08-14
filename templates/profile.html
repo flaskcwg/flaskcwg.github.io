@@ -4,11 +4,19 @@
   <title>{{ data['name'] }}</title>
 {% endblock %}
 {% block body %}
+<style>
+    .avatar-founder {
+        border:3px solid gold;
+        -webkit-border-radius: 500px;
+        -moz-border-radius: 500px;
+        background: transparent;
+    }
+</style>
 <div class="container">
     <h5 class="text-center">
         <div>
-            <figure class="avatar avatar-xl">
-                <img class="s-circle" src="https://avatars.githubusercontent.com/{{ github_username }}" alt="{{ github_username }} avatar">
+            <figure class="avatar avatar-xl {% if data['founder'] == 'y' %}avatar-founder{% endif %}">
+                <img class="s-circle" src="https://avatars.githubusercontent.com/{{ github_username }}" alt="{{ github_username }} avatar {% if data['founder'] == 'y' %}avatar-founder{% endif %}">
                 {% if data['retired'] == 'n' %}
                     <i class="avatar-presence online" title="Active"></i>
                 {% else %}
@@ -16,7 +24,10 @@
                 {% endif %}
             </figure>
         </div>
-        <a href="https://github.com/{{ github_username }}"><b>{{ data['name'] }} (@{{ github_username }})</b></a>
+        <b>{{ data['name'] }} (<a href="https://github.com/{{ github_username }}">@{{ github_username }}</a>)</b>
+        {% if data['founder'] == 'y' %}
+        <span title="Founder"><i style="color: gold; font-size: 19px;vertical-align: middle;" class="im im-star"></i></span>
+        {% endif %}
     </h5>
     <hr class="style-two">
     <div class="text-center">
@@ -45,6 +56,7 @@
         </dl>
         <h6><b>Presence</b></h6>
         <p>
+            <a href="https://avatars.githubusercontent.com/{{ github_username }}" alt="{{ github_username }}"><i class="img img-github"></i></a>
             {% for presence in data['links'] %}
                 <a href="{{ data['links'][presence] }}">{{ presence }}</a><br>
             {% endfor %}
