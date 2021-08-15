@@ -1,235 +1,256 @@
 {
-	"head":{
-		"description": "Flask Community Workgroup",
-		"keywords": "python, Flask, community",
-		"author": "Flask Community",
-		"theme-color": "#111"
-	},
-	"profiles":{
-		"greyli":{
-			"name": "Grey Li",
-			"bio": [],
-			"volunteer": {
-				"translation":{
-					"lang": "chinese",
-					"coordinator": "y"
-				},
-				"event": {},
-				"code": {},
-				"education": {}
-			},
-			"links":{
-				"twitter": ""
-			},
-			"retired": "n"
-		},
-		"hultner":{
-			"name": "Alexander Hultnér",
-			"bio": [],
-			"volunteer": {
-				"event": {},
-				"code": {},
-				"education": {}
-			},
-			"links":{
-				"twitter": ""
-			},
-			"retired": "n"
-		},
-		"jugmac00":{
-			"name": "Jürgen Gmach",
-			"bio": [],
-			"volunteer": {
-				"event": {},
-				"code": {},
-				"education": {}
-			},
-			"links":{
-				"twitter": ""
-			},
-			"retired": "n"
-		},
-		"Abdur-RahmaanJ":{
-			"name": "Abdur-Rahmaan Janhangeer",
-			"bio": [
-				"Some phrase.",
-				"Another phrase.",
-				"blank line next",
-				"",
-				"Another paragraph",
-				"", "",
-				"Some text whihf wrf"
-			],
-			"volunteer": {
-				"event": {},
-				"code": {},
-				"education": {}
-			},
-			"links":{
-				"twitter": ""
-			},
-			"retired": "n"
-		},
-		"ichux":{
-			"name": "Chukwudi Nwachukwu",
-			"bio": [],
-			"volunteer": {
-				"event": {},
-				"code": {},
-				"education": {}
-			},
-			"links":{
-				"twitter": ""
-			},
-			"retired": "n"
-		},
-		"anistark":{
-			"name": "Kumar Anirudha",
-			"bio": [],
-			"volunteer": {
-				"event": {}
-			},
-			"links":{
-				"twitter": ""
-			},
-			"retired": "n"
-		},
-		"abhiramr":{
-			"name": "Abhiram R",
-			"bio": [],
-			"volunteer": {
-				"event": {}
-			},
-			"links":{
-				"twitter": ""
-			},
-			"retired": "n"
-		},
-		"kouul":{
-			"name": "Hans Maulloo",
-			"bio": [],
-			"volunteer": {
-				"event": {}
-			},
-			"links":{
-				"twitter": ""
-			},
-			"retired": "n"
-		},
-		"kunmi02":{
-			"name": "Azeez Ibrahim Akinkunm",
-			"bio": [],
-			"volunteer": {
-				"event": {}
-			},
-			"links":{
-				"twitter": ""
-			},
-			"retired": "n"
-		},
-		"rehmanis":{
-			"name": "Shamsuddin Rehmani",
-			"bio": [],
-			"volunteer": {
-				"code": {},
-				"education": {}
-			},
-			"links":{
-				"twitter": ""
-			},
-			"retired": "n"
-		},
-		"Jalkhov":{
-			"name": "Pedro Torcatt",
-			"bio": [],
-			"volunteer": {
-				"translation":{
-					"lang": "spanish",
-					"coordinator": "y"
-				},
-				"event": {},
-				"code": {},
-				"education": {}
-			},
-			"links":{
-				"twitter": ""
-			},
-			"retired": "n"
-		},
-		"yuxiaoy1":{
-			"name": "Yuxiaoy",
-			"bio": [],
-			"volunteer": {
-				"translation":{
-					"lang": "chinese"
-				},
-				"event": {},
-				"code": {},
-				"education": {}
-			},
-			"links":{
-				"twitter": "https://twitter.com/yuxiaoy1/",
-				"weibo": "https://weibo.com/u/1802713725/"
-			},
-			"retired": "n"
-		},
-		"miquelvir":{
-			"name": "Miquel ViR",
-			"bio": [],
-			"volunteer": {
-				"education": {}
-			},
-			"links":{
-				"StackOverflow": "https://stackoverflow.com/users/9415337/miquelvir",
-				"GitHub": "https://github.com/miquelvir"
-			},
-			"retired": "n"
-		}
-	},
-	"resources": {
-		"ecommerce": [
-			{
-				"name": "Flask Marketplace",
-				"link": "https://github.com/EwetoyeIbrahim/Flask-Marketplace",
-				"info": ["A modular marketplace in Flask with multiple stores"],
-				"tags": ["flutterwave", "ecommerce", "marketplace"]
-			},
-			{
-				"name": "ShopCube",
-				"link": "https://github.com/shopyo/ShopCube",
-				"info": ["Ecommerce solution with cart, orders and anonymous buying"],
-				"tags": ["ecommerce"]
-			},
-			{
-				"name": "MarketFlow",
-				"link": "https://github.com/shopyo/MarketFlow",
-				"info": ["Modular marketplace with multi-vendor option"],
-				"tags": ["ecommerce", "marketplace"]
-			}
-		],
-		"power_frameworks": [
-			{
-				"name": "Quart",
-				"link": "https://gitlab.com/pgjones/quart",
-				"info": ["Python ASGI web microframework with the same API as Flask."],
-				"tags": ["async", "asgi"]
-			},
-			{
-				"name": "Shopyo",
-				"link": "https://github.com/shopyo/shopyo",
-				"info": [
-					"SQLAchemy-first framework allowing you to have pure modules in Flask.", 
-					"Supports some Django commands."],
-				"tags": ["modular", "django"]
-			}
-		],
-		"realtime": [
-			{
-				"name": "Flask-SocketIO",
-				"link": "https://github.com/miguelgrinberg/Flask-SocketIO",
-				"info": ["Socket.IO integration for Flask applications."],
-				"tags": ["realtime", "sockets"]
-			},
+    "head":{
+        "description": "Flask Community Workgroup",
+        "keywords": "python, Flask, community",
+        "author": "Flask Community",
+        "theme-color": "#111"
+    },
+    "profiles":{
+        "greyli":{
+            "name": "Grey Li",
+            "bio": [],
+            "volunteer": {
+                "translation":{
+                    "lang": "chinese",
+                    "coordinator": "y"
+                },
+                "event": {},
+                "code": {},
+                "education": {}
+            },
+            "links":{
+                "twitter": ""
+            },
+            "retired": "n",
+            "founder": "y"
+        },
+        "hultner":{
+            "name": "Alexander Hultnér",
+            "bio": [],
+            "volunteer": {
+                "event": {},
+                "code": {},
+                "education": {}
+            },
+            "links":{
+                "twitter": ""
+            },
+            "retired": "n",
+            "founder": "y"
+        },
+        "jugmac00":{
+            "name": "Jürgen Gmach",
+            "bio": [],
+            "volunteer": {
+                "event": {},
+                "code": {},
+                "education": {}
+            },
+            "links":{
+                "twitter": ""
+            },
+            "retired": "n",
+            "founder": "y"
+        },
+        "Abdur-RahmaanJ":{
+            "name": "Abdur-Rahmaan Janhangeer",
+            "bio": [
+                "Some phrase.",
+                "Another phrase.",
+                "blank line next",
+                "",
+                "Another paragraph",
+                "", "",
+                "Some text whihf wrf"
+            ],
+            "volunteer": {
+                "event": {},
+                "code": {},
+                "education": {}
+            },
+            "links":{
+                "twitter": ""
+            },
+            "retired": "n",
+            "founder": "y"
+        },
+        "ichux":{
+            "name": "Chukwudi Nwachukwu",
+            "bio": [],
+            "volunteer": {
+                "event": {},
+                "code": {},
+                "education": {}
+            },
+            "links":{
+                "twitter": ""
+            },
+            "retired": "n",
+            "founder": "y"
+        },
+        "anistark":{
+            "name": "Kumar Anirudha",
+            "bio": [],
+            "volunteer": {
+                "event": {}
+            },
+            "links":{
+                "twitter": ""
+            },
+            "retired": "n",
+            "founder": "y"
+        },
+        "abhiramr":{
+            "name": "Abhiram R",
+            "bio": [],
+            "volunteer": {
+                "event": {}
+            },
+            "links":{
+                "twitter": ""
+            },
+            "retired": "n",
+            "founder": "y"
+        },
+        "kouul":{
+            "name": "Hans Maulloo",
+            "bio": [],
+            "volunteer": {
+                "event": {}
+            },
+            "links":{
+                "twitter": ""
+            },
+            "retired": "n",
+            "founder": "y"
+        },
+        "kunmi02":{
+            "name": "Azeez Ibrahim Akinkunm",
+            "bio": [],
+            "volunteer": {
+                "event": {}
+            },
+            "links":{
+                "twitter": ""
+            },
+            "retired": "n",
+            "founder": "y"
+        },
+        "rehmanis":{
+            "name": "Shamsuddin Rehmani",
+            "bio": [],
+            "volunteer": {
+                "code": {},
+                "education": {}
+            },
+            "links":{
+                "twitter": ""
+            },
+            "retired": "n",
+            "founder": "y"
+        },
+        "Jalkhov":{
+            "name": "Pedro Torcatt",
+            "bio": [],
+            "volunteer": {
+                "translation":{
+                    "lang": "spanish",
+                    "coordinator": "y"
+                },
+                "event": {},
+                "code": {},
+                "education": {}
+            },
+            "links":{
+                "twitter": ""
+            },
+            "retired": "n"
+        },
+        "yuxiaoy1":{
+            "name": "Yuxiaoy",
+            "bio": [],
+            "volunteer": {
+                "translation":{
+                    "lang": "chinese"
+                },
+                "event": {},
+                "code": {},
+                "education": {}
+            },
+            "links":{
+                "twitter": "https://twitter.com/yuxiaoy1/",
+                "weibo": "https://weibo.com/u/1802713725/"
+            },
+            "retired": "n"
+        },
+        "miquelvir":{
+            "name": "Miquel ViR",
+            "bio": [],
+            "volunteer": {
+                "education": {}
+            },
+            "links":{
+                "StackOverflow": "https://stackoverflow.com/users/9415337/miquelvir",
+                "GitHub": "https://github.com/miquelvir"
+            },
+            "retired": "n"
+        },
+        "vlevieux":{
+            "name": "Victor LEVIEUX",
+            "bio": [],
+            "volunteer": {
+                "translation":{
+                    "lang": "french",
+                    "coordinator": "y"
+                }
+            },
+            "retired": "n"
+        }
+    },
+    "resources": {
+        "ecommerce": [
+            {
+                "name": "Flask Marketplace",
+                "link": "https://github.com/EwetoyeIbrahim/Flask-Marketplace",
+                "info": ["A modular marketplace in Flask with multiple stores"],
+                "tags": ["flutterwave", "ecommerce", "marketplace"]
+            },
+            {
+                "name": "ShopCube",
+                "link": "https://github.com/shopyo/ShopCube",
+                "info": ["Ecommerce solution with cart, orders and anonymous buying"],
+                "tags": ["ecommerce"]
+            },
+            {
+                "name": "MarketFlow",
+                "link": "https://github.com/shopyo/MarketFlow",
+                "info": ["Modular marketplace with multi-vendor option"],
+                "tags": ["ecommerce", "marketplace"]
+            }
+        ],
+        "power_frameworks": [
+            {
+                "name": "Quart",
+                "link": "https://gitlab.com/pgjones/quart",
+                "info": ["Python ASGI web microframework with the same API as Flask."],
+                "tags": ["async", "asgi"]
+            },
+            {
+                "name": "Shopyo",
+                "link": "https://github.com/shopyo/shopyo",
+                "info": [
+                    "SQLAchemy-first framework allowing you to have pure modules in Flask.",
+                    "Supports some Django commands."],
+                "tags": ["modular", "django"]
+            }
+        ],
+        "realtime": [
+            {
+                "name": "Flask-SocketIO",
+                "link": "https://github.com/miguelgrinberg/Flask-SocketIO",
+                "info": ["Socket.IO integration for Flask applications."],
+                "tags": ["realtime", "sockets"]
+            },
             {
                 "name": "Flask-Sock",
                 "link": "https://github.com/miguelgrinberg/flask-sock",
@@ -242,113 +263,113 @@
                 "info": ["Meld is a full-stack framework for Flask that allows you to create reactive applications with no Javascript."],
                 "tags": ["realtime", "components", "sockets"]
             }
-		],
-		"orm": [
-			{
-				"name": "Flask-SQLAlchemy",
-				"link": "https://github.com/pallets/flask-sqlalchemy",
-				"info": ["Adds SQLAlchemy support to Flask."],
-				"tags": ["sqlalchemy", "orm"]
-			}
-		],
-		"migration": [
-			{
-				"name": "Flask-Migrate",
-				"link": "https://github.com/miguelgrinberg/Flask-Migrate",
-				"info": ["Flask-Migrate is an extension that handles SQLAlchemy database migrations for Flask applications using Alembic."],
-				"tags": ["migration", "sqlalchemy"]
-			}
-		],
-		"api": [
-			{
-				"name": "Flask-Rebar",
-				"link": "https://github.com/plangrid/flask-rebar",
-				"info": ["Flask-Rebar combines Flask, Marshmallow, and Swagger for robust REST services."],
-				"tags": ["swagger", "marshmallow", "api"]
-			},
-			{
-				"name": "APIFlask",
-				"link": "https://github.com/greyli/apiflask",
-				"info": ["Web APIs for Flask"],
-				"tags": ["swagger", "marshmallow", "api"]
-			},
-			{
-				"name": "Flask-RESTX",
-				"link": "https://github.com/python-restx/flask-RESTX",
-				"info": ["Fork of Flask-RESTPlus: Fully featured framework for fast, easy and documented API development with Flask."],
-				"tags": ["swagger", "marshmallow", "api"]
-			},
-			{
-				"name": "Flask-Flasgger",
-				"link": "https://github.com/flasgger/flasgger",
-				"info": ["Flasgger is a Flask extension to extract OpenAPI-Specification from all Flask views registered in your API."],
-				"tags": ["swagger", "api"]
-			},
-			{
-				"name": "Flask-Pydantic",
-				"link": "https://github.com/bauerji/flask_pydantic",
-				"info": ["Flask extension for integration of the awesome pydantic package with Flask."],
-				"tags": ["pydantic", "(de)serialization", "api"]
-			},
-			{
-				"name": "Flask-Marshmallow",
-				"link": "https://github.com/marshmallow-code/flask-marshmallow",
-				"info": ["Flask-Marshmallow is a thin integration layer for Flask and marshmallow that adds additional features to marshmallow, including URL and Hyperlinks fields for HATEOAS-ready APIs.",
-					"It also (optionally) integrates with Flask-SQLAlchemy."],
-				"tags": ["marshmallow", "(de)serialization", "api"]
-			},
-			{
-				"name": "APIFairy",
-				"link": "https://github.com/miguelgrinberg/APIFairy",
-				"info": ["A minimalistic API framework built on top of Flask, Marshmallow and friends."],
-				"tags": ["marshmallow", "apispec", "api"]
-			}
-		],
-		"auth": [
-			{
-				"name": "Flask-Login",
-				"link": "https://github.com/maxcountryman/flask-login",
-				"info": ["Flask user session management."],
-				"tags": ["auth", "session"]
-			},
-			{
-				"name": "Flask-Dance",
-				"link": "https://github.com/singingwolfboy/flask-dance",
-				"info": ["Doing the OAuth dance with style using Flask, requests, and oauthlib."],
-				"tags": ["auth", "oauth"]
-			},
-			{
-				"name": "Flask-JWT",
-				"link": "https://github.com/mattupstate/flask-jwt",
-				"info": ["Add basic JWT features to your Flask application."],
-				"tags": ["auth", "jwt"]
-			},
-			{
-				"name": "Flask-JWT-Extended",
-				"link": "https://github.com/vimalloc/flask-jwt-extended",
-				"info": ["Flask-JWT-Extended not only adds support for using JSON Web Tokens (JWT) to Flask for protecting routes, but also many helpful (and optional) features built in to make working with JSON Web Tokens easier."],
-				"tags": ["auth", "jwt"]
-			}
-		],
-		"security" : [
-			{
-				"name": "Flask-Talisman",
-				"link": "https://github.com/GoogleCloudPlatform/flask-talisman",
-				"info": ["Talisman is a small Flask extension that handles setting HTTP headers that can help protect against a few common web application security issues."],
-				"tags": ["security"]
-			},
-			{
-				"name": "Flask-Seasurf",
-				"link": "https://github.com/maxcountryman/flask-seasurf",
-				"info": ["SeaSurf is a Flask extension for preventing cross-site request forgery (CSRF)."],
-				"tags": ["security"]
-			},
-			{
-				"name": "Flask-CORS",
-				"link": "https://github.com/corydolphin/flask-cors",
-				"info": ["A Flask extension for handling Cross Origin Resource Sharing (CORS), making cross-origin AJAX possible."],
-				"tags": ["security"]
-			}
-		]
-	}
+        ],
+        "orm": [
+            {
+                "name": "Flask-SQLAlchemy",
+                "link": "https://github.com/pallets/flask-sqlalchemy",
+                "info": ["Adds SQLAlchemy support to Flask."],
+                "tags": ["sqlalchemy", "orm"]
+            }
+        ],
+        "migration": [
+            {
+                "name": "Flask-Migrate",
+                "link": "https://github.com/miguelgrinberg/Flask-Migrate",
+                "info": ["Flask-Migrate is an extension that handles SQLAlchemy database migrations for Flask applications using Alembic."],
+                "tags": ["migration", "sqlalchemy"]
+            }
+        ],
+        "api": [
+            {
+                "name": "Flask-Rebar",
+                "link": "https://github.com/plangrid/flask-rebar",
+                "info": ["Flask-Rebar combines Flask, Marshmallow, and Swagger for robust REST services."],
+                "tags": ["swagger", "marshmallow", "api"]
+            },
+            {
+                "name": "APIFlask",
+                "link": "https://github.com/greyli/apiflask",
+                "info": ["Web APIs for Flask"],
+                "tags": ["swagger", "marshmallow", "api"]
+            },
+            {
+                "name": "Flask-RESTX",
+                "link": "https://github.com/python-restx/flask-RESTX",
+                "info": ["Fork of Flask-RESTPlus: Fully featured framework for fast, easy and documented API development with Flask."],
+                "tags": ["swagger", "marshmallow", "api"]
+            },
+            {
+                "name": "Flask-Flasgger",
+                "link": "https://github.com/flasgger/flasgger",
+                "info": ["Flasgger is a Flask extension to extract OpenAPI-Specification from all Flask views registered in your API."],
+                "tags": ["swagger", "api"]
+            },
+            {
+                "name": "Flask-Pydantic",
+                "link": "https://github.com/bauerji/flask_pydantic",
+                "info": ["Flask extension for integration of the awesome pydantic package with Flask."],
+                "tags": ["pydantic", "(de)serialization", "api"]
+            },
+            {
+                "name": "Flask-Marshmallow",
+                "link": "https://github.com/marshmallow-code/flask-marshmallow",
+                "info": ["Flask-Marshmallow is a thin integration layer for Flask and marshmallow that adds additional features to marshmallow, including URL and Hyperlinks fields for HATEOAS-ready APIs.",
+                    "It also (optionally) integrates with Flask-SQLAlchemy."],
+                "tags": ["marshmallow", "(de)serialization", "api"]
+            },
+            {
+                "name": "APIFairy",
+                "link": "https://github.com/miguelgrinberg/APIFairy",
+                "info": ["A minimalistic API framework built on top of Flask, Marshmallow and friends."],
+                "tags": ["marshmallow", "apispec", "api"]
+            }
+        ],
+        "auth": [
+            {
+                "name": "Flask-Login",
+                "link": "https://github.com/maxcountryman/flask-login",
+                "info": ["Flask user session management."],
+                "tags": ["auth", "session"]
+            },
+            {
+                "name": "Flask-Dance",
+                "link": "https://github.com/singingwolfboy/flask-dance",
+                "info": ["Doing the OAuth dance with style using Flask, requests, and oauthlib."],
+                "tags": ["auth", "oauth"]
+            },
+            {
+                "name": "Flask-JWT",
+                "link": "https://github.com/mattupstate/flask-jwt",
+                "info": ["Add basic JWT features to your Flask application."],
+                "tags": ["auth", "jwt"]
+            },
+            {
+                "name": "Flask-JWT-Extended",
+                "link": "https://github.com/vimalloc/flask-jwt-extended",
+                "info": ["Flask-JWT-Extended not only adds support for using JSON Web Tokens (JWT) to Flask for protecting routes, but also many helpful (and optional) features built in to make working with JSON Web Tokens easier."],
+                "tags": ["auth", "jwt"]
+            }
+        ],
+        "security" : [
+            {
+                "name": "Flask-Talisman",
+                "link": "https://github.com/GoogleCloudPlatform/flask-talisman",
+                "info": ["Talisman is a small Flask extension that handles setting HTTP headers that can help protect against a few common web application security issues."],
+                "tags": ["security"]
+            },
+            {
+                "name": "Flask-Seasurf",
+                "link": "https://github.com/maxcountryman/flask-seasurf",
+                "info": ["SeaSurf is a Flask extension for preventing cross-site request forgery (CSRF)."],
+                "tags": ["security"]
+            },
+            {
+                "name": "Flask-CORS",
+                "link": "https://github.com/corydolphin/flask-cors",
+                "info": ["A Flask extension for handling Cross Origin Resource Sharing (CORS), making cross-origin AJAX possible."],
+                "tags": ["security"]
+            }
+        ]
+    }
 }
