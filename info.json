@@ -205,19 +205,6 @@
                 }
             },
             "retired": "n"
-        },
-        "marktennyson":{
-            "name": "Aniket Sarkar",
-            "bio": ["passionate python and javascript developer"],
-            "volunteer": {
-                "education": {},
-                "code": {}
-            },
-            "links": {
-                "GitHub":"https://github.com/marktennyson",
-                "LinkedIn":"https://www.linkedin.com/in/marktennyson29/"
-            },
-            "retired": "n"
         }
     },
     "resources": {
