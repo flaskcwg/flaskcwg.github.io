@@ -242,12 +242,6 @@
                     "SQLAchemy-first framework allowing you to have pure modules in Flask.",
                     "Supports some Django commands."],
                 "tags": ["modular", "django"]
-            },
-            {
-                "name": "Navycut",
-                "link": "https://github.com/navycut/navycut",
-                "info": ["The Full-stack web framework to meet the developer's expectation with all the Flask batteries included."],
-                "tags": ["modular", "django", "fullstack"]
             }
         ],
         "realtime": [
@@ -375,28 +369,6 @@
                 "link": "https://github.com/corydolphin/flask-cors",
                 "info": ["A Flask extension for handling Cross Origin Resource Sharing (CORS), making cross-origin AJAX possible."],
                 "tags": ["security"]
-            }
-        ],
-        "mail" : [
-            {
-                "name": "Flask-MailMan",
-                "link": "https://github.com/waynerv/flask-mailman",
-                "info": ["Porting Django's email implementation to your Flask applications."],
-                "tags": ["mail", "flask-mail"]
-            },
-            {
-                "name": "Flask-Mailing",
-                "link": "https://github.com/marktennyson/flask-mailing",
-                "info": ["Flask mail system sending mails(individual, bulk) attachments(individual, bulk) fully asynchronously."],
-                "tags": ["mail", "flask-mail"]
-            }
-        ],
-        "featured" : [
-            {
-                "name": "Flask-Express",
-                "link": "https://github.com/marktennyson/flask-express",
-                "info": ["provide the interactive service like expressJs to the flask app."],
-                "tags": ["featured", "expressJs"]
             }
         ]
     }
