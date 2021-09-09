@@ -18,19 +18,9 @@
             <div class="tile-content">
                 <div class="tile-title">{{ blog_post['title'] }}</div>
                 <small class="tile-subtitle text-gray">
-                    {% set authors = blog_post['authors'] %}
-                    {% for author in authors %}
-                        {{ author }}{% if (not loop.index == len(authors)) %},{% endif %}
-                    {% endfor %}
-                    · {{ blog_post['date'] }}</small>
+                    {{ blog_post['date'] }}
+                </small>
             </div>
-            <!--
-            <div class="tile-action">
-                <button class="btn btn-link">
-                <i class="icon icon-more-vert"></i>
-                </button>
-            </div>
-            -->
         </div>
     </a>
     {% endfor %}
