@@ -1,16 +1,16 @@
-import sys
-import os
-from os.path import join
-import markdown
 import datetime
+import os
+import sys
+from functools import wraps
+from os.path import join
 
+import markdown
 import settings
+import validators
 from flask import Flask
 from jamstack.api.template import base_context
 from jamstack.api.template import generate as generate_
 from livereload import Server
-import validators
-from functools import wraps
 
 folder_count = 0
 file_count = 0
@@ -196,7 +196,8 @@ def generate_profiles():
         generate(
             "profile.html",
             join(
-                settings.OUTPUT_FOLDER, "u", "{}".format(github_username), "index.html"
+                settings.OUTPUT_FOLDER, "u", "{}".format(
+                    github_username), "index.html"
             ),
             **context,
         )
@@ -327,7 +328,8 @@ def generate_blog_posts():
         )
 
     for tag in tags_registry:
-        context.update({"tag": tag, "posts": tags_registry[tag], "path": "../" * 2})
+        context.update(
+            {"tag": tag, "posts": tags_registry[tag], "path": "../" * 2})
         generate(
             "blog/tag.html",
             join(settings.OUTPUT_FOLDER, "tag", tag, "index.html"),
@@ -361,7 +363,8 @@ def generate_resources():
         )
         generate(
             "resources/category.html",
-            join(settings.OUTPUT_FOLDER, "resources", "c", resource, "index.html"),
+            join(settings.OUTPUT_FOLDER, "resources",
+                 "c", resource, "index.html"),
             **context,
         )
 
@@ -373,7 +376,8 @@ def generate_resources():
     ensure_output_folder(join("resources", "tag"))
     for tag in tags_registry:
         ensure_output_folder(join("resources", "tag", tag))
-        context.update({"tag": tag, "projects": tags_registry[tag], "path": "../" * 3})
+        context.update(
+            {"tag": tag, "projects": tags_registry[tag], "path": "../" * 3})
         generate(
             "resources/tag.html",
             join(settings.OUTPUT_FOLDER, "resources", "tag", tag, "index.html"),
@@ -448,15 +452,16 @@ def generate_menu_pages():
         **context,
     )
 
-    ensure_output_folder("takeover")
+    ensure_output_folder("pallets-eco")
     generate(
-        "takeover.html",
-        join(settings.OUTPUT_FOLDER, "takeover", "index.html"),
+        "pallets-eco.html",
+        join(settings.OUTPUT_FOLDER, "pallets-eco", "index.html"),
         **context,
     )
 
     ensure_output_folder("join")
-    generate("join.html", join(settings.OUTPUT_FOLDER, "join", "index.html"), **context)
+    generate("join.html", join(settings.OUTPUT_FOLDER,
+                               "join", "index.html"), **context)
 
     ensure_output_folder("members")
     generate(
@@ -464,7 +469,8 @@ def generate_menu_pages():
     )
 
     ensure_output_folder("aim")
-    generate("aim.html", join(settings.OUTPUT_FOLDER, "aim", "index.html"), **context)
+    generate("aim.html", join(settings.OUTPUT_FOLDER,
+                              "aim", "index.html"), **context)
 
 
 def main(args):
