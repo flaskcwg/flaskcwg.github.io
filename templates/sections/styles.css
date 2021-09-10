@@ -15,9 +15,10 @@ hr.style-two {
     margin-top: 1.2rem;
 }
 
-#footer p {
+#footer{
     border-top: 1px solid #eaeaea;
     padding-top: 1rem;
+    padding-bottom: 1rem;
 }
 
 .navbar-section > a {
