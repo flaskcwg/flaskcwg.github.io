@@ -6,7 +6,6 @@
 {% block body %}
 <div id='posts'>
     <h2 class="text-center titles">Blog posts</h2>
-    <p class="text-center">Community-contributed. Not endorsed by the Pallets</p>
     {% for blog_post in posts %}
     <a href="/b/{{ blog_post['slug'] }}" class="panel post-link">
         <div class="tile tile-centered">
