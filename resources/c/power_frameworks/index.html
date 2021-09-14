@@ -25,13 +25,12 @@
 
         <!--<link rel="stylesheet" href="/static/css/styles.css">-->
         <style>
-            @import url('https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap');
-
+            @import url(https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap);
 hr.style-two {
     width: 300px;
     border: 0;
     height: 1px;
-    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+    background-image: linear-gradient(toright, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
 }
 
 .active-page {
@@ -40,20 +39,17 @@ hr.style-two {
 
 #footer {
     margin-top: 1.2rem;
-}
-
-#footer{
     border-top: 1px solid #eaeaea;
     padding-top: 1rem;
     padding-bottom: 1rem;
 }
 
-.navbar-section > a {
+.navbar-section>a {
     border-bottom: 2px transparent solid;
 }
 
-.navbar-section > a:hover,
-.navbar-section > .dropdown:hover {
+.navbar-section>a:hover,
+.navbar-section>.dropdown:hover {
     border-bottom-color: #111;
 }
 
@@ -61,7 +57,7 @@ hr.style-two {
     float: left;
     font-size: 55px;
     line-height: 1;
-    font-weight: bold;
+    font-weight: 700;
     margin-right: 9px;
     font-family: 'EB Garamond', serif;
 }
@@ -69,13 +65,10 @@ hr.style-two {
 .titles {
     color: #111;
     font-size: 40px;
-    font-weight: normal;
+    font-weight: 400;
     font-family: 'EB Garamond', serif;
 }
 
-/*The docs.min.css stylesheet affects also the off-canvas
-class and causes problems in the sidebar, the original styles
-are set manually.*/
 .off-canvas .off-canvas-toggle {
     left: 15px;
     top: 15px;
@@ -83,16 +76,12 @@ are set manually.*/
 }
 
 #navbar-items {
-    padding: 10px;
     justify-content: center;
+    padding: 10px;
 }
 
 #body-container {
     padding-top: 20px;
-}
-
-a.tag {
-    text-decoration: none;
 }
 
 a.tag.label:hover {
@@ -101,11 +90,11 @@ a.tag.label:hover {
 }
 
 .sep {
-    border-color: #e4e6e8 !important;
-    border-bottom-style: solid !important;
-    border-bottom-width: 1px !important;
+    border-bottom-style: solid!important;
+    border-bottom-width: 1px!important;
     margin-top: 15px;
     margin-bottom: 15px;
+    border-color: #e4e6e8!important;
 }
 
 .sep2 {
@@ -119,11 +108,11 @@ a.tag.label:hover {
 }
 
 .lab {
-    color: rgb(106, 115, 124);
+    color: #6a737c;
 }
 
 .val {
-    color: rgb(36, 39, 41);
+    color: #242729;
 }
 
 .im {
@@ -142,7 +131,32 @@ a.tag.label:hover {
     border-color: grey;
 }
 
-a.post-link {
+a.card {
+    transition-timing-function: ease-in;
+    transition: .2s;
+}
+
+a.card img {
+    opacity: 0.5;
+    border-bottom: 1px #F2F2F2 solid;
+}
+
+a.card:hover {
+    transition-timing-function: ease-out;
+    transition: .25s;
+    box-shadow: 0 6px 33px -5px rgba(0, 0, 0, 0.32);
+    -webkit-box-shadow: -3px 6px 33px -5px rgba(0, 0, 0, 0.32);
+    -moz-box-shadow: 0 6px 33px -5px rgba(0, 0, 0, 0.32);
+    transform: translateY(-0.15em);
+}
+
+a.card:hover img {
+    opacity: 1;
+}
+
+a.tag,
+a.post-link,
+a.card {
     text-decoration: none;
 }
         </style>
@@ -274,19 +288,6 @@ a.post-link {
                 <a href="/resources/tag/modular">modular</a>,
             
                 <a href="/resources/tag/django">django</a>
-            </td>
-    </tr>
-    
-    <tr>
-      <td><a href="https://github.com/navycut/navycut">Navycut</a></td>
-      <td>The Full-stack web framework to meet the developer's expectation with all the Flask batteries included.</td>
-      <td>
-            
-                <a href="/resources/tag/modular">modular</a>,
-            
-                <a href="/resources/tag/django">django</a>,
-            
-                <a href="/resources/tag/fullstack">fullstack</a>
             </td>
     </tr>
     
