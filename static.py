@@ -351,8 +351,9 @@ def generate_resources():
 
     tags_registry = {}
     # /resources/c/api/ # for category. category name cannot be tag
+
     for resource in resources:
-        current_resource = resources[resource]
+        current_resource = resources[resource]['posts']
         ensure_output_folder(join("resources", "c", resource))
         context.update(
             {
@@ -369,6 +370,7 @@ def generate_resources():
         )
 
         for project in current_resource:
+            # print(project)
             tags = project["tags"]
             classify_by_tag(tags, tags_registry, project)
 
