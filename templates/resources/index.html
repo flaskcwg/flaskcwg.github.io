@@ -1,17 +1,39 @@
 {% extends 'base.html' %}
 {% set section = 'resources' %}
 {% block head %}
-  <title>Resources</title>
+    <title>Resources</title>
 {% endblock %}
 {% block body %}
+    <br> <!--(br)TEMPORAL SOLUTION-->
+    <h2 class="text-center titles">Curated resources</h2>
+    <p>
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quibusdam molestiae, repellat, minus, molestias voluptates odit, veniam commodi ullam nesciunt esse alias placeat eaque harum voluptate hic expedita maxime cupiditate amet!
+    </p>
 
-<ul>
-  {% for category in info['resources'] %}
-  <li>
-    <a href="/resources/c/{{ category }}/" style="display: inline-block;">
-      {{ category.replace('_', ' ').capitalize() }}
-    </a>
-  </li>
-  {% endfor %}
-</ul>
+    <div class="container">
+        <div class="columns">
+            {% for category in info['resources'] %}
+                {% set description = info['resources'][category]['description'] %}
+                {% set posts_count = len(info['resources'][category]['posts']) %}
+                <div class="column col-4 col-xs-12 col-sm-12 col-md-6" style="margin-bottom: 30px">
+                    <a class="card" href="/resources/c/{{ category }}/" target="_blank">
+                        <div class="card">
+                            <div class="card-image">
+                                <img src="../static/curated_resources_images/{{ category }}.png" class="img-responsive">
+                            </div>
+                            <div class="card-header">
+                                <div class="card-title h6">{{ category.replace('_', ' ').capitalize() }}</div>
+                                <div class="card-subtitle text-gray">{{ description }}</div>
+                            </div>
+                            <!--
+                            <div class="card-body">
+                                {{ description }}
+                            </div>
+                            -->
+                        </div>
+                     </a>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
 {% endblock %}
