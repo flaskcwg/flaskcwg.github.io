@@ -284,6 +284,12 @@
                 "link": "https://github.com/pallets/flask-sqlalchemy",
                 "info": ["Adds SQLAlchemy support to Flask."],
                 "tags": ["sqlalchemy", "orm"]
+                },
+                {
+                "name": "Flask-Tortoise",
+                "link": "https://github.com/marktennyson/Flask-Tortoise",
+                "info": ["Adds asynchronous Tortoise-ORM support to Flask."],
+                "tags": ["tortoise-orm", "orm"]
                 }
             ],
             "description": "Example description about ORM resource"
