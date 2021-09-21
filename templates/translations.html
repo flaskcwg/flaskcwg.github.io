@@ -4,6 +4,12 @@
   <title>Translations</title>
 {% endblock %}
 {% block body %}
+<style>
+    #translations .chip {
+        background: #1691C4;
+        color: white;
+    }
+</style>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <div id="translations">
 	<h2 class="text-center titles">Translations</h2>
@@ -48,9 +54,11 @@
                     <a target="_blank" href="https://flask-es.readthedocs.io/" title="Readthedocs"><i class="fa fa-book" aria-hidden="true"></i></a>
                 </td>
                 <td>
+                    <span class="chip" class="percent-badge">
                     {% if trans_progress %}
                         {{ trans_progress['es'] }}%
                     {% endif %}
+                    </span>
                 </td>
             </tr>
             <tr>
@@ -62,9 +70,11 @@
                     <a target="_blank" href="https://flask-zh.readthedocs.io/" title="Readthedocs"><i class="fa fa-book" aria-hidden="true"></i></a>
                 </td>
                 <td>
+                    <span class="chip" class="percent-badge">
                     {% if trans_progress %}
                         {{ trans_progress['zh'] }}%
                     {% endif %}
+                    </span>
                 </td>
             </tr>
             <tr>
@@ -76,9 +86,11 @@
                     <a target="_blank" href="https://flask-fr.readthedocs.io/" title="Readthedocs"><i class="fa fa-book" aria-hidden="true"></i></a>
                 </td>
                 <td>
+                    <span class="chip" class="percent-badge">
                     {% if trans_progress %}
                         {{ trans_progress['fr'] }}%
                     {% endif %}
+                    </span>
                 </td>
             </tr>
         </tbody>
