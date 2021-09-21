@@ -11,6 +11,7 @@ from flask import Flask
 from jamstack.api.template import base_context
 from jamstack.api.template import generate as generate_
 from livereload import Server
+from trans_calculator import TranslatedProgress
 
 folder_count = 0
 file_count = 0
