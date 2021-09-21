@@ -16,6 +16,10 @@ from trans_calculator import TranslatedProgress
 folder_count = 0
 file_count = 0
 
+# Translation repositories.
+# MUST BE OWNED BY FLASKCWG ORG
+trans_repos = ['es', 'fr', 'zh']
+
 
 def count_folders(function):
     """Returns number of times any function with this decorator is called
