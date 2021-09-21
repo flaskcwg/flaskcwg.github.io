@@ -441,17 +441,25 @@ def generate_faq():
         )
 
 
-def generate_menu_pages():
+def generate_menu_pages(args):
     # excluding blog post
     generate("index.html", join(settings.OUTPUT_FOLDER, "index.html"), **context)
 
     context.update({"path": "../"})
 
     ensure_output_folder("translations")
+
+    # If --with-trans-calc is received
+    # calculated translation progress percent
+    trans_progress = None
+    if len(args) > 1 and args[1] == '--with-trans-calc':
+        tp = TranslatedProgress(trans_repos)
+        trans_progress = tp.TranslatedPercent()
+
     generate(
         "translations.html",
         join(settings.OUTPUT_FOLDER, "translations", "index.html"),
-        **context,
+        trans_progress=trans_progress, **context,
     )
 
     ensure_output_folder("pallets-eco")
@@ -478,7 +486,7 @@ def generate_menu_pages():
 def main(args):
     def gen():
         ensure_exist()
-        generate_menu_pages()
+        generate_menu_pages(args)  # args is for detect --with-trans-calc
         generate_profiles()
         generate_blog_posts()
         generate_resources()

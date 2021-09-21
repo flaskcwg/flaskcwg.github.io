@@ -11,3 +11,5 @@ six==1.15.0
 tornado==6.1
 validators==0.18.2
 Werkzeug==1.0.1
+polib==1.1.1
+requests==2.25.1
