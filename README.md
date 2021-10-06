@@ -3,6 +3,7 @@
 ## Setup Instructions
 
 * [Fork](https://github.com/flaskcwg/flaskcwg.github.io/fork) the repo
+
 * Clone your forked repo
 
     ```bash
@@ -34,13 +35,13 @@
     # if using bash in windows, you can also do `source env/Scripts/activate`
     ```
 
-* install dependencies
+* Install dependencies
 
     ```bash
     python -m pip install -r requirements.txt
     ```
 
-* run `static.py`. This will build html content in `docs/`.
+* Run `static.py`. This will build html content in `docs/`.
 
     ```bash
     python static.py
@@ -48,7 +49,7 @@
 
     > ***_NOTE:_*** If you want the files to auto regenerate on changes, run `python static.py --server` instead.
 
-* run `serve.py` as shown below. Go to the IP address shown in the printout to view the generated site.
+* Run `serve.py` as shown below. Go to the IP address shown in the printout to view the generated site.
 
     ```bash
     cd docs
@@ -94,7 +95,7 @@ Where `source_file.html` is the name of the file located in `templates/` and `ou
 
 ### Profile
 
-In info.json, a profile looks like this
+In `info.json`, a profile looks like this
 
 ```json
 "greyli":{
@@ -116,16 +117,12 @@ In info.json, a profile looks like this
 },
 ```
 
+**name:** Member full name.
 
-- name
-- volunteer
+**volunteer:** Looks for four optional keys: translation, event, code, education.
+For translation, you have lang and coordinator, the latter being optional.
 
-Looks for four optional keys: translation, event, code, education.
-For translation, you have lang and coordinator, the latter being optional
-
-- bio
-
-The bio is generated such that `''` are converted into `<br\>`. a bio would look like this:
+**bio:** The bio is generated such that `''` are converted into `<br\>`. a bio would look like this:
 
 
 ```json
@@ -136,11 +133,9 @@ The bio is generated such that `''` are converted into `<br\>`. a bio would look
     "Some more lines"],
 ```
 
-- links are generated as links with text as the key and link as the value
+**retired:** If someomne is active or not.
 
-- retired
-
-if someomne is active or not
+Links are generated as links with text as the key and link as the value.
 
 ### Blog post
 
@@ -157,7 +152,7 @@ slug: demo-blog-post
 This is the first paragraph of the document.
 
 
-```python
+​```python
 def x():
     pass
 ```
@@ -170,7 +165,7 @@ All meta keys are mandatory but summary can be kept empty
 
 Inside of data/blog create a folder with the category you want. In settings.py add it
 
-```python
+​```python
 BLOG_CATEGORIES = [
     'main'
 ]
@@ -191,7 +186,7 @@ For authors, the author must occur in profiles.
 
 ### FaQ
 
-In data/faq, create a .md file with whatever name you want .md
+In `data/faq`, create a `.md` file with whatever name you want `.md`
 
 The content should look like this
 
@@ -207,11 +202,13 @@ slug: demo-faq-question
 This is the first paragraph of the document.
 
 
-```python
+​```python
 def x():
     pass
 ```
 
-
 And hence [link demo](https://flaskcwg.github.io)
-`````
+
+### Percentage of translation of flask documentation
+
+By default, when running `python static.py`, the translation percentage of the translation repositories is not updated, this is to avoid that every time you deploy locally the calculation process is not performed, to run this calculation just pass the `--with-trans-calc` parameter, i.e. `python static.py --with-trans-calc`.
