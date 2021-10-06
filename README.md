@@ -141,7 +141,7 @@ Links are generated as links with text as the key and link as the value.
 
 A blog post occurs in the format:
 
-`````md
+````md
 title:   Demo blog post
 summary: A demo post
 authors: jugmac00
@@ -152,20 +152,19 @@ slug: demo-blog-post
 This is the first paragraph of the document.
 
 
-​```python
+```python
 def x():
     pass
 ```
 
-
 And hence [link demo](https://flaskcwg.github.io)
-``````
+````
 
 All meta keys are mandatory but summary can be kept empty
 
-Inside of data/blog create a folder with the category you want. In settings.py add it
+Inside of `data/blog` create a folder with the category you want. In `settings.py` add it
 
-​```python
+```python
 BLOG_CATEGORIES = [
     'main'
 ]
@@ -191,7 +190,7 @@ In `data/faq`, create a `.md` file with whatever name you want `.md`
 The content should look like this
 
 
-`````md
+````md
 title:   Demo faq question
 tags: demo
       flask
@@ -201,13 +200,13 @@ slug: demo-faq-question
 
 This is the first paragraph of the document.
 
-
-​```python
+```python
 def x():
     pass
 ```
 
 And hence [link demo](https://flaskcwg.github.io)
+````
 
 ### Percentage of translation of flask documentation
 
