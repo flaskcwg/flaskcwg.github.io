@@ -518,6 +518,10 @@ def main(args):
         # server.watch('style.less', shell('lessc style.less', output='style.css'))
 
         server.serve()
+    elif len(args) > 1 and args[1] == "--poster":
+        import poster_module as poster
+
+        poster.app.run()
     else:
         gen()
 
