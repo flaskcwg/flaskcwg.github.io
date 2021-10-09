@@ -140,8 +140,7 @@ def save_post():
 @app.route("/action/<string:ptype>/<string:option>/<string:post>", methods=['GET'])
 def postman(ptype, option, post):
     if option == 'edit':
-        # Coming soon
-        pass
+        return 'Coming soon. <a href="/">Return</a>'
     else:
         if ptype == 'blog':
             filename, category = post.split('@')
