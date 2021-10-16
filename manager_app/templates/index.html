@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1.0, width=device-width, user-scalable=yes" />
+        <title>FlaskCWG Manager</title>
+        <script src="{{ url_for('static', filename='jquery.min.js') }}"></script>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='mditor/css/mditor.min.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='puppertino/full.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+        <script type="text/javascript" src="{{ url_for('static', filename='mditor/js/mditor.js') }}"></script>
+        <script>
+            function selectCategory() {
+              var category = document.getElementById('post-type');
+              var selectedCategory = category.options[category.selectedIndex].text;
+              let element;
+              switch (selectedCategory) {
+                case "Blog":
+                  element = document.getElementById("blog-fields");
+                  element.classList.remove("hidden");
+                  element.nextElementSibling.classList.add("hidden");
+                  break;
+                case "FAQ":
+                  element = document.getElementById("faq-fields");
+                  element.classList.remove("hidden");
+                  element.previousElementSibling.classList.add("hidden");
+                  break;
+              }
+            }
+        </script>
+    </head>
+    <body onload="selectCategory()" style="background: #e3e3e3;">
+        <h1 align="center">FlaskCWG Manager</h1>
+        <div class="p-tabs-container" id="tabs1">
+            <div class="p-tabs">
+              <button class="p-tab p-is-active">Posts maker</button>
+              <button class="p-tab">Posts management</button>
+            </div>
+            <div class="p-panels" style="background: none;">
+                <div class="p-panel p-is-active">
+                    <form action="{{ url_for('save_post') }}" method="post">
+                        <div class="mditor">
+                            <div class="head">
+                                <div class="toolbar" style="text-align: center; font-style: normal;">
+                                    <label align="center" style="color: #444; line-height: 2;">Options</label>
+                                </div>
+                            </div>
+                            <div class="body" style="font-size: 13px; padding: 8px 12px;">
+                                <table>
+                                    <tr>
+                                        <td>Post type</td>
+                                        <td>
+                                            <div class="p-form-select">
+                                                <select name="post-type" id="post-type" onchange="selectCategory()">
+                                                    <option value="blog" selected>Blog</option>
+                                                    <option value="faq">FAQ</option>
+                                                </select>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+
+                                <table id="blog-fields" border="0" cellpadding="0">
+                                    <tr>
+                                        <td>Title</td>
+                                        <td>
+                                            <input id="b_title" name="b_title" type="text" class="p-form-text p-form-no-validate">
+                                        </td>
+                                        <td>Summary</td>
+                                        <td>
+                                            <input id="b_summ" name="b_summ" type="text" class="p-form-text p-form-no-validate">
+                                        </td>
+                                        <td>Authors</td>
+                                        <td>
+                                            <input  id="b_authors" name="b_authors" type="text" class="p-form-text p-form-no-validate" data-role="tagsinput" placeholder="Comma separated">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Date</td>
+                                        <td>
+                                            <input id="b_date" name="b_date" type="text" class="p-form-text p-form-no-validate" value="{{ today }}" readonly="">
+                                        </td>
+                                        <td>Tags</td>
+                                        <td>
+                                            <input id="b_tags" name="b_tags" type="text" class="p-form-text p-form-no-validate" placeholder="Comma separated">
+                                        </td>
+                                        <td>Slug</td>
+                                        <td>
+                                            <input id="b_slug" name="b_slug" type="text" class="p-form-text p-form-no-validate" readonly="" placeholder="Autogenerated">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Category</td>
+                                        <td>
+                                            <div class="p-form-select">
+                                                <select id="b_category" name="b_category">
+                                                    {% if b_categories %}
+                                                        {% for cat in b_categories %}
+                                                            <option value="{{ cat }}" selected>{{ cat }}</option>
+                                                        {% endfor %}
+                                                    {% endif %}
+                                                </select>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <table class="hidden" id="faq-fields" border="0" cellpadding="0">
+                                    <tr>
+                                        <td>Title</td>
+                                        <td>
+                                            <input id="f_title" name="f_title" type="text" class="p-form-text p-form-no-validate">
+                                        </td>
+                                        <td>Tags</td>
+                                        <td>
+                                            <input  id="f_tags" name="f_tags" type="text" class="p-form-text p-form-no-validate">
+                                        </td>
+                                        <td>Slug</td>
+                                        <td>
+                                            <input id="f_slug" name="f_slug" type="text" class="p-form-text p-form-no-validate" readonly="" placeholder="Autogenerated">
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <br>
+                        <div>
+                            <textarea id="post_content" name="post_content"></textarea>
+                        </div>
+                        <br>
+                        <div class="actions" align="right" style="border: none;">
+                            <input type="submit" class="p-form-button p-form-send" value="Save" style="cursor: pointer;">
+                        </div>
+                    </form>
+                </div>
+                <div class="p-panel">
+                    <div class="mditor">
+                        <div class="head">
+                            <div class="toolbar" style="text-align: center; font-style: normal;">
+                                <label align="center" style="color: #444; line-height: 2;">Blogs</label>
+                            </div>
+                        </div>
+                        <div class="body" style="font-size: 14px; padding: 8px 12px; line-height: 2;">
+                            <table>
+                                {% for post in posts['blogs'] %}
+                                    <tr>
+                                        <td>{{ post[0] }}</td>
+                                        <td>
+                                            
+                                            <a href="{{ url_for('postman', ptype='blog', option='edit', post=post[0] + '@' + post[1]) }}">Edit</a> <a href="{{ url_for('postman', ptype='blog', option='delete', post=post[0] + '@' + post[1]) }}">Delete</a>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                            </table>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="mditor">
+                        <div class="head">
+                            <div class="toolbar" style="text-align: center; font-style: normal;">
+                                <label align="center" style="color: #444; line-height: 2;">Faqs</label>
+                            </div>
+                        </div>
+                        <div class="body" style="font-size: 14px; padding: 8px 12px; line-height: 2;">
+                            <table>
+                                {% for post in posts['faqs'] %}
+                                    <tr>
+                                        <td>{{ post }}</td>
+                                        <td>
+                                            <a href="{{ url_for('postman', ptype='faq', option='edit', post=post) }}">Edit</a> <a href="{{ url_for('postman', ptype='faq', option='delete', post=post) }}">Delete</a>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- M O D A L S -->
+        <div class="p-modal-background">
+            {% for category in resources %}
+                {% for item in resources[category]['posts'] %}
+                    <div class="p-modal" id="{{ item['name'].replace(' ', '_').lower() }}" data-p-close-on-outside="true">
+                            <h2>Alert!</h2>
+                            <p>This modals has 2 buttons!</p>
+                            <div class="p-modal-button-container">
+                            <a href="#" data-p-cancel="">OK</a>
+                            <a href="#" data-p-cancel="">Cancel</a>
+                        </div>
+                    </div>
+                {% endfor %}
+            {% endfor %}
+        </div>
+        <script>
+            var textarea = document.getElementById('post_content');
+            var mditor = Mditor.fromTextarea(textarea);
+        </script>
+        <script type="text/javascript">
+            // FOR BLOG POSTS SECTION
+            $("#b_title").keyup(function() {
+              $("#b_slug").val( $(this).val().replace(/[^a-z0-9]/gi, '-').toLowerCase());
+            });
+
+            $("#b_slug").keyup(function() {
+              var val = $(this).val();
+
+              if(!val || val.length === 0 )
+                  $(this).val($('#b_title').val());
+            });
+
+            // FOR FAQ POSTS SECTION
+            $("#f_title").keyup(function() {
+              $("#f_slug").val( $(this).val().replace(/[^a-z0-9]/gi, '-').toLowerCase());
+            });
+
+            $("#f_slug").keyup(function() {
+              var val = $(this).val();
+
+              if(!val || val.length === 0 )
+                  $(this).val($('#f_title').val());
+            });
+        </script>
+        <script type="text/javascript" src="{{ url_for('static', filename='puppertino/tabs.js') }}"></script>
+    </body>
+</html>
