@@ -208,6 +208,10 @@ def x():
 And hence [link demo](https://flaskcwg.github.io)
 ````
 
+### FlaskCWG Manager
+
+With this tool you can create, edit and delete blog/faq posts, only pass `--manage` option to `static.py` and go to the given url.
+
 ### Percentage of translation of flask documentation
 
 By default, when running `python static.py`, the translation percentage of the translation repositories is not updated, this is to avoid that every time you deploy locally the calculation process is not performed, to run this calculation just pass the `--with-trans-calc` parameter, i.e. `python static.py --with-trans-calc`.
