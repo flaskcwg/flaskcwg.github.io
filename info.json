@@ -211,12 +211,6 @@
         "ecommerce": {
             "posts": [
                 {
-                    "name": "Flask Marketplace",
-                    "link": "https://github.com/EwetoyeIbrahim/Flask-Marketplace",
-                    "info": ["A modular marketplace in Flask with multiple stores"],
-                    "tags": ["flutterwave", "ecommerce", "marketplace"]
-                },
-                {
                     "name": "ShopCube",
                     "link": "https://github.com/shopyo/ShopCube",
                     "info": ["Ecommerce solution with cart, orders and anonymous buying"],
