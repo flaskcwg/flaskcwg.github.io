@@ -18,7 +18,7 @@ file_count = 0
 
 # Translation repositories.
 # MUST BE OWNED BY FLASKCWG ORG
-trans_repos = ['es', 'fr', 'zh']
+trans_repos = ['es', 'fr', 'zh', 'fa']
 
 
 def count_folders(function):

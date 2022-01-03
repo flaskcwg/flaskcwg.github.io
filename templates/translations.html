@@ -93,6 +93,24 @@
                     </span>
                 </td>
             </tr>
+            <tr>
+                <td>Persian - فارسی</td>
+                <td><a target="_blank" href="{{ profile_url(path, 'mmdbalkhi') }}">@mmdbalkhi</a></td>
+                <td>
+                    <a target="_blank" href="https://github.com/flaskcwg/flask-docs-fa" title="Repository"><i
+                            class="fa fa-github-alt" aria-hidden="true"></i></a>
+                    &nbsp;
+                    <a target="_blank" href="https://flask-fa.readthedocs.io/" title="Readthedocs"><i class="fa fa-book"
+                            aria-hidden="true"></i></a>
+                </td>
+                <td>
+                    <span class="chip" class="percent-badge">
+                        {% if trans_progress %}
+                        {{ trans_progress['fa'] }}%
+                        {% endif %}
+                    </span>
+                </td>
+            </tr>
         </tbody>
     </table>
 </div>
