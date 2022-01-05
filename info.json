@@ -205,6 +205,17 @@
                 }
             },
             "retired": "n"
+        },
+        "mmdbalkhi":{
+            "name": "Mohamad Balkhi ",
+            "bio": [],
+            "volunteer": {
+                "translation":{
+                    "lang": "persian",
+                    "coordinator": "y"
+                }
+            },
+            "retired": "n"
         }
     },
     "resources": {
