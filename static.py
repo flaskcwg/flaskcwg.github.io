@@ -1,5 +1,6 @@
 import datetime
 import os
+import re
 import sys
 from functools import wraps
 from os.path import join
@@ -77,8 +78,7 @@ def info_to_html(biolist):
 
 
 def valid_date_str(datestr):
-    """May 19, 2021
-    TODO: switch to regex
+    """Check the correctness of the date written in .md files with regex
     """
     months = [
         "january",
@@ -94,17 +94,13 @@ def valid_date_str(datestr):
         "november",
         "december",
     ]
-    if (datestr.count(" ") == 2) and (datestr.count(",") == 1):
-        month = datestr.split(" ")[0]
-        if month.casefold() not in months:
-            return False
-        year = datestr.split(" ")[2]
-        if not year.isdigit():
-            return False
-        day = datestr.split(" ")[1].strip(",")
-        if (not day.isdigit()) and (not (1 <= int(day) <= 31)):
-            return False
-    else:
+    if not re.fullmatch(r"^[a-zA-Z]+ (\d){1,2}, (\d){4}$", datestr):
+        return False
+    month = ''.join(re.findall(r"[a-zA-Z]", datestr))
+    if not month.casefold() in months:
+        return False
+    day = re.findall(r"\d{1,2}",datestr)[0]
+    if not 1 <= int(day) <= 31:
         return False
     return True
 
