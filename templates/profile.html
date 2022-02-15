@@ -7,12 +7,6 @@ menu overlay over link name label
 
 {% extends 'base.html' %}
 {% set section = 'members' %}
-{% set event = 'Events collaborator/programmer' %}
-{% set code = 'Website/Extensions maintainer' %}
-{% set education = 'Teacher of FCWG principles' %}
-{% set topics_descs = {'event':'Events collaborator/programmer',
-'code':'Website/Extensions maintainer',
-'education':'Teacher of FCWG principles'} %}
 {% block head %}
     <title>{{ data['name'] }}</title>
 {% endblock %}
@@ -199,8 +193,8 @@ menu overlay over link name label
                         <div class="panel-title" align="center"><h4>Volunteer</h4></div>
                     </div>
                     <div class="panel-body">
-                        {% for topic in data['volunteer'] %}
-                            {% if topic == 'translation' %}
+                        {% for volunteer in data['volunteer'] %}
+                            {% if volunteer == 'translation' %}
                                 <div class="columns">
                                     <div class="column col-6 info-title">
                                         <i class="fa-solid fa-language"></i>&nbsp;
@@ -225,17 +219,17 @@ menu overlay over link name label
                             {% else %}
                                 <div class="columns">
                                     <div class="column col-5 info-title">
-                                        {% if topic == 'event' %}
+                                        {% if volunteer == 'event' %}
                                             <i class="fa-solid fa-calendar"></i>&nbsp;
-                                            {% elif topic == 'code' %}
+                                            {% elif volunteer == 'code' %}
                                             <i class="fa-solid fa-code"></i>&nbsp;
-                                            {% elif topic == 'education' %}
+                                            {% elif volunteer == 'education' %}
                                             <i class="fa-solid fa-graduation-cap"></i>&nbsp;
                                         {% endif %}
-                                        {{ topic.capitalize() }}
+                                        {{ volunteer.capitalize() }}
                                     </div>
                                     <div class="column col-7 info-value">
-                                        {{ topics_descs[topic] }}
+                                        {{ volunteers[volunteer] }}
                                     </div>
                                 </div>
                                 <li class="divider"></li>
