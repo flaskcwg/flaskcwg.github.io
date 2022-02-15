@@ -1,3 +1,10 @@
+<!--
+TODO:
+
+Sometimes the URLs in the links
+menu overlay over link name label
+-->
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -21,7 +28,7 @@
 <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-icons.min.css">
             <link href='/static/flaskcwg-icon.png' rel='icon' />
         
-  <title>Yuxiaoy</title>
+    <title>Yuxiaoy</title>
 
         <!--<link rel="stylesheet" href="/static/css/styles.css">-->
         <style>
@@ -258,73 +265,245 @@ a.card {
                 <div id="main-content-container" class="columns">
                     <div id="main-content" class="column col-8 col-sm-10 col-mx-auto">
                         
-<style>
+    <script src="https://kit.fontawesome.com/87e809e06c.js" crossorigin="anonymous"></script>
+    <style>
+    .avatar.avatar-xl {
+        height: 5rem;
+        width: 5rem;
+        margin-bottom: 15px;
+    }
+    .links-column .menu {
+        border: None;
+        box-shadow: None;
+        background: None;
+    }
+    .menu-badge,
+    .url {
+        cursor: pointer;
+    }
+    .info-title {
+        font-weight: bold;
+    }
+    .url,
+    .info-value {
+        color: #bcc3ce;
+    }
+    .main-cols > .column {
+        padding: .4rem;
+    }
+    .links-column {
+        /* UGLY FIX - FORCE VERTICAL COLUMN SPACING */
+        margin-top: .8rem;
+    }
+    .extra-info .divider {
+        margin-top: .7rem;
+        margin-bottom: .7rem;
+    }
+    .container {
+        margin-top: 8px;
+        margin-bottom: 50px;
+    }
+
+    .main-card{
+        /* PANEL OF PICTURE AND BIO  */
+        padding-top: 15px;
+    }
+    #bio {
+        margin-top: 10px;
+    }
+    .chip-coordinator {
+        /* BADGE OF COORDINATORS OF TRANSLATION REPOS  */
+        background-color: gold;
+        color: black;
+    }
+    .chip-member-transl {
+        /* BADGE OF MEMBERS OF TRANSLATION REPOS  */
+        background-color: skyblue;
+        color: white;
+    }
+    .chip-active {
+        /* BADGE OF ACTIVE MEMBERS  */
+        background-color: seagreen;
+        color: white;
+    }
+    .chip-retired {
+        /* BADGE OF RETIRED MEMBERS  */
+        background-color: darkred;
+        color: white;
+    }
     .avatar-founder {
-        border:3px solid gold;
+        /* ADD GOLD BORDER TO FOUNDERS PROFILE PICTURE  */
+        border:5px solid gold;
         -webkit-border-radius: 500px;
         -moz-border-radius: 500px;
         background: transparent;
     }
-</style>
-<div class="container">
-    <h5 class="text-center">
-        <div>
-            <figure class="avatar avatar-xl ">
-                <img class="s-circle" src="https://avatars.githubusercontent.com/yuxiaoy1" alt="yuxiaoy1 avatar ">
-                
-                    <i class="avatar-presence online" title="Active"></i>
-                
-            </figure>
-        </div>
-        <b>Yuxiaoy (<a href="https://github.com/yuxiaoy1">@yuxiaoy1</a>)</b>
-        
-    </h5>
-    <hr class="style-two">
-    <div class="text-center">
-        <h6><b>Bio</b></h6>
-        <p>
-            
-        </p>
+    .main-cols-container {
+        /* DIV OF THREE PANELS  */
+        background-color: #e2e8f0;
+        border-radius: 4px;
+        padding: 15px;
+    }
+    .main-cols-container .panel {
+        transition: .8s;
+        background-color: white;
+        box-shadow: 0 .05rem .2rem rgba(48,55,66,.2);
+    }
 
-        <h6><b>Volunteer</b></h6>
-        <dl>
-            
-                <dd><i>Translation</i>
+    .link-name {
+        /* SOCIAL LINK NAME  */
+        font-weight: bold;
+    }
+    </style>
+    <h2 class="text-center titles">User profile</h2>
+    <div class="container main-cols-container">
+        <div class="columns main-cols">
+            <div class="column col-5 col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <!-- MAIN CARD -->
+                <div class="columns">
+                    <div class="column col-12">
+                        <div class="panel main-card">
+                            <div class="panel-header text-center">
+                                    <figure class="avatar avatar-xl ">
+                                    <img class="s-circle" src="https://avatars.githubusercontent.com/yuxiaoy1">
+                                </figure>
+                                <div class="panel-title h5 mt-10">
+                                    <b>Yuxiaoy</b>
+                                </div>
+                                <div class="panel-subtitle" id="bio">
+                                    
+                                        yuxiaoy1 prefers not to say too much
+                                    
+                                </div>
+                                <div class="panel-footer">
+                                    
+                                    
+                                        <span class="chip chip-active">
+                                            Active
+                                        </span>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     
-                        <br>
-                        <div style="font-size: 12px;">
-                            <span class="chip">Chinese</span>
-                            
-                                <span class="chip bg-primary">Member</span>
-                            
+                        <div class="column col-12 links-column">
+                            <div class="panel">
+                                <ul class="menu">
+                                    
+                                        
+                                        
+                                        <li class="menu-item">
+                                            <a href="https://twitter.com/yuxiaoy1/">
+                                                <div class="link-name">
+                                                    <i class="icon icon-link"></i>&nbsp;
+                                                    Twitter
+                                                </div>
+                                                <div class="menu-badge url">
+                                                    https://twitter.com/yuxiaoy1/
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="divider"></li>
+                                    
+                                        
+                                        
+                                        <li class="menu-item">
+                                            <a href="https://weibo.com/u/1802713725/">
+                                                <div class="link-name">
+                                                    <i class="icon icon-link"></i>&nbsp;
+                                                    Weibo
+                                                </div>
+                                                <div class="menu-badge url">
+                                                    https://weibo.com/u/1802713725/
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="divider"></li>
+                                    
+                                </ul>
+                            </div>
                         </div>
                     
-                </dd>
-            
-                <dd><i>Event</i>
-                    
-                </dd>
-            
-                <dd><i>Code</i>
-                    
-                </dd>
-            
-                <dd><i>Education</i>
-                    
-                </dd>
-            
-        </dl>
-        <h6><b>Presence</b></h6>
-        <p>
-            <a href="https://avatars.githubusercontent.com/yuxiaoy1" alt="yuxiaoy1"><i class="img img-github"></i></a>
-            
-                <a href="https://twitter.com/yuxiaoy1/">twitter</a><br>
-            
-                <a href="https://weibo.com/u/1802713725/">weibo</a><br>
-            
-        </p>
+                </div>
+            </div>
+            <div class="column col-7 col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="panel extra-info">
+                    <div class="panel-header">
+                        <div class="panel-title" align="center"><h4>Volunteer</h4></div>
+                    </div>
+                    <div class="panel-body">
+                        
+                            
+                                <div class="columns">
+                                    <div class="column col-6 info-title">
+                                        <i class="fa-solid fa-language"></i>&nbsp;
+                                        Translation
+                                    </div>
+                                    <div class="column col-6">
+                                        <span class="chip">
+                                            Chinese
+                                        </span>
+                                        
+                                            <span class="chip chip-member-transl">
+                                                Member
+                                            </span>
+                                        
+                                    </div>
+                                </div>
+                                <li class="divider"></li>
+                            
+                        
+                            
+                                <div class="columns">
+                                    <div class="column col-5 info-title">
+                                        
+                                            <i class="fa-solid fa-calendar"></i>&nbsp;
+                                            
+                                        Event
+                                    </div>
+                                    <div class="column col-7 info-value">
+                                        Events collaborator/programmer
+                                    </div>
+                                </div>
+                                <li class="divider"></li>
+                            
+                        
+                            
+                                <div class="columns">
+                                    <div class="column col-5 info-title">
+                                        
+                                            <i class="fa-solid fa-code"></i>&nbsp;
+                                            
+                                        Code
+                                    </div>
+                                    <div class="column col-7 info-value">
+                                        Website/Extensions maintainer
+                                    </div>
+                                </div>
+                                <li class="divider"></li>
+                            
+                        
+                            
+                                <div class="columns">
+                                    <div class="column col-5 info-title">
+                                        
+                                            <i class="fa-solid fa-graduation-cap"></i>&nbsp;
+                                        
+                                        Education
+                                    </div>
+                                    <div class="column col-7 info-value">
+                                        Teacher of FCWG principles
+                                    </div>
+                                </div>
+                                <li class="divider"></li>
+                            
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-</div>
 
                     </div>
                 </div>
