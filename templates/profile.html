@@ -1,66 +1,249 @@
+<!--
+TODO:
+
+Sometimes the URLs in the links
+menu overlay over link name label
+-->
+
 {% extends 'base.html' %}
 {% set section = 'members' %}
+{% set event = 'Events collaborator/programmer' %}
+{% set code = 'Website/Extensions maintainer' %}
+{% set education = 'Teacher of FCWG principles' %}
+{% set topics_descs = {'event':'Events collaborator/programmer',
+'code':'Website/Extensions maintainer',
+'education':'Teacher of FCWG principles'} %}
 {% block head %}
-  <title>{{ data['name'] }}</title>
+    <title>{{ data['name'] }}</title>
 {% endblock %}
 {% block body %}
-<style>
+    <script src="https://kit.fontawesome.com/87e809e06c.js" crossorigin="anonymous"></script>
+    <style>
+    .avatar.avatar-xl {
+        height: 5rem;
+        width: 5rem;
+        margin-bottom: 15px;
+    }
+    .links-column .menu {
+        border: None;
+        box-shadow: None;
+        background: None;
+    }
+    .menu-badge,
+    .url {
+        cursor: pointer;
+    }
+    .info-title {
+        font-weight: bold;
+    }
+    .url,
+    .info-value {
+        color: #bcc3ce;
+    }
+    .main-cols > .column {
+        padding: .4rem;
+    }
+    .links-column {
+        /* UGLY FIX - FORCE VERTICAL COLUMN SPACING */
+        margin-top: .8rem;
+    }
+    .extra-info .divider {
+        margin-top: .7rem;
+        margin-bottom: .7rem;
+    }
+    .container {
+        margin-top: 8px;
+        margin-bottom: 50px;
+    }
+
+    .main-card{
+        /* PANEL OF PICTURE AND BIO  */
+        padding-top: 15px;
+    }
+    #bio {
+        margin-top: 10px;
+    }
+    .chip-coordinator {
+        /* BADGE OF COORDINATORS OF TRANSLATION REPOS  */
+        background-color: gold;
+        color: black;
+    }
+    .chip-member-transl {
+        /* BADGE OF MEMBERS OF TRANSLATION REPOS  */
+        background-color: skyblue;
+        color: white;
+    }
+    .chip-active {
+        /* BADGE OF ACTIVE MEMBERS  */
+        background-color: seagreen;
+        color: white;
+    }
+    .chip-retired {
+        /* BADGE OF RETIRED MEMBERS  */
+        background-color: darkred;
+        color: white;
+    }
     .avatar-founder {
-        border:3px solid gold;
+        /* ADD GOLD BORDER TO FOUNDERS PROFILE PICTURE  */
+        border:5px solid gold;
         -webkit-border-radius: 500px;
         -moz-border-radius: 500px;
         background: transparent;
     }
-</style>
-<div class="container">
-    <h5 class="text-center">
-        <div>
-            <figure class="avatar avatar-xl {% if data['founder'] == 'y' %}avatar-founder{% endif %}">
-                <img class="s-circle" src="https://avatars.githubusercontent.com/{{ github_username }}" alt="{{ github_username }} avatar {% if data['founder'] == 'y' %}avatar-founder{% endif %}">
-                {% if data['retired'] == 'n' %}
-                    <i class="avatar-presence online" title="Active"></i>
-                {% else %}
-                    <i class="avatar-presence away" title="Retired"></i>
-                {% endif %}
-            </figure>
-        </div>
-        <b>{{ data['name'] }} (<a href="https://github.com/{{ github_username }}">@{{ github_username }}</a>)</b>
-        {% if data['founder'] == 'y' %}
-        <span title="Founder"><i style="color: gold; font-size: 19px;vertical-align: middle;" class="im im-star"></i></span>
-        {% endif %}
-    </h5>
-    <hr class="style-two">
-    <div class="text-center">
-        <h6><b>Bio</b></h6>
-        <p>
-            {{ info_to_html(data['bio']) }}
-        </p>
+    .main-cols-container {
+        /* DIV OF THREE PANELS  */
+        background-color: #e2e8f0;
+        border-radius: 4px;
+        padding: 15px;
+    }
+    .main-cols-container .panel {
+        transition: .8s;
+        background-color: white;
+        box-shadow: 0 .05rem .2rem rgba(48,55,66,.2);
+    }
 
-        <h6><b>Volunteer</b></h6>
-        <dl>
-            {% for topic in data['volunteer'] %}
-                <dd><i>{{topic.capitalize()}}</i>
-                    {% if topic == 'translation' %}
-                        <br>
-                        <div style="font-size: 12px;">
-                            <span class="chip">{{data['volunteer']['translation']['lang'].capitalize()}}</span>
-                            {% if 'coordinator' in data['volunteer']['translation']%}
-                                <span class="chip" style="background-color: gold;">Coordinator</span>
-                            {% else %}
-                                <span class="chip bg-primary">Member</span>
-                            {% endif %}
+    .link-name {
+        /* SOCIAL LINK NAME  */
+        font-weight: bold;
+    }
+    </style>
+    <h2 class="text-center titles">User profile</h2>
+    <div class="container main-cols-container">
+        <div class="columns main-cols">
+            <div class="column col-5 col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <!-- MAIN CARD -->
+                <div class="columns">
+                    <div class="column col-12">
+                        <div class="panel main-card">
+                            <div class="panel-header text-center">
+                                    <figure class="avatar avatar-xl {% if data['founder'] == 'y' %}avatar-founder{% endif %}">
+                                    <img class="s-circle" src="https://avatars.githubusercontent.com/{{ github_username }}">
+                                </figure>
+                                <div class="panel-title h5 mt-10">
+                                    <b>{{ data['name'] }}</b>
+                                </div>
+                                <div class="panel-subtitle" id="bio">
+                                    {% if len(info_to_html(data['bio'])) %}
+                                        {{ info_to_html(data['bio']) }}
+                                    {% else %}
+                                        {{ github_username }} prefers not to say too much
+                                    {% endif %}
+                                </div>
+                                <div class="panel-footer">
+                                    {% if data['founder'] == 'y' %}
+                                        <span class="chip chip-coordinator">
+                                            Founder
+                                        </span>
+                                    {% endif %}
+                                    {% if data['retired'] == 'n' %}
+                                        <span class="chip chip-active">
+                                            Active
+                                        </span>
+                                    {% else %}
+                                        <span class="chip chip-retired">
+                                            Retired
+                                        </span>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% if data['links'] %}
+                        <div class="column col-12 links-column">
+                            <div class="panel">
+                                <ul class="menu">
+                                    {% for link in data['links'] %}
+                                        {% set url = data['links'][link] %}
+                                        {% set name = link.capitalize().replace('_', ' ') %}
+                                        <li class="menu-item">
+                                            <a href="{{ url }}">
+                                                <div class="link-name">
+                                                    <i class="icon icon-link"></i>&nbsp;
+                                                    {{ name }}
+                                                </div>
+                                                <div class="menu-badge url">
+                                                    {{ url }}
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="divider"></li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </div>
+                    {% else %}
+                    <!-- GITHUB PROFILE AS DEFAULT LINK -->
+                        <div class="column col-12 links-column">
+                            <div class="panel">
+                                <ul class="menu">
+                                    <li class="menu-item" style="padding-bottom: 8px;">
+                                        <a href="https://github.com/{{ github_username }}">
+                                            <div class="link-name">
+                                                <i class="fa-brands fa-github"></i>&nbsp;
+                                                Github
+                                            </div>
+                                            <div class="menu-badge url" style="padding-bottom: 8px;">
+                                                https://github.com/{{ github_username }}
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                     {% endif %}
-                </dd>
-            {% endfor %}
-        </dl>
-        <h6><b>Presence</b></h6>
-        <p>
-            <a href="https://avatars.githubusercontent.com/{{ github_username }}" alt="{{ github_username }}"><i class="img img-github"></i></a>
-            {% for presence in data['links'] %}
-                <a href="{{ data['links'][presence] }}">{{ presence }}</a><br>
-            {% endfor %}
-        </p>
+                </div>
+            </div>
+            <div class="column col-7 col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="panel extra-info">
+                    <div class="panel-header">
+                        <div class="panel-title" align="center"><h4>Volunteer</h4></div>
+                    </div>
+                    <div class="panel-body">
+                        {% for topic in data['volunteer'] %}
+                            {% if topic == 'translation' %}
+                                <div class="columns">
+                                    <div class="column col-6 info-title">
+                                        <i class="fa-solid fa-language"></i>&nbsp;
+                                        Translation
+                                    </div>
+                                    <div class="column col-6">
+                                        <span class="chip">
+                                            {{data['volunteer']['translation']['lang'].capitalize()}}
+                                        </span>
+                                        {% if 'coordinator' in data['volunteer']['translation']%}
+                                            <span class="chip chip-coordinator">
+                                                Coordinator
+                                            </span>
+                                        {% else %}
+                                            <span class="chip chip-member-transl">
+                                                Member
+                                            </span>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                                <li class="divider"></li>
+                            {% else %}
+                                <div class="columns">
+                                    <div class="column col-5 info-title">
+                                        {% if topic == 'event' %}
+                                            <i class="fa-solid fa-calendar"></i>&nbsp;
+                                            {% elif topic == 'code' %}
+                                            <i class="fa-solid fa-code"></i>&nbsp;
+                                            {% elif topic == 'education' %}
+                                            <i class="fa-solid fa-graduation-cap"></i>&nbsp;
+                                        {% endif %}
+                                        {{ topic.capitalize() }}
+                                    </div>
+                                    <div class="column col-7 info-value">
+                                        {{ topics_descs[topic] }}
+                                    </div>
+                                </div>
+                                <li class="divider"></li>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-</div>
 {% endblock %}
