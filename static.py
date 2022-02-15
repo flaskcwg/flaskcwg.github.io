@@ -111,7 +111,7 @@ context.update(
         "info": settings.info,
         "path": "/",
         "profile_url": profile_url,
-        "info_to_html": info_to_html,
+        "info_to_html": info_to_html
     }
 )
 
@@ -190,6 +190,7 @@ def generate_profiles():
                 "github_username": github_username,
                 "data": profiles[github_username],
                 "path": "../" * 2,
+                "volunteers": settings.VOLUNTEERS_DESCS
             }
         )
         ensure_output_folder("u/{}".format(github_username))
