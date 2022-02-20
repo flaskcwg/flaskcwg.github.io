@@ -12,7 +12,7 @@ from flask import Flask
 from jamstack.api.template import base_context
 from jamstack.api.template import generate as generate_
 from livereload import Server
-from trans_calculator import TranslatedProgress
+from trans_progress import TransProgress
 
 folder_count = 0
 file_count = 0
@@ -455,8 +455,8 @@ def generate_menu_pages(args):
     # calculated translation progress percent
     trans_progress = None
     if len(args) > 1 and args[1] == '--with-trans-calc':
-        tp = TranslatedProgress(trans_repos)
-        trans_progress = tp.TranslatedPercent()
+        tp = TransProgress(trans_repos)
+        trans_progress = tp.get_data()
 
     generate(
         "translations.html",
