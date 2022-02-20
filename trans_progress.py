@@ -1,5 +1,5 @@
 """
-This repo get translation progress data
+This script get translation progress data
 from https://github.com/Jalkhov/docspro/tree/translation_data/data
 """
 
