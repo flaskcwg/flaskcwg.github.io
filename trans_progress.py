@@ -11,10 +11,10 @@ import requests
 
 uri = 'https://raw.githubusercontent.com/Jalkhov/docspro/translation_data/data/{lang}_cov.json'
 
-class TranslatedProgress(object):
+class TransProgress(object):
 
     def __init__(self, repos):
-        super(TranslatedProgress, self).__init__()
+        super(TransProgress, self).__init__()
         self.repos = repos
 
     def get_data(self):
@@ -31,7 +31,7 @@ class TranslatedProgress(object):
 
 
 def main():
-    mu = TranslatedProgress(['es', 'fr', 'zh', 'fa'])
+    mu = TransProgress(['es', 'fr', 'zh', 'fa'])
     data = mu.get_data()
     print(data)
 
