@@ -1,4 +1,5 @@
 import datetime
+import logging
 import os
 import re
 import sys
@@ -21,6 +22,8 @@ file_count = 0
 # Translation repositories.
 # MUST BE OWNED BY FLASKCWG ORG
 trans_repos = ["es", "fr", "zh", "fa"]
+
+logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
 
 
 def count_folders(function):
@@ -56,7 +59,7 @@ def generate(*args, **kwargs):
 
 
 def profile_url(path, github_username):
-    return "{}u/{}".format(path, github_username)
+    return f"{path}u/{github_username}"
 
 
 def info_to_html(biolist):
@@ -147,15 +150,16 @@ def ensure_output_folder(path):
 def ensure_exist():
     if not os.path.exists(settings.OUTPUT_FOLDER):
         os.mkdir(settings.OUTPUT_FOLDER)
+        logging.info(f"{settings.OUTPUT_FOLDER} created")
 
 
 def ensure_meta(taglist, metadata, document_path):
     to_ensure = taglist
     for meta in to_ensure:
         if meta not in metadata:
-            print(
+            logging.error(
                 "Missing meta attribute:",
-                "'{}'".format(meta),
+                f"'{meta}'",
                 "in path:",
                 document_path,
             )
@@ -180,6 +184,8 @@ def validate_slug(slug, filepath):
 
 
 def generate_profiles():
+    logging.info("Start Generating profiles ...")
+
     profiles = settings.info["profiles"]
     ensure_output_folder("u")
     for github_username in profiles:
@@ -191,15 +197,15 @@ def generate_profiles():
                 "volunteers": settings.VOLUNTEERS_DESCS,
             }
         )
-        ensure_output_folder("u/{}".format(github_username))
+        ensure_output_folder(f"u/{github_username}")
 
         generate(
             "profile.html",
-            join(
-                settings.OUTPUT_FOLDER, "u", "{}".format(github_username), "index.html"
-            ),
+            join(settings.OUTPUT_FOLDER, "u", f"{github_username}", "index.html"),
             **context,
         )
+        logging.info(f"Generating profile {github_username}...")
+    logging.info("Generating profiles is done")
 
 
 def add_to_registry(tag, tags_registry, dict_object):
@@ -221,6 +227,8 @@ def classify_by_tag(tags, tags_registry, dict_object):
 def generate_blog_posts():
     posts = []
     blog_data = "data/blog"
+
+    logging.info("Start Generating blog posts ...")
 
     # n**2 solution
     for category in settings.BLOG_CATEGORIES:
@@ -246,7 +254,7 @@ def generate_blog_posts():
             )
             ensure_output_folder("b")
             validate_slug(slug, blog_post_path)
-            ensure_output_folder("b/{}".format(slug))
+            ensure_output_folder(f"b/{slug}")
 
             ensure_authors(authors, blog_post_path)
 
@@ -254,10 +262,8 @@ def generate_blog_posts():
             if valid_date_str(raw_date):
                 date = raw_date
             else:
-                print(
-                    "Date '{date}' should be in the format 'May 19, 2021' in file '{mdfile}'".format(
-                        date=raw_date, mdfile=mdfile
-                    )
+                logging.error(
+                    f"Date '{raw_date}' should be in the format 'May 19, 2021' in file '{mdfile}'"
                 )
                 sys.exit()
 
@@ -278,7 +284,7 @@ def generate_blog_posts():
                 join(settings.OUTPUT_FOLDER, "b", slug, "index.html"),
                 **context,
             )
-
+            logging.info(f"Generating blog post {slug}...")
     # Blog post main page
     ensure_output_folder("blog")
     posts.sort(
@@ -288,6 +294,7 @@ def generate_blog_posts():
     generate(
         "blog/index.html", join(settings.OUTPUT_FOLDER, "blog", "index.html"), **context
     )
+    logging.info("Generating blog/index.html...")
 
     # Category & tags scouting
     # Could also be done above but cleaner code here
@@ -325,6 +332,7 @@ def generate_blog_posts():
             join(settings.OUTPUT_FOLDER, "category", category, "index.html"),
             **context,
         )
+        logging.info(f"Generating category {category}...")
 
     for tag in tags_registry:
         context.update({"tag": tag, "posts": tags_registry[tag], "path": "../" * 2})
@@ -333,11 +341,14 @@ def generate_blog_posts():
             join(settings.OUTPUT_FOLDER, "tag", tag, "index.html"),
             **context,
         )
+        logging.info(f"Generating tag {tag}...")
+
+    logging.info("Generating blog posts is done")
 
 
 def generate_resources():
     resources = settings.info["resources"]
-
+    logging.info("Start Generating resources ...")
     # /resources
     ensure_output_folder("resources")
     ensure_output_folder("resources/c")
@@ -346,7 +357,7 @@ def generate_resources():
         join(settings.OUTPUT_FOLDER, "resources", "index.html"),
         **context,
     )
-
+    logging.info("Generating resources/index.html...")
     tags_registry = {}
     # /resources/c/api/ # for category. category name cannot be tag
 
@@ -365,6 +376,7 @@ def generate_resources():
             join(settings.OUTPUT_FOLDER, "resources", "c", resource, "index.html"),
             **context,
         )
+        logging.info(f"Generating resources/c/{resource}/index.html...")
 
         for project in current_resource:
             # print(project)
@@ -381,9 +393,13 @@ def generate_resources():
             join(settings.OUTPUT_FOLDER, "resources", "tag", tag, "index.html"),
             **context,
         )
+        logging.info(f"Generating resources/tag/{tag}/index.html...")
+    logging.info("Generating resources is done")
 
 
 def generate_faq():
+    logging.info("Start Generating faq ...")
+
     faq_path = "data/faq"
     faqs = []
     tags_registry = {}
@@ -417,6 +433,7 @@ def generate_faq():
             join(settings.OUTPUT_FOLDER, "faq", slug, "index.html"),
             **context,
         )
+        logging.info(f"Generating faq/{slug}...")
 
         classify_by_tag(tags, tags_registry, faq)
 
@@ -424,7 +441,7 @@ def generate_faq():
     generate(
         "faq/index.html", join(settings.OUTPUT_FOLDER, "faq", "index.html"), **context
     )
-
+    logging.info("Generating faq/index.html...")
     ensure_output_folder(join("faq", "tag"))
     for tag in tags_registry:
         # /faq/tag/api
@@ -435,13 +452,18 @@ def generate_faq():
             join(settings.OUTPUT_FOLDER, "faq", "tag", tag, "index.html"),
             **context,
         )
+        logging.info(f"Generating faq/tag/{tag}/index.html...")
+    logging.info("Generating faq is done")
 
 
 def generate_menu_pages(args):
     # excluding blog post
-    generate("index.html", join(settings.OUTPUT_FOLDER, "index.html"), **context)
+    logging.info("Start Generating menu pages...")
 
+    generate("index.html", join(settings.OUTPUT_FOLDER, "index.html"), **context)
     context.update({"path": "../"})
+
+    logging.info("Generating index.html...")
 
     ensure_output_folder("translations")
 
@@ -451,6 +473,7 @@ def generate_menu_pages(args):
     if len(args) > 1 and args[1] == "--with-trans-calc":
         tp = TransProgress(trans_repos)
         trans_progress = tp.get_data()
+        logging.info("Geting transltion files...")
 
     generate(
         "translations.html",
@@ -458,6 +481,7 @@ def generate_menu_pages(args):
         trans_progress=trans_progress,
         **context,
     )
+    logging.info("Generating translations.html...")
 
     ensure_output_folder("pallets-eco")
     generate(
@@ -465,17 +489,23 @@ def generate_menu_pages(args):
         join(settings.OUTPUT_FOLDER, "pallets-eco", "index.html"),
         **context,
     )
+    logging.info("Generating pallets-eco.html...")
 
     ensure_output_folder("join")
     generate("join.html", join(settings.OUTPUT_FOLDER, "join", "index.html"), **context)
+    logging.info("Generating join.html...")
 
     ensure_output_folder("members")
     generate(
         "members.html", join(settings.OUTPUT_FOLDER, "members", "index.html"), **context
     )
+    logging.info("Generating members.html...")
 
     ensure_output_folder("aim")
     generate("aim.html", join(settings.OUTPUT_FOLDER, "aim", "index.html"), **context)
+    logging.info("Generating aim.html...")
+
+    logging.info("Generating menu pages done")
 
 
 def main(args):
@@ -486,7 +516,7 @@ def main(args):
         generate_blog_posts()
         generate_resources()
         generate_faq()
-        print(f"generated folders: {folder_count} files: {file_count}")
+        logging.info(f"generated folders: {folder_count} files: {file_count}")
 
     if len(args) > 1 and args[1] == "--server":
         app = Flask(__name__)
