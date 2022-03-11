@@ -169,9 +169,10 @@
             "retired": "n"
         },
         "mmdbalkhi":{
-            "name": "Mohamad Balkhi ",
+            "name": "Komeil Parseh",
             "bio": [],
             "volunteer": {
+                "code": {},
                 "translation":{
                     "lang": "persian",
                     "coordinator": "y"

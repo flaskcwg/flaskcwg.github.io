@@ -6,12 +6,13 @@ from functools import wraps
 from os.path import join
 
 import markdown
-import settings
 import validators
 from flask import Flask
 from jamstack.api.template import base_context
 from jamstack.api.template import generate as generate_
 from livereload import Server
+
+import settings
 from trans_progress import TransProgress
 
 folder_count = 0
@@ -19,12 +20,11 @@ file_count = 0
 
 # Translation repositories.
 # MUST BE OWNED BY FLASKCWG ORG
-trans_repos = ['es', 'fr', 'zh', 'fa']
+trans_repos = ["es", "fr", "zh", "fa"]
 
 
 def count_folders(function):
-    """Returns number of times any function with this decorator is called
-    """
+    """Returns number of times any function with this decorator is called"""
 
     @wraps(function)
     def increase_count(*args, **kwargs):
@@ -36,8 +36,7 @@ def count_folders(function):
 
 
 def count_files(function):
-    """Returns number of times any function with this decorator is called
-    """
+    """Returns number of times any function with this decorator is called"""
 
     @wraps(function)
     def increase_count(*args, **kwargs):
@@ -78,8 +77,7 @@ def info_to_html(biolist):
 
 
 def valid_date_str(datestr):
-    """Check the correctness of the date written in .md files with regex
-    """
+    """Check the correctness of the date written in .md files with regex"""
     months = [
         "january",
         "february",
@@ -96,10 +94,10 @@ def valid_date_str(datestr):
     ]
     if not re.fullmatch(r"^[a-zA-Z]+ (\d){1,2}, (\d){4}$", datestr):
         return False
-    month = ''.join(re.findall(r"[a-zA-Z]", datestr))
+    month = "".join(re.findall(r"[a-zA-Z]", datestr))
     if not month.casefold() in months:
         return False
-    day = re.findall(r"\d{1,2}",datestr)[0]
+    day = re.findall(r"\d{1,2}", datestr)[0]
     if not 1 <= int(day) <= 31:
         return False
     return True
@@ -111,7 +109,7 @@ context.update(
         "info": settings.info,
         "path": "/",
         "profile_url": profile_url,
-        "info_to_html": info_to_html
+        "info_to_html": info_to_html,
     }
 )
 
@@ -190,7 +188,7 @@ def generate_profiles():
                 "github_username": github_username,
                 "data": profiles[github_username],
                 "path": "../" * 2,
-                "volunteers": settings.VOLUNTEERS_DESCS
+                "volunteers": settings.VOLUNTEERS_DESCS,
             }
         )
         ensure_output_folder("u/{}".format(github_username))
@@ -198,8 +196,7 @@ def generate_profiles():
         generate(
             "profile.html",
             join(
-                settings.OUTPUT_FOLDER, "u", "{}".format(
-                    github_username), "index.html"
+                settings.OUTPUT_FOLDER, "u", "{}".format(github_username), "index.html"
             ),
             **context,
         )
@@ -330,8 +327,7 @@ def generate_blog_posts():
         )
 
     for tag in tags_registry:
-        context.update(
-            {"tag": tag, "posts": tags_registry[tag], "path": "../" * 2})
+        context.update({"tag": tag, "posts": tags_registry[tag], "path": "../" * 2})
         generate(
             "blog/tag.html",
             join(settings.OUTPUT_FOLDER, "tag", tag, "index.html"),
@@ -355,7 +351,7 @@ def generate_resources():
     # /resources/c/api/ # for category. category name cannot be tag
 
     for resource in resources:
-        current_resource = resources[resource]['posts']
+        current_resource = resources[resource]["posts"]
         ensure_output_folder(join("resources", "c", resource))
         context.update(
             {
@@ -366,8 +362,7 @@ def generate_resources():
         )
         generate(
             "resources/category.html",
-            join(settings.OUTPUT_FOLDER, "resources",
-                 "c", resource, "index.html"),
+            join(settings.OUTPUT_FOLDER, "resources", "c", resource, "index.html"),
             **context,
         )
 
@@ -380,8 +375,7 @@ def generate_resources():
     ensure_output_folder(join("resources", "tag"))
     for tag in tags_registry:
         ensure_output_folder(join("resources", "tag", tag))
-        context.update(
-            {"tag": tag, "projects": tags_registry[tag], "path": "../" * 3})
+        context.update({"tag": tag, "projects": tags_registry[tag], "path": "../" * 3})
         generate(
             "resources/tag.html",
             join(settings.OUTPUT_FOLDER, "resources", "tag", tag, "index.html"),
@@ -397,7 +391,7 @@ def generate_faq():
 
     for mdfile in os.listdir(faq_path):
         faq_post_path = join(faq_path, mdfile)
-        with open(faq_post_path, encoding='utf-8') as f:
+        with open(faq_post_path, encoding="utf-8") as f:
             text = f.read()
         md = markdown.Markdown(extensions=["extra", "smarty", "meta"])
         html = md.convert(text)
@@ -454,14 +448,15 @@ def generate_menu_pages(args):
     # If --with-trans-calc is received
     # calculated translation progress percent
     trans_progress = None
-    if len(args) > 1 and args[1] == '--with-trans-calc':
+    if len(args) > 1 and args[1] == "--with-trans-calc":
         tp = TransProgress(trans_repos)
         trans_progress = tp.get_data()
 
     generate(
         "translations.html",
         join(settings.OUTPUT_FOLDER, "translations", "index.html"),
-        trans_progress=trans_progress, **context,
+        trans_progress=trans_progress,
+        **context,
     )
 
     ensure_output_folder("pallets-eco")
@@ -472,8 +467,7 @@ def generate_menu_pages(args):
     )
 
     ensure_output_folder("join")
-    generate("join.html", join(settings.OUTPUT_FOLDER,
-                               "join", "index.html"), **context)
+    generate("join.html", join(settings.OUTPUT_FOLDER, "join", "index.html"), **context)
 
     ensure_output_folder("members")
     generate(
@@ -481,8 +475,7 @@ def generate_menu_pages(args):
     )
 
     ensure_output_folder("aim")
-    generate("aim.html", join(settings.OUTPUT_FOLDER,
-                              "aim", "index.html"), **context)
+    generate("aim.html", join(settings.OUTPUT_FOLDER, "aim", "index.html"), **context)
 
 
 def main(args):

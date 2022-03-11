@@ -52,4 +52,3 @@
     ```
 
 * Add your fork as a remote to push your work to. Replace {username} with your username. This names the remote "fork", the default Pallets remote is "origin".
-
