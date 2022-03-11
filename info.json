@@ -171,6 +171,7 @@
         "mmdbalkhi":{
             "name": "Komeil Parseh",
             "bio": [],
+            "links": {"GitHub":"https://github.com/mmdbalkhi", "twitter":"https://twitter.com/mmdbalkhi"},
             "volunteer": {
                 "code": {},
                 "translation":{
