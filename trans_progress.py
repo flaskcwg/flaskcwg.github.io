@@ -9,10 +9,10 @@ import urllib.request
 
 import requests
 
-uri = 'https://raw.githubusercontent.com/Jalkhov/docspro/translation_data/data/{lang}_cov.json'
+uri = "https://raw.githubusercontent.com/Jalkhov/docspro/translation_data/data/{lang}_cov.json"
+
 
 class TransProgress(object):
-
     def __init__(self, repos):
         super(TransProgress, self).__init__()
         self.repos = repos
@@ -26,14 +26,15 @@ class TransProgress(object):
 
     def get_cov(self, lang):
         response = requests.get(uri.format(lang=lang)).text
-        cov = json.loads(response)['cov']
+        cov = json.loads(response)["cov"]
         return cov
 
 
 def main():
-    mu = TransProgress(['es', 'fr', 'zh', 'fa'])
+    mu = TransProgress(["es", "fr", "zh", "fa"])
     data = mu.get_data()
     print(data)
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     main()
