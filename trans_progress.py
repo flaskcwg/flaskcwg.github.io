@@ -9,7 +9,7 @@ import urllib.request
 
 import requests
 
-uri = "https://raw.githubusercontent.com/Jalkhov/docspro/translation_data/data/{lang}_cov.json"
+uri = "https://raw.githubusercontent.com/Jalkhov/docspro/translation_data/data/{lang}_data.json"
 
 
 class TransProgress(object):
@@ -26,8 +26,8 @@ class TransProgress(object):
 
     def get_cov(self, lang):
         response = requests.get(uri.format(lang=lang)).text
-        cov = json.loads(response)["cov"]
-        return cov
+        percent = json.loads(response)["percent"]
+        return percent
 
 
 def main():
