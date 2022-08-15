@@ -7,13 +7,12 @@ from functools import wraps
 from os.path import join
 
 import markdown
+import settings
 import validators
 from flask import Flask
 from jamstack.api.template import base_context
 from jamstack.api.template import generate as generate_
 from livereload import Server
-
-import settings
 from trans_progress import TransProgress
 
 folder_count = 0
@@ -471,7 +470,7 @@ def generate_menu_pages(args):
     # calculated translation progress percent
     trans_progress = None
     if len(args) > 1 and args[1] == "--with-trans-calc":
-        tp = TransProgress(trans_repos)
+        tp = TransProgress()
         trans_progress = tp.get_data()
         logging.info("Geting transltion files...")
 
