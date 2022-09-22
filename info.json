@@ -54,6 +54,17 @@
             "retired": "n",
             "founder": "y"
         },
+        "anushkrishnav": {
+            "name": "Anush Krishna V",
+            "bio": ["I am a Data Analyst and a Developer from India, Started my jounrey into tech with flask"],
+            "volunteer": {
+                "event": "y",
+                "code": {},
+                "education": {}
+            },
+            "retired": "n",
+            "founder": "n"
+        },
         "ichux": {
             "name": "Chukwudi Nwachukwu",
             "bio": [],
