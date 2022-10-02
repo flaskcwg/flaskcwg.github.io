@@ -27,6 +27,7 @@
                     <th>Event</th>
                     <th>Education</th>
                     <th>Translation</th>
+                    <th>Community</th>
                 </tr>
             </thead>
             <tbody>
@@ -83,6 +84,16 @@
                                 <div class="bg-secondary docs-dot"></div>
                             {% endif %}
                         </td>
+                      
+                        <!--COMMUNITY TD-->
+                        <td>
+                            {% if 'community' in data['volunteer'] %}
+                                <div class="bg-primary docs-dot"></div>
+                            {% else %}
+                                <div class="bg-secondary docs-dot"></div>
+                            {% endif %}
+                        </td>
+                      
                         <td>
 
                         </td>
