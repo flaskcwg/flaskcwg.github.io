@@ -204,7 +204,19 @@
                 "GitHub": "https://github.com/MDK84"
             },
             "retired": "n"
-        }
+        },
+        "CheeseCake87": {
+            "name": "David Carmichael",
+            "bio": [],
+            "volunteer": {
+                "event": {},
+                "code": {},
+                "education": {},
+                "community": {}
+            },
+            "retired": "n",
+            "founder": "n"
+        },
     },
     "resources": {
         "ecommerce": {
