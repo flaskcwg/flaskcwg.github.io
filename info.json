@@ -21,6 +21,21 @@
             "retired": "n",
             "founder": "y"
         },
+        "greyli": {
+            "name": "Soojin Yoon",
+            "bio": [],
+            "volunteer": {
+                "translation": {
+                    "lang": "korean",
+                    "coordinator": "y"
+                },
+                "event": {},
+                "code": {},
+                "education": {}
+            },
+            "retired": "n",
+            "founder": "n"
+        },
         "hultner": {
             "name": "Alexander Hultnér",
             "bio": [],
