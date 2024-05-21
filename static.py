@@ -472,7 +472,10 @@ def generate_menu_pages(args):
     if len(args) > 1 and args[1] == "--with-trans-calc":
         tp = TransProgress()
         trans_progress = tp.get_data()
-        logging.info("Geting transltion files...")
+        langs = ', '.join(trans_progress.keys())
+
+        logging.info("Obtaining translation information...")
+        logging.info("> Detected languages: %s", langs)
 
     generate(
         "translations.html",
