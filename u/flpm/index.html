@@ -1,0 +1,469 @@
+<!--
+TODO:
+
+Sometimes the URLs in the links
+menu overlay over link name label
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8">
+<meta name="description" content="Flask Community Workgroup">
+<meta name="keywords" content="python, Flask, community">
+<meta name="author" content="Flask Community">
+<meta name="theme-color" content="#111" />
+<link rel="icon" href="">
+<!--
+<script type="text/javascript" src="js/script.js"></script>
+-->
+
+<link rel="stylesheet" href="https://cdn.iconmonstr.com/1.3.0/css/iconmonstr-iconic-font.min.css">
+<!--https://iconmonstr.com-->
+<link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre.min.css">
+<link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-exp.min.css">
+<link rel="stylesheet" href="https://picturepan2.github.io/spectre/dist/docs.min.css">
+<link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-icons.min.css">
+            <link href='/static/flaskcwg-icon.png' rel='icon' />
+        
+    <title>Felipe Moreno</title>
+
+        <!--<link rel="stylesheet" href="/static/css/styles.css">-->
+        <style>
+            @import url(https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap);
+hr.style-two {
+    width: 300px;
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(toright, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+}
+
+.active-page {
+    font-weight: bolder;
+}
+
+#footer {
+    margin-top: 1.2rem;
+    border-top: 1px solid #eaeaea;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.navbar-section>a {
+    border-bottom: 2px transparent solid;
+}
+
+.navbar-section>a:hover,
+.navbar-section>.dropdown:hover {
+    border-bottom-color: #111;
+}
+
+.first-letter {
+    float: left;
+    font-size: 55px;
+    line-height: 1;
+    font-weight: 700;
+    margin-right: 9px;
+    font-family: 'EB Garamond', serif;
+}
+
+.titles {
+    color: #111;
+    font-size: 40px;
+    font-weight: 400;
+    font-family: 'EB Garamond', serif;
+}
+
+.off-canvas .off-canvas-toggle {
+    left: 15px;
+    top: 15px;
+    z-index: 1;
+}
+
+#navbar-items {
+    justify-content: center;
+    padding: 10px;
+}
+
+#body-container {
+    padding-top: 20px;
+}
+
+a.tag.label:hover {
+    color: #111;
+    background-color: #B0E0E6;
+}
+
+.sep {
+    border-bottom-style: solid!important;
+    border-bottom-width: 1px!important;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    border-color: #e4e6e8!important;
+}
+
+.sep2 {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.sep3 {
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+.lab {
+    color: #6a737c;
+}
+
+.val {
+    color: #242729;
+}
+
+.im {
+    font-size: 14px;
+}
+
+.post-content {
+    color: #747474;
+}
+
+.post-link {
+    margin-bottom: 10px;
+}
+
+.post-link:hover {
+    border-color: grey;
+}
+
+a.card {
+    transition-timing-function: ease-in;
+    transition: .2s;
+}
+
+a.card img {
+    opacity: 0.5;
+    border-bottom: 1px #F2F2F2 solid;
+}
+
+a.card:hover {
+    transition-timing-function: ease-out;
+    transition: .25s;
+    box-shadow: 0 6px 33px -5px rgba(0, 0, 0, 0.32);
+    -webkit-box-shadow: -3px 6px 33px -5px rgba(0, 0, 0, 0.32);
+    -moz-box-shadow: 0 6px 33px -5px rgba(0, 0, 0, 0.32);
+    transform: translateY(-0.15em);
+}
+
+a.card:hover img {
+    opacity: 1;
+}
+
+a.tag,
+a.post-link,
+a.card {
+    text-decoration: none;
+}
+        </style>
+    </head>
+    <body id="body-container">
+        <div class="off-canvas">
+            <!-- off-screen toggle button -->
+            <a class="off-canvas-toggle btn btn-primary bg-dark btn-action show-xs show-sm" href="#sidebar-id">
+                <i class="icon icon-menu"></i>
+            </a>
+            <div id="sidebar-id" class="off-canvas-sidebar">
+  <!-- off-screen sidebar -->
+  <ul class="nav">
+    <li class="nav-item">
+      <a href="../../">The Why</a>
+    </li>
+    <li class="nav-item">
+      <a href="../../aim">The Aim</a>
+    </li>
+    <li class="nav-item">
+      <a href="../../pallets-eco">Pallets-Eco</a>
+    </li>
+    <li class="nav-item">
+      <a href="../../join">Join</a>
+    </li>
+    <li class="nav-item">
+      <a href="../../translations">Translation</a>
+    </li>
+    <li class="nav-item">
+      <a href="../../blog">Blog</a>
+    </li>
+    <li class="nav-item">
+      <a href="../../members">Members</a>
+    </li>
+    <li class="nav-item">
+      <a href="../../resources">Curated Resources</a>
+    </li>
+    <li class="nav-item">
+      <a href="../../faq">FAQs</a>
+    </li>
+    <!--
+    <li class="nav-item active">
+      <a href="#">Layout</a>
+      <ul class="nav">
+        <li class="nav-item">
+          <a href="#">Flexbox grid</a>
+        </li>
+        <li class="nav-item">
+          <a href="#">Responsive</a>
+        </li>
+        <li class="nav-item">
+          <a href="#">Navbar</a>
+        </li>
+        <li class="nav-item">
+          <a href="#">Empty states</a>
+        </li>
+      </ul>
+    </li>
+    -->
+  </ul>
+</div>
+            <a class="off-canvas-overlay" href="#close"></a>
+            <div class="off-canvas-content container">
+                <!-- off-screen content -->
+                <div class="columns" id="banner">
+                    <a class="col-4 col-mx-auto"href="../../">
+                        <img src="/static/flaskcwgbanner.png" class="img-responsive hide-sx hide-sm" alt="FlaskCWG Banner">
+                    </a>
+                </div>
+                <div class="columns">
+                    <header class="navbar col-8 col-mx-auto hide-sx hide-sm">
+                        <section id="navbar-items" class="navbar-section">
+                            <a href="../../" class="navbar-brand mr-2" style="font-weight:bolder;">FlaskCWG</a>
+                            <a class="btn btn-link active-page" href="../../members"> Members</a>
+                            <a class="btn btn-link " href="../../resources"> Curated Resources</a>
+                            <a class="btn btn-link " href="../../translations">Translation</a>
+                            <a class="btn btn-link " href="../../blog">Blog</a>
+                            <a class="btn btn-link " href="../../faq">FAQs</a>
+                            <!-- menu component -->
+                            <div class="dropdown">
+                                <a href="#" class="btn btn-link dropdown-toggle" tabindex="0">
+                                    About Project <i class="icon icon-caret"></i>
+                                </a>
+                                <ul class="menu">
+                                    <li class="menu-item">
+                                        <a href="../../">The Why</a>
+                                    </li>
+                                    <li class="menu-item">
+                                        <a href="../../aim">The Aim</a>
+                                    </li>
+                                    <li class="menu-item">
+                                        <a href="../../pallets-eco">Pallets-Eco</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </section>
+                    </header>
+                </div>
+                <div id="main-content-container" class="columns">
+                    <div id="main-content" class="column col-8 col-sm-10 col-mx-auto">
+                        
+    <script src="https://kit.fontawesome.com/87e809e06c.js" crossorigin="anonymous"></script>
+    <style>
+    .avatar.avatar-xl {
+        height: 5rem;
+        width: 5rem;
+        margin-bottom: 15px;
+    }
+    .links-column .menu {
+        border: None;
+        box-shadow: None;
+        background: None;
+    }
+    .menu-badge,
+    .url {
+        cursor: pointer;
+    }
+    .info-title {
+        font-weight: bold;
+    }
+    .url,
+    .info-value {
+        color: #bcc3ce;
+    }
+    .main-cols > .column {
+        padding: .4rem;
+    }
+    .links-column {
+        /* UGLY FIX - FORCE VERTICAL COLUMN SPACING */
+        margin-top: .8rem;
+    }
+    .extra-info .divider {
+        margin-top: .7rem;
+        margin-bottom: .7rem;
+    }
+    .container {
+        margin-top: 8px;
+        margin-bottom: 50px;
+    }
+
+    .main-card{
+        /* PANEL OF PICTURE AND BIO  */
+        padding-top: 15px;
+    }
+    #bio {
+        margin-top: 10px;
+    }
+    .chip-coordinator {
+        /* BADGE OF COORDINATORS OF TRANSLATION REPOS  */
+        background-color: gold;
+        color: black;
+    }
+    .chip-member-transl {
+        /* BADGE OF MEMBERS OF TRANSLATION REPOS  */
+        background-color: skyblue;
+        color: white;
+    }
+    .chip-active {
+        /* BADGE OF ACTIVE MEMBERS  */
+        background-color: seagreen;
+        color: white;
+    }
+    .chip-retired {
+        /* BADGE OF RETIRED MEMBERS  */
+        background-color: darkred;
+        color: white;
+    }
+    .avatar-founder {
+        /* ADD GOLD BORDER TO FOUNDERS PROFILE PICTURE  */
+        border:5px solid gold;
+        -webkit-border-radius: 500px;
+        -moz-border-radius: 500px;
+        background: transparent;
+    }
+    .main-cols-container {
+        /* DIV OF THREE PANELS  */
+        background-color: #e2e8f0;
+        border-radius: 4px;
+        padding: 15px;
+    }
+    .main-cols-container .panel {
+        transition: .8s;
+        background-color: white;
+        box-shadow: 0 .05rem .2rem rgba(48,55,66,.2);
+    }
+
+    .link-name {
+        /* SOCIAL LINK NAME  */
+        font-weight: bold;
+    }
+    </style>
+    <h2 class="text-center titles">User profile</h2>
+    <div class="container main-cols-container">
+        <div class="columns main-cols">
+            <div class="column col-5 col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <!-- MAIN CARD -->
+                <div class="columns">
+                    <div class="column col-12">
+                        <div class="panel main-card">
+                            <div class="panel-header text-center">
+                                    <figure class="avatar avatar-xl ">
+                                    <img class="s-circle" src="https://avatars.githubusercontent.com/flpm">
+                                </figure>
+                                <div class="panel-title h5 mt-10">
+                                    <b>Felipe Moreno</b>
+                                </div>
+                                <div class="panel-subtitle" id="bio">
+                                    
+                                        flpm prefers not to say too much
+                                    
+                                </div>
+                                <div class="panel-footer">
+                                    
+                                    
+                                        <span class="chip chip-active">
+                                            Active
+                                        </span>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                        <div class="column col-12 links-column">
+                            <div class="panel">
+                                <ul class="menu">
+                                    
+                                        
+                                        
+                                        <li class="menu-item">
+                                            <a href="https://github.com/flpm">
+                                                <div class="link-name">
+                                                    <i class="icon icon-link"></i>&nbsp;
+                                                    Github
+                                                </div>
+                                                <div class="menu-badge url">
+                                                    https://github.com/flpm
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="divider"></li>
+                                    
+                                </ul>
+                            </div>
+                        </div>
+                    
+                </div>
+            </div>
+            <div class="column col-7 col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="panel extra-info">
+                    <div class="panel-header">
+                        <div class="panel-title" align="center"><h4>Volunteer</h4></div>
+                    </div>
+                    <div class="panel-body">
+                        
+                            
+                                <div class="columns">
+                                    <div class="column col-6 info-title">
+                                        <i class="fa-solid fa-language"></i>&nbsp;
+                                        Translation
+                                    </div>
+                                    <div class="column col-6">
+                                        <span class="chip">
+                                            Spanish
+                                        </span>
+                                        
+                                            <span class="chip chip-member-transl">
+                                                Member
+                                            </span>
+                                        
+                                    </div>
+                                </div>
+                                <li class="divider"></li>
+                            
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    </div>
+                </div>
+                <div class="columns">
+                    <div id="main-content" class="column col-8 col-sm-10 col-mx-auto">
+                        <div id="footer">
+    <div class="columns">
+        <div class="column col-xs-8">
+            <div class="float-left"><a href="https://github.com/flaskcwg/flaskcwg.github.io">Edit on GitHub</a> | Email: flaskcwg at python.org</div>
+        </div>
+        <div class="column col-xs-4">
+             <div class="float-right">Community-contributed. Not endorsed by the Pallets</div>
+        </div>
+    </div>
+
+
+</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
