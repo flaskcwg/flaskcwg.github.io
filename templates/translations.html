@@ -111,6 +111,24 @@
                     </span>
                 </td>
             </tr>
+            <tr>
+                <td>Korean - 한국어</td>
+                <td><a target="_blank" href="{{ profile_url(path, 'blingblin-g') }}">@blingblin-g</a></td>
+                <td>
+                    <a target="_blank" href="https://github.com/flaskcwg/flask-docs-ko" title="Repository"><i
+                            class="fa fa-github-alt" aria-hidden="true"></i></a>
+                    &nbsp;
+                    <a target="_blank" href="https://flask-ko.readthedocs.io/" title="Readthedocs"><i class="fa fa-book"
+                            aria-hidden="true"></i></a>
+                </td>
+                <td>
+                    <span class="chip" class="percent-badge">
+                        {% if trans_progress %}
+                        {{ trans_progress['ko'] }}%
+                        {% endif %}
+                    </span>
+                </td>
+            </tr>
         </tbody>
     </table>
 </div>
