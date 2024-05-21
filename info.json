@@ -220,6 +220,19 @@
             },
             "retired": "n"
         },
+        "flpm":{
+            "name": "Felipe Moreno",
+            "bio":[],
+            "volunteer": {
+                "translation":{
+                    "lang": "spanish"
+                }
+            },
+            "links":{
+                "GitHub": "https://github.com/flpm"
+            },
+            "retired": "n"
+        },
         "CheeseCake87": {
             "name": "David Carmichael",
             "bio": [],
