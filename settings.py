@@ -1,7 +1,11 @@
+"""
+This file contains important variables for site generation
+"""
+
 import json
 
 OUTPUT_FOLDER = "docs/"
-info = None
+INFO = None
 
 BLOG_CATEGORIES = ["main", "protocol"]
 
@@ -11,5 +15,5 @@ VOLUNTEERS_DESCS = {
     "education": "Tutorials/Posts Flask related",
 }
 
-with open("info.json", encoding="utf-8") as f:
-    info = json.load(f)
+with open("INFO.json", encoding="utf-8") as f:
+    INFO = json.load(f)
