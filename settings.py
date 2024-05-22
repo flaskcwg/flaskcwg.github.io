@@ -15,5 +15,5 @@ VOLUNTEERS_DESCS = {
     "education": "Tutorials/Posts Flask related",
 }
 
-with open("INFO.json", encoding="utf-8") as f:
+with open("info.json", encoding="utf-8") as f:
     INFO = json.load(f)
