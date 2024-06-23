@@ -12,25 +12,25 @@ date: May 21, 2024
 tags: translation
 slug: how-sync-translations
 
-One of the challenges of maintaining translations is keeping up with the changes to the original document as the project advances and new releases are made.
+One of the challenges of maintaining translations is keeping up with the changes to the original document as the project evolves and new releases are made.
 
 In the case of the Flask documentation, theres the additional challenge of working in separate repositories.
 
-This post will document a simple process for contributors and maintainers of the different languages repositories to keep up to date with the latest version of the Flask English documentation.
+This post will document a simple process that the contributors and maintainers of the different languages translations can use to keep their repositories up to date with the latest version of the Flask English documentation.
 
 ## Set up your local environment
 
-First, fork the language repository in the Flask CWG corresponding to the language you will be working on into your personal Github space. If you need, you can find more information it the GitHub documentation [here](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo).
+First, fork the translation repository for the language you will be working on from the Flask CWG GitHub organization into your personal Github space. If you need, you can find more information about forking in the GitHub documentation [here](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo).
 
-Once the fork is created, clone the repository on your computer. Again, for more details on this step, consult the GitHub documentation [here](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository).
+Once the forked repository is created, clone it on your computer. If you are not familiar with this step, more details are available in the GitHub documentation [here](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository).
 
 At this point you will have the latest version of the translation for the language you are working on.
 
 ## Add the main Flask repository as a new git remote
 
-A quick note: the command examples you will see below, show the tags and commit hashes at the time this blog post was written. When you execute these commands, you will probably see different values.
+A quick note: the command outputs you will see below, show details like tags and commit hashes from the time this post was written, when you execute them, you will probably see different values.
 
-To make sure you are up to date with the original English documentation, you will need to set a new git remote repository pointing to the main flask repository:
+To access the original English documentation, you will need to set a new git remote repository pointing to the main flask repository:
 
 ```shell
 $ git remote add flask https://github.com/pallets/flask.git
@@ -73,13 +73,13 @@ $ git checkout -b update-docs main
 Switched to a new branch 'update-docs'
 ```
 
-And deleting the current `.rst` files (this step is necessary to ensure we don't keep old files that may have been renamed):
+And deleting the current English documentation `.rst` files in the translation repository (this step is necessary to ensure we don't keep old files that may have been removed in the English version):
 
 ```shell
 $ rm -r ./docs/*.rst
 ```
 
-The Flask CWG in discussion with the Flask project maintainers have decided to keep the translations synchronized with the documentation of latest released version of Flask. To find the last version of the English documentation, locate the latest release tag:
+The Flask CWG in discussion with the Flask project maintainers has decided to keep the translations synchronized with the documentation of latest released version of Flask. To find the last version of the English documentation, locate the latest release tag:
 
 ```shell
 $ git tag --sort=-taggerdate | head -n 1
@@ -111,7 +111,7 @@ Changes to be committed:
 	modified:   docs/server.rst
 	modified:   docs/testing.rst
 	modified:   docs/tutorial/install.rst
-
+(...)
 ```
 
 Let's commit these changes to the branch:
@@ -123,7 +123,7 @@ git commit -m 'Updated the English documentation'
 
 ```
 
-Next, let's make sure we have the right requirements to build this version of the documentation, in case something changed.
+Next, to make sure you keep up with the documentation building requirements, also update the requirements folder.
 
 ```shell
 git checkout 3.0.3 ./requirements/
@@ -131,11 +131,11 @@ Updated 0 paths from a7d387fa
 
 ```
 
-In this case no files where updated ("Updated 0 paths"), but if the requirements changed, we would have to commit the changes to this branch.
+In this case no files where updated ("Updated 0 paths"), but if the requirements change, we will need those changes as well.
 
 ## Prepare a virtual environment to build the documentation
 
-To make sure you can build the documentation, create a virtual environment and install the necessary requirements. Assuming you have virtualenv installed, run the following commands:
+Prepare to build the documentation by creating a virtual environment and installing the necessary requirements. Assuming you have virtualenv installed, run the following commands:
 
 ```shell
 $ python -m venv .venv
@@ -154,11 +154,9 @@ Collecting charset-normalizer==3.3.2
 (...)
 ```
 
-Now, you are ready to update the translation files.
-
 ## Recreate the translation templates (`.pot` files)
 
-Before we can update the translation files for the language you are working on, you need to recreate the translation template files with the latest version of the documentation you just copied.
+Before you can update the translation files for the language you are working on, you need to recreate the translation template files with the latest version of the documentation you just copied. This is an intermediate step and you will not be working on this files directly, they are stored in the `./_build/gettext` folder.
 
 ```shell
 $ cd ./docs
@@ -176,7 +174,7 @@ loading intersphinx inventory from https://docs.sqlalchemy.org/objects.inv...
 
 ## Update the translation files (`.po` files)
 
-Before we can run the next step, we need to install `sphinx-intl` in the current virtual environment:
+Before we can run the next step, we need to install `sphinx-intl` in the current virtual environment. Since this is a requirement for the translation work, it is not part of the original documentation requirements:
 
 ```shell
 $ pip install sphinx-intl
@@ -188,9 +186,7 @@ Requirement already satisfied: sphinx in /home/felipe/github/flaskcwg/flask-docs
 (...)
 ```
 
-Once the templates are updated and sphinx-intl is install, you can update the translations files in the `./locales` folder.
-
-In the example below, we are working with the Spanish translation (language code `es`), you will have to use the code for the language you are working on:
+Now you are read to update the translations for the language you are working one. In the example below, we are working with the Spanish translation (language code `es`), remember to replace the language code for the one for your language:
 
 ```shell
 $ sphinx-intl update -p _build/gettext -l esUpdate: locales/es/LC_MESSAGES/api.po +19, -26
@@ -203,7 +199,36 @@ Not Changed: locales/es/LC_MESSAGES/views.po
 (...)
 ```
 
-At this point, the `.po` files in the `./locales` folder are up to date with the latest version of the English documentation. The update process will preserve the current translations and add new strings. If some of the translated strings have changed in the original source, the entries in the `.po` files will be marked with the tag "fuzzy", which a translator can remove after making the appropriate changes.
+At this point, the `.po` files in the `./locales` folder have bee updated with the latest version of the English documentation.
+
+The update process will preserve the current translations and add new strings that might have been added to the English documentation.
+
+If some of the already translated strings changed in the English documentation, the corresponding entries in the `.po` files will be marked with the tag "fuzzy", indicating they need to be checked for accuracy.
 
 For more information about the PO format, including the fuzzy tag, consult the [gettext documentation](https://www.gnu.org/software/gettext/manual/html_node/PO-Files.html).
 
+## Commit the translation files
+
+Add the updated translation files to the branch. You do not need to worry about the `.pot` files, they don't need to be stored in the repository.
+
+```shell
+$ git add ./locales/
+
+$ git status
+On branch update-docs
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+	modified:   locales/es/LC_MESSAGES/api.po
+	new file:   locales/es/LC_MESSAGES/deploying.po
+	modified:   locales/es/LC_MESSAGES/errorhandling.po
+	new file:   locales/es/LC_MESSAGES/patterns.po
+	modified:   locales/es/LC_MESSAGES/server.po
+	modified:   locales/es/LC_MESSAGES/testing.po
+	new file:   locales/es/LC_MESSAGES/tutorial.po
+
+$ git commit -m 'Updated the translation files'
+```
+
+## Make a PR to
+
+Add this point you are ready to create a pull request to incorporate your changes into the Flask CWG language repository. You can find more information about creating a pull request in the [GitHub documentation](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request).
