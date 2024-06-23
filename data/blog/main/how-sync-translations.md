@@ -222,6 +222,6 @@ Changes to be committed:
 $ git commit -m 'Updated the translation files'
 ```
 
-## Make a PR to
+## Make a PR
 
 Add this point you are ready to create a pull request to incorporate your changes into the Flask CWG language repository. You can find more information about creating a pull request in the [GitHub documentation](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request).
