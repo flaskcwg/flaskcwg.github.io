@@ -5,13 +5,6 @@ date: May 21, 2024
 tags: translation
 slug: how-sync-translations
 
-title: How to synchronize translations
-summary: Steps to update translations
-authors: flpm
-date: May 21, 2024
-tags: translation
-slug: how-sync-translations
-
 One of the challenges of maintaining translations is keeping up with the changes to the original document as the project evolves and new releases are made.
 
 In the case of the Flask documentation, theres the additional challenge of working in separate repositories.
