@@ -7,9 +7,9 @@ slug: how-sync-translations
 
 One of the challenges of maintaining translations is keeping up with the changes to the original document as the project evolves and new releases are made.
 
-In the case of the Flask documentation, theres the additional challenge of working in separate repositories.
+In the case of the Flask documentation, there is the additional challenge of working in separate repositories.
 
-This post will document a simple process that the contributors and maintainers of the different languages translations can use to keep their repositories up to date with the latest version of the Flask English documentation.
+This post will document a simple process that the contributors and maintainers of the different language translations can use to keep their repositories up to date with the latest version of the Flask English documentation.
 
 ## Set up your local environment
 
@@ -72,7 +72,7 @@ And deleting the current English documentation `.rst` files in the translation r
 $ rm -r ./docs/*.rst
 ```
 
-The Flask CWG in discussion with the Flask project maintainers has decided to keep the translations synchronized with the documentation of latest released version of Flask. To find the last version of the English documentation, locate the latest release tag:
+The Flask CWG in discussion with the Flask project maintainers has decided to keep the translations synchronized with the documentation of the latest released version of Flask. To find the last version of the English documentation, locate the latest release tag:
 
 ```shell
 $ git tag --sort=-taggerdate | head -n 1
@@ -124,7 +124,7 @@ Updated 0 paths from a7d387fa
 
 ```
 
-In this case no files where updated ("Updated 0 paths"), but if the requirements change, we will need those changes as well.
+In this case no files were updated ("Updated 0 paths"), but if the requirements change, we will need those changes as well.
 
 ## Prepare a virtual environment to build the documentation
 
@@ -149,7 +149,7 @@ Collecting charset-normalizer==3.3.2
 
 ## Recreate the translation templates (`.pot` files)
 
-Before you can update the translation files for the language you are working on, you need to recreate the translation template files with the latest version of the documentation you just copied. This is an intermediate step and you will not be working on this files directly, they are stored in the `./_build/gettext` folder.
+Before you can update the translation files for the language you are working on, you need to recreate the translation template files with the latest version of the documentation you just copied. This is an intermediate step and you will not be working on these files directly, they are stored in the `./_build/gettext` folder.
 
 ```shell
 $ cd ./docs
@@ -179,7 +179,7 @@ Requirement already satisfied: sphinx in /home/felipe/github/flaskcwg/flask-docs
 (...)
 ```
 
-Now you are read to update the translations for the language you are working one. In the example below, we are working with the Spanish translation (language code `es`), remember to replace the language code for the one for your language:
+Now you are ready to update the translations for the language you are working one. In the example below, we are working with the Spanish translation (language code `es`), remember to replace the language code for the one for your language:
 
 ```shell
 $ sphinx-intl update -p _build/gettext -l esUpdate: locales/es/LC_MESSAGES/api.po +19, -26
@@ -192,7 +192,7 @@ Not Changed: locales/es/LC_MESSAGES/views.po
 (...)
 ```
 
-At this point, the `.po` files in the `./locales` folder have bee updated with the latest version of the English documentation.
+At this point, the `.po` files in the `./locales` folder have been updated with the latest version of the English documentation.
 
 The update process will preserve the current translations and add new strings that might have been added to the English documentation.
 
