@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8">
+<meta name="description" content="Flask Community Workgroup">
+<meta name="keywords" content="python, Flask, community">
+<meta name="author" content="Flask Community">
+<meta name="theme-color" content="#111" />
+<link rel="icon" href="">
+<!--
+<script type="text/javascript" src="js/script.js"></script>
+-->
+
+<link rel="stylesheet" href="https://cdn.iconmonstr.com/1.3.0/css/iconmonstr-iconic-font.min.css">
+<!--https://iconmonstr.com-->
+<link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre.min.css">
+<link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-exp.min.css">
+<link rel="stylesheet" href="https://picturepan2.github.io/spectre/dist/docs.min.css">
+<link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-icons.min.css">
+            <link href='/static/flaskcwg-icon.png' rel='icon' />
+        
+    <title>How to synchronize translations</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/atelier-forest-light.min.css">
+
+        <!--<link rel="stylesheet" href="/static/css/styles.css">-->
+        <style>
+            @import url(https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap);
+hr.style-two {
+    width: 300px;
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(toright, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+}
+
+.active-page {
+    font-weight: bolder;
+}
+
+#footer {
+    margin-top: 1.2rem;
+    border-top: 1px solid #eaeaea;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.navbar-section>a {
+    border-bottom: 2px transparent solid;
+}
+
+.navbar-section>a:hover,
+.navbar-section>.dropdown:hover {
+    border-bottom-color: #111;
+}
+
+.first-letter {
+    float: left;
+    font-size: 55px;
+    line-height: 1;
+    font-weight: 700;
+    margin-right: 9px;
+    font-family: 'EB Garamond', serif;
+}
+
+.titles {
+    color: #111;
+    font-size: 40px;
+    font-weight: 400;
+    font-family: 'EB Garamond', serif;
+}
+
+.off-canvas .off-canvas-toggle {
+    left: 15px;
+    top: 15px;
+    z-index: 1;
+}
+
+#navbar-items {
+    justify-content: center;
+    padding: 10px;
+}
+
+#body-container {
+    padding-top: 20px;
+}
+
+a.tag.label:hover {
+    color: #111;
+    background-color: #B0E0E6;
+}
+
+.sep {
+    border-bottom-style: solid!important;
+    border-bottom-width: 1px!important;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    border-color: #e4e6e8!important;
+}
+
+.sep2 {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.sep3 {
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+.lab {
+    color: #6a737c;
+}
+
+.val {
+    color: #242729;
+}
+
+.im {
+    font-size: 14px;
+}
+
+.post-content {
+    color: #747474;
+}
+
+.post-link {
+    margin-bottom: 10px;
+}
+
+.post-link:hover {
+    border-color: grey;
+}
+
+a.card {
+    transition-timing-function: ease-in;
+    transition: .2s;
+}
+
+a.card img {
+    opacity: 0.5;
+    border-bottom: 1px #F2F2F2 solid;
+}
+
+a.card:hover {
+    transition-timing-function: ease-out;
+    transition: .25s;
+    box-shadow: 0 6px 33px -5px rgba(0, 0, 0, 0.32);
+    -webkit-box-shadow: -3px 6px 33px -5px rgba(0, 0, 0, 0.32);
+    -moz-box-shadow: 0 6px 33px -5px rgba(0, 0, 0, 0.32);
+    transform: translateY(-0.15em);
+}
+
+a.card:hover img {
+    opacity: 1;
+}
+
+a.tag,
+a.post-link,
+a.card {
+    text-decoration: none;
+}
+        </style>
+    </head>
+    <body id="body-container">
+        <div class="off-canvas">
+            <!-- off-screen toggle button -->
+            <a class="off-canvas-toggle btn btn-primary bg-dark btn-action show-xs show-sm" href="#sidebar-id">
+                <i class="icon icon-menu"></i>
+            </a>
+            <div id="sidebar-id" class="off-canvas-sidebar">
+  <!-- off-screen sidebar -->
+  <ul class="nav">
+    <li class="nav-item">
+      <a href="../../">The Why</a>
+    </li>
+    <li class="nav-item">
+      <a href="../../aim">The Aim</a>
+    </li>
+    <li class="nav-item">
+      <a href="../../pallets-eco">Pallets-Eco</a>
+    </li>
+    <li class="nav-item">
+      <a href="../../join">Join</a>
+    </li>
+    <li class="nav-item">
+      <a href="../../translations">Translation</a>
+    </li>
+    <li class="nav-item">
+      <a href="../../blog">Blog</a>
+    </li>
+    <li class="nav-item">
+      <a href="../../members">Members</a>
+    </li>
+    <li class="nav-item">
+      <a href="../../resources">Curated Resources</a>
+    </li>
+    <li class="nav-item">
+      <a href="../../faq">FAQs</a>
+    </li>
+    <!--
+    <li class="nav-item active">
+      <a href="#">Layout</a>
+      <ul class="nav">
+        <li class="nav-item">
+          <a href="#">Flexbox grid</a>
+        </li>
+        <li class="nav-item">
+          <a href="#">Responsive</a>
+        </li>
+        <li class="nav-item">
+          <a href="#">Navbar</a>
+        </li>
+        <li class="nav-item">
+          <a href="#">Empty states</a>
+        </li>
+      </ul>
+    </li>
+    -->
+  </ul>
+</div>
+            <a class="off-canvas-overlay" href="#close"></a>
+            <div class="off-canvas-content container">
+                <!-- off-screen content -->
+                <div class="columns" id="banner">
+                    <a class="col-4 col-mx-auto"href="../../">
+                        <img src="/static/flaskcwgbanner.png" class="img-responsive hide-sx hide-sm" alt="FlaskCWG Banner">
+                    </a>
+                </div>
+                <div class="columns">
+                    <header class="navbar col-8 col-mx-auto hide-sx hide-sm">
+                        <section id="navbar-items" class="navbar-section">
+                            <a href="../../" class="navbar-brand mr-2" style="font-weight:bolder;">FlaskCWG</a>
+                            <a class="btn btn-link " href="../../members"> Members</a>
+                            <a class="btn btn-link " href="../../resources"> Curated Resources</a>
+                            <a class="btn btn-link " href="../../translations">Translation</a>
+                            <a class="btn btn-link active-page" href="../../blog">Blog</a>
+                            <a class="btn btn-link " href="../../faq">FAQs</a>
+                            <!-- menu component -->
+                            <div class="dropdown">
+                                <a href="#" class="btn btn-link dropdown-toggle" tabindex="0">
+                                    About Project <i class="icon icon-caret"></i>
+                                </a>
+                                <ul class="menu">
+                                    <li class="menu-item">
+                                        <a href="../../">The Why</a>
+                                    </li>
+                                    <li class="menu-item">
+                                        <a href="../../aim">The Aim</a>
+                                    </li>
+                                    <li class="menu-item">
+                                        <a href="../../pallets-eco">Pallets-Eco</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </section>
+                    </header>
+                </div>
+                <div id="main-content-container" class="columns">
+                    <div id="main-content" class="column col-8 col-sm-10 col-mx-auto">
+                        
+<br>
+<h3 style="font-size: 27px;">How to synchronize translations</h3>
+<div style="font-size: 13px;">
+    <span class="lab"><i class="im im-user-circle"></i> </span>
+    
+    
+        <a class="label-secondary" href="../../u/flpm">flpm</a>
+    
+    <span class="sep2"></span>
+
+    <span class="lab"><i class="im im-calendar"></i> </span><span class="val">May 21, 2024</span>
+    
+    <span class="sep2"></span>
+    
+    <span class="lab"><i class="im im-folder-open"></i></span>
+    <a class="label-secondary" href="../../category/main">main</a>
+</div>
+<div class="sep3"></div>
+<div style="font-size: 13px;">
+    <span class="lab"><i class="im im-tags"></i> </span>
+    
+    
+        <a class="tag label" href="../../tag/translation">translation</a>
+    
+</div>
+<div class="sep"></div>
+<div class="container post-content">
+    <p>One of the challenges of maintaining different translations of documentation for an open source project is keeping up with the changes to the documentation in its original language as the project evolves and new releases are issued and updates are made.</p>
+<p>As I learned during a recent open source sprint organized at PyCon US 2024, in the case of Flask’s documentation, there is an additional challenge of working in separate repositories for each language the documentation is translated into.</p>
+<p>This post will document a simple process that the contributors and maintainers of the different language translations can use to keep their repositories up to date with the latest version of Flask’s documentation in English.</p>
+<h2>Set up your local environment</h2>
+<p>First, fork the translation repository for the language you will be working on from the Flask CWG GitHub organization into your personal GitHub space. If you need, you can find more information about forking in the GitHub documentation <a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo">here</a>.</p>
+<p>Once the forked repository has been created, clone it on your computer. If you are not familiar with this step, more details are available in the GitHub documentation <a href="https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository">here</a>.</p>
+<p>At this point, you will have the latest version of the translation for the language you are working on.</p>
+<h2>Add the main Flask repository as a new git remote</h2>
+<p><em>Quick note: The command outputs you will see below show details like tags and commit hashes from the time this post was written. When you execute them, you will probably see different values.</em></p>
+<p>To access the original English documentation, you will need to set a new git remote repository that points to the main Flask repository:</p>
+<pre><code class="language-shell">$ git remote add flask https://github.com/pallets/flask.git
+</code></pre>
+<p>Then, fetch the data from it.</p>
+<pre><code class="language-shell">$ git fetch flask
+remote: Enumerating objects: 24785, done.
+remote: Counting objects: 100% (249/249), done.
+remote: Compressing objects: 100% (187/187), done.
+remote: Total 24785 (delta 105), reused 166 (delta 53), pack-reused 24536
+Receiving objects: 100% (24785/24785), 10.22 MiB | 16.41 MiB/s, done.
+Resolving deltas: 100% (16592/16592), done.
+From https://github.com/pallets/flask
+ * [new branch]        0.12.x     -&gt; flask/0.12.x
+ * [new branch]        1.0.x      -&gt; flask/1.0.x
+ * [new branch]        1.1.x      -&gt; flask/1.1.x
+ * [new branch]        2.0.x      -&gt; flask/2.0.x
+ * [new branch]        2.1.x      -&gt; flask/2.1.x
+ * [new branch]        2.2.x      -&gt; flask/2.2.x
+ * [new branch]        2.3.x      -&gt; flask/2.3.x
+ * [new branch]        3.0.x      -&gt; flask/3.0.x
+ * [new branch]        main       -&gt; flask/main
+ * [new tag]           1.1.4      -&gt; 1.1.4
+(...)
+ * [new tag]           2.3.3      -&gt; 2.3.3
+ * [new tag]           3.0.1      -&gt; 3.0.1
+ * [new tag]           3.0.2      -&gt; 3.0.2
+ * [new tag]           3.0.3      -&gt; 3.0.3
+</code></pre>
+<h2>Update the English source of your translation</h2>
+<p>Start by creating a new branch:</p>
+<pre><code class="language-shell">$ git checkout -b update-docs main
+Switched to a new branch 'update-docs'
+</code></pre>
+<p>Then, delete the current English documentation .rst files in the translation repository (this step is necessary to ensure we don&rsquo;t keep old files that may have been removed in the English version):</p>
+<pre><code class="language-shell">$ rm -r ./docs/*.rst
+</code></pre>
+<p>In discussion with the Flask project maintainers, the Flask CWG has decided to keep the translations synchronized with the documentation of the latest released version of Flask. To find the most recent version of the English documentation, locate the latest release tag:</p>
+<pre><code class="language-shell">$ git tag --sort=-taggerdate | head -n 1
+3.0.3
+
+</code></pre>
+<p>Once you have the right tag, you can checkout the right version of the documentation folder into your new branch:</p>
+<pre><code class="language-shell">$ git checkout 3.0.3 ./docs/
+Updated 14 paths from a7d387fa
+
+$ git status
+On branch update-docs
+Changes to be committed:
+  (use &quot;git restore --staged &lt;file&gt;...&quot; to unstage)
+    modified:   docs/api.rst
+    modified:   docs/conf.py
+    modified:   docs/config.rst
+    modified:   docs/errorhandling.rst
+    modified:   docs/index.rst
+    modified:   docs/license.rst
+    modified:   docs/logging.rst
+    modified:   docs/patterns/appdispatch.rst
+    modified:   docs/patterns/javascript.rst
+    modified:   docs/patterns/packages.rst
+    modified:   docs/patterns/sqlalchemy.rst
+    modified:   docs/server.rst
+    modified:   docs/testing.rst
+    modified:   docs/tutorial/install.rst
+(...)
+</code></pre>
+<p>Let&rsquo;s commit these changes to the branch:</p>
+<pre><code class="language-shell">git commit -m 'Updated the English documentation'
+[update-docs 2993d997] Updated the English documentation
+ 14 files changed, 58 insertions(+), 89 deletions(-)
+
+</code></pre>
+<p>Next, to ensure you keep up with the documentation building requirements, update the requirements folder as well.</p>
+<pre><code class="language-shell">git checkout 3.0.3 ./requirements/
+Updated 0 paths from a7d387fa
+
+</code></pre>
+<p>In this case, no files were updated (&ldquo;Updated 0 paths&rdquo;). But, if the requirements change, we will need those changes as well.</p>
+<h2>Prepare a virtual environment to build the documentation</h2>
+<p>Prepare to build the documentation by creating a virtual environment and installing the necessary requirements. Assuming you have virtualenv installed, run the following commands:</p>
+<pre><code class="language-shell">$ python -m venv .venv
+$ source .venv/bin/activate
+(.venv) $ pip install -r ./requirements/docs.txt
+Collecting alabaster==0.7.16
+  Using cached alabaster-0.7.16-py3-none-any.whl (13 kB)
+Collecting babel==2.14.0
+  Downloading Babel-2.14.0-py3-none-any.whl (11.0 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 11.0/11.0 MB 31.3 MB/s eta 0:00:00
+Collecting certifi==2024.2.2
+  Downloading certifi-2024.2.2-py3-none-any.whl (163 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 163.8/163.8 KB 12.0 MB/s eta 0:00:00
+Collecting charset-normalizer==3.3.2
+  Using cached charset_normalizer-3.3.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (142 kB)
+(...)
+</code></pre>
+<h2>Recreate the translation templates (<code>.pot</code> files)</h2>
+<p>Before you can update the translation files for the language you are working on, you need to recreate the translation template files with the latest version of the documentation you just copied. This is an intermediate step as you will not be working on these files directly. They are stored in the <code>./_build/gettext</code> folder.</p>
+<pre><code class="language-shell">$ cd ./docs
+$ make gettext
+Running Sphinx v7.2.6
+making output directory... done
+loading intersphinx inventory from https://docs.python.org/3/objects.inv...
+loading intersphinx inventory from https://werkzeug.palletsprojects.com/objects.inv...
+loading intersphinx inventory from https://click.palletsprojects.com/objects.inv...
+loading intersphinx inventory from https://jinja.palletsprojects.com/objects.inv...
+loading intersphinx inventory from https://itsdangerous.palletsprojects.com/objects.inv...
+loading intersphinx inventory from https://docs.sqlalchemy.org/objects.inv...
+(...)
+</code></pre>
+<h2>Update the translation files (<code>.po</code> files)</h2>
+<p>Before we can run the next step, you need to install sphinx-intl in your current virtual environment. Since this is a requirement for the translation work, it is not part of the original documentation requirements:</p>
+<pre><code class="language-shell">$ pip install sphinx-intl
+Collecting sphinx-intl
+  Downloading sphinx_intl-2.2.0-py3-none-any.whl (13 kB)
+Requirement already satisfied: babel in /home/felipe/github/flaskcwg/flask-docs-es/venv/lib/python3.10/site-packages (from sphinx-intl) (2.14.0)
+Requirement already satisfied: setuptools in /home/felipe/github/flaskcwg/flask-docs-es/venv/lib/python3.10/site-packages (from sphinx-intl) (59.6.0)
+Requirement already satisfied: sphinx in /home/felipe/github/flaskcwg/flask-docs-es/venv/lib/python3.10/site-packages (from sphinx-intl) (7.2.6)
+(...)
+</code></pre>
+<p>You are now ready to update the translation for the language you are working on. In the example below, we are working with the Spanish translation (language code <code>es</code>). Remember to replace the language code for the one for your language:</p>
+<pre><code class="language-shell">$ sphinx-intl update -p _build/gettext -l es
+Update: locales/es/LC_MESSAGES/api.po +19, -26
+Not Changed: locales/es/LC_MESSAGES/config.po
+Not Changed: locales/es/LC_MESSAGES/templating.po
+Not Changed: locales/es/LC_MESSAGES/license.po
+Not Changed: locales/es/LC_MESSAGES/blueprints.po
+Update: locales/es/LC_MESSAGES/testing.po +1, -2
+Not Changed: locales/es/LC_MESSAGES/views.po
+(...)
+</code></pre>
+<p>At this point, the <code>.po</code> files in the <code>./locales</code> folder have been updated with the latest version of the English documentation.</p>
+<p>The update process will preserve the current translations and add new strings that might have been added to the English documentation.</p>
+<p>If some of the already translated strings changed in the English documentation, the corresponding entries in the .po files will be marked with the tag &ldquo;fuzzy&rdquo;, indicating they need to be checked for accuracy.</p>
+<p>For more information about the PO format, including the fuzzy tag, consult the <a href="https://www.gnu.org/software/gettext/manual/html_node/PO-Files.html">gettext documentation</a>.</p>
+<h2>Commit the translation files</h2>
+<p>Add the updated translation files to the branch. You do not need to worry about the .pot files, they don&rsquo;t need to be stored in the repository.</p>
+<pre><code class="language-shell">$ git add ./locales/
+
+$ git status
+On branch update-docs
+Changes to be committed:
+  (use &quot;git restore --staged &lt;file&gt;...&quot; to unstage)
+    modified:   locales/es/LC_MESSAGES/api.po
+    new file:   locales/es/LC_MESSAGES/deploying.po
+    modified:   locales/es/LC_MESSAGES/errorhandling.po
+    new file:   locales/es/LC_MESSAGES/patterns.po
+    modified:   locales/es/LC_MESSAGES/server.po
+    modified:   locales/es/LC_MESSAGES/testing.po
+    new file:   locales/es/LC_MESSAGES/tutorial.po
+
+$ git commit -m 'Updated the translation files'
+</code></pre>
+<h2>Make a PR</h2>
+<p>At this point, you are ready to create a pull request to incorporate your changes into the Flask CWG language repository. You can find more information about creating a pull request in the  <a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request">GitHub documentation</a>.</p>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+                    </div>
+                </div>
+                <div class="columns">
+                    <div id="main-content" class="column col-8 col-sm-10 col-mx-auto">
+                        <div id="footer">
+    <div class="columns">
+        <div class="column col-xs-8">
+            <div class="float-left"><a href="https://github.com/flaskcwg/flaskcwg.github.io">Edit on GitHub</a> | Email: flaskcwg at python.org</div>
+        </div>
+        <div class="column col-xs-4">
+             <div class="float-right">Community-contributed. Not endorsed by the Pallets</div>
+        </div>
+    </div>
+
+
+</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

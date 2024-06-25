@@ -21,7 +21,7 @@
 <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-icons.min.css">
             <link href='/static/flaskcwg-icon.png' rel='icon' />
         
-    <title>Blog</title>
+    <title>Posts for main</title>
 
         <!--<link rel="stylesheet" href="/static/css/styles.css">-->
         <style>
@@ -258,58 +258,67 @@ a.card {
                 <div id="main-content-container" class="columns">
                     <div id="main-content" class="column col-8 col-sm-10 col-mx-auto">
                         
-<div id='posts'>
-    <h2 class="text-center titles">Blog posts</h2>
-    
-    <a href="/b/sample-post-in-protocol-category" class="panel post-link">
-        <div class="tile tile-centered">
-            <div class="tile-icon">
-                <div class="example-tile-icon">
-                    <i class="icon icon-file centered"></i>
-                </div>
-            </div>
-            <div class="tile-content">
-                <div class="tile-title">Sample post in protocol category</div>
-                <small class="tile-subtitle text-gray">
-                    October 10, 2021
-                </small>
-            </div>
-        </div>
-    </a>
-    
-    <a href="/b/samlple-main-post" class="panel post-link">
-        <div class="tile tile-centered">
-            <div class="tile-icon">
-                <div class="example-tile-icon">
-                    <i class="icon icon-file centered"></i>
-                </div>
-            </div>
-            <div class="tile-content">
-                <div class="tile-title">Sample post</div>
-                <small class="tile-subtitle text-gray">
-                    October 12, 2021
-                </small>
-            </div>
-        </div>
-    </a>
-    
-    <a href="/b/how-sync-translations" class="panel post-link">
-        <div class="tile tile-centered">
-            <div class="tile-icon">
-                <div class="example-tile-icon">
-                    <i class="icon icon-file centered"></i>
-                </div>
-            </div>
-            <div class="tile-content">
-                <div class="tile-title">How to synchronize translations</div>
-                <small class="tile-subtitle text-gray">
-                    May 21, 2024
-                </small>
+<br>
+<h3 style="font-size: 27px;">Blog posts for tag: translation</h3>
+
+<!--
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Date</th>
+            <th>Author/s</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        {% for blog_post in posts %}
+            <tr>
+                <td>
+                    <a href="{{path}}b/{{ blog_post['slug'] }}">{{ blog_post['title'] }}</a>
+                </td>
+                <td>
+                    {{ blog_post['date'] }}
+                </td>
+                <td>
+                    {% set authors = blog_post['authors'] %}
+                    {% for author in authors %}
+                        <a href="{{path}}u/{{ author }}">{{ author }}</a>{% if (not loop.index == len(authors)) %},{% endif %}
+                    {% endfor %}
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+-->
+
+
+<a href="../../b/how-sync-translations" class="panel post-link">
+    <div class="tile tile-centered">
+        <div class="tile-icon">
+            <div class="example-tile-icon">
+                <i class="icon icon-file centered"></i>
             </div>
         </div>
-    </a>
-    
-</div>
+        <div class="tile-content">
+            <div class="tile-title">How to synchronize translations</div>
+            <small class="tile-subtitle text-gray">
+                
+                
+                    flpm
+                
+                · May 21, 2024</small>
+        </div>
+        <!--
+        <div class="tile-action">
+            <button class="btn btn-link">
+            <i class="icon icon-more-vert"></i>
+            </button>
+        </div>
+        -->
+    </div>
+</a>
+
 
                     </div>
                 </div>
