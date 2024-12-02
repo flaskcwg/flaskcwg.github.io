@@ -1,107 +1,129 @@
 {% extends 'base.html' %}
 {% set section = 'members' %}
-
 {% block head %}
-  <title>Members</title>
+    <title>Members</title>
+    <style>
+        .table-dots .docs-dot {
+            border-radius: 50%;
+            display: inline-block;
+            height: .5rem;
+            padding: 0;
+            width: .5rem;
+        }
+
+        .star-icon {
+            color: gold;
+            font-size: 16px;
+        }
+
+        .bg-primary-docs {
+            background-color: #007bff; /* or the appropriate primary color */
+        }
+
+        .bg-secondary-docs {
+            background-color: #BDBFC0; /* or the appropriate secondary color */
+        }
+
+        .chip {
+            padding: 0.3rem 0.6rem;
+            border-radius: 10px;
+            font-size: 0.85rem;
+        }
+
+        .chip.bg-primary {
+            background-color: #007bff;
+            color: white;
+        }
+
+        .chip.coordinator {
+            background-color: gold;
+            color: black;
+        }
+    </style>
 {% endblock %}
-
 {% block body %}
-<style>
-    .table-dots .docs-dot {
-        border-radius: 50%;
-        display: inline-block;
-        height: .5rem;
-        padding: 0;
-        width: .5rem;
-    }
-</style>
-
-<div id="members" class="column col-12">
-    <h2 class="text-center titles">Members</h2>
-    <div class="column col-12 col-mx-auto">
-        <table class="table table-dots table-striped text-center">
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Code</th>
-                    <th>Event</th>
-                    <th>Education</th>
-                    <th>Translation</th>
-                    <th>Community</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for github_username in info['profiles'] %}
-                    {% set data = info['profiles'][github_username] %}
+    <div id="members" class="column col-12">
+        <h2 class="text-center titles">Members</h2>
+        <div class="column col-12 col-mx-auto">
+            <table class="table table-dots table-striped text-center">
+                <thead>
                     <tr>
-                        <!--NAME TD-->
-                        <td class="text-left">
-                            <a href="/u/{{ github_username }}">{{ data['name'] }}</a>
-                            {% if data['founder'] == 'y' %}
-                            <span title="Founder"><i style="color: gold; font-size: 16px;" class="im im-star"></i></span>
-                            {% endif %}
-                        </td>
-
-                        <!--CODE TD-->
-                        <td>
-                            {% if 'code' in data['volunteer'] %}
-                                <div class="bg-primary docs-dot"></div>
-                            {% else %}
-                                <div class="bg-secondary docs-dot"></div>
-                            {% endif %}
-                        </td>
-                        
-                        <!--EVENT TD-->
-                        <td>
-                            {% if 'event' in data['volunteer'] %}
-                                <div class="bg-primary docs-dot"></div>
-                            {% else %}
-                                <div class="bg-secondary docs-dot"></div>
-                            {% endif %}
-                        </td>
-                        
-                        <!--EDUCATION TD-->
-                        <td>
-                            {% if 'education' in data['volunteer'] %}
-                                <div class="bg-primary docs-dot"></div>
-                            {% else %}
-                                <div class="bg-secondary docs-dot"></div>
-                            {% endif %}
-                        </td>
-
-                        <!--TRANSLATION TD-->
-                        <td>
-                            {% if 'translation' in data['volunteer'] %}
-                                <span class="chip">{{data['volunteer']['translation']['lang'].capitalize()}}</span>
-                                {% if 'coordinator' in data['volunteer']['translation']%}
-                                    <br>
-                                    <span class="chip" style="background-color: gold;">Coordinator</span>
-                                {% else %}
-                                    <br>
-                                    <span class="chip bg-primary">Member</span>
-                                {% endif %}
-                            {% else %}
-                                <div class="bg-secondary docs-dot"></div>
-                            {% endif %}
-                        </td>
-                      
-                        <!--COMMUNITY TD-->
-                        <td>
-                            {% if 'community' in data['volunteer'] %}
-                                <div class="bg-primary docs-dot"></div>
-                            {% else %}
-                                <div class="bg-secondary docs-dot"></div>
-                            {% endif %}
-                        </td>
-                      
-                        <td>
-
-                        </td>
+                        <th scope="col">Name</th>
+                        <th scope="col">Code</th>
+                        <th scope="col">Event</th>
+                        <th scope="col">Education</th>
+                        <th scope="col">Translation</th>
+                        <th scope="col">Community</th>
                     </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-    </div>
-</div>
+                </thead>
+                <tbody>
+                    {% for github_username in info['profiles'] %}
+                        {% set data = info['profiles'][github_username] %}
+                        <tr>
+                            <!--NAME TD-->
+                            <td class="text-left">
+                                <a href="/u/{{ github_username }}">{{ data['name'] }}</a>
+                                {% if data['founder'] == 'y' %}
+                                <span title="Founder"><i class="im im-star star-icon"></i></span>
+                                {% endif %}
+                            </td>
 
+                            <!--CODE TD-->
+                            <td>
+                                {% if 'code' in data['volunteer'] %}
+                                    <div class="bg-primary-docs docs-dot"></div>
+                                {% else %}
+                                    <div class="bg-secondary-docs docs-dot"></div>
+                                {% endif %}
+                            </td>
+
+                            <!--EVENT TD-->
+                            <td>
+                                {% if 'event' in data['volunteer'] %}
+                                    <div class="bg-primary-docs docs-dot"></div>
+                                {% else %}
+                                    <div class="bg-secondary-docs docs-dot"></div>
+                                {% endif %}
+                            </td>
+
+                            <!--EDUCATION TD-->
+                            <td>
+                                {% if 'education' in data['volunteer'] %}
+                                    <div class="bg-primary-docs docs-dot"></div>
+                                {% else %}
+                                    <div class="bg-secondary-docs docs-dot"></div>
+                                {% endif %}
+                            </td>
+
+                            <!--TRANSLATION TD-->
+                            <td>
+                                {% if 'translation' in data['volunteer'] %}
+                                    <span class="chip">{{data['volunteer']['translation']['lang'].capitalize()}}</span>
+                                    {% if 'coordinator' in data['volunteer']['translation'] %}
+                                        <br>
+                                        <span class="chip coordinator">Coordinator</span>
+                                    {% else %}
+                                        <br>
+                                        <span class="chip bg-primary">Member</span>
+                                    {% endif %}
+                                {% else %}
+                                    <div class="bg-secondary-docs docs-dot"></div>
+                                {% endif %}
+                            </td>
+
+                            <!--COMMUNITY TD-->
+                            <td>
+                                {% if 'community' in data['volunteer'] %}
+                                    <div class="bg-primary-docs docs-dot"></div>
+                                {% else %}
+                                    <div class="bg-secondary-docs docs-dot"></div>
+                                {% endif %}
+                            </td>
+                            <td></td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
 {% endblock %}

@@ -10,27 +10,30 @@
         color: white;
     }
 </style>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <div id="translations">
 	<h2 class="text-center titles">Translations</h2>
 	<h3>Contribute to Flask translation</h3>
-	<ul>
-		<li>To request a new translation, <a target="_blank" href="https://github.com/flaskcwg/translation-coordination/issues/new?assignees=&labels=language&template=new-translation.md">submit an issue</a> and follow the instruction in the issue template.</li>
-		<li>To help translate an exist language, see the README of the corresponding repository for the deatils.</li>
-	</ul>
+	<p>
+        The documentation translation workflow is managed through <a href="https://weblate.org/"><b>Weblate</b></a>, a free, web-based translation platform. Below, you will find the corresponding links for each documentation resource.
+    </p>
 	<h3>Recomendations</h3>
 	<ul>
 		<li><b>If you use translator</b>
 			<ul>
 				<li>
-				Do not put the whole content of a file into the translator, this can cause problems with code snippets, reserved words of the programming language, special ReStructuredText tags and so on, the best way is to translate paragraph by paragraph, header by header.</li>
+				    Avoid inserting the entire content of a file into the translator, as this may lead to issues with code snippets, programming language reserved keywords, special ReStructuredText tags, and similar elements. To ensure accurate and reliable translations, it is recommended to process the content incrementally, translating it paragraph by paragraph or header by header.
+                </li>
 			</ul>
 		</li>
 		<li>
 			<b>Maintaining the essence</b>
 			<ul>
-				<li>Although the translator does a large part of the work, sometimes the resulting translation does not match the meaning of the original resource. It is important to correct this so that the original meaning is not lost.</li>
-				<li>Do not change names of functions, classes, variables methods etc in the codes, it is possible that they will stop working.</li>
+				<li>
+                    While the translator performs a significant portion of the work, the resulting translation may occasionally fail to accurately convey the intended meaning of the original resource. It is crucial to review and correct these discrepancies to ensure the original message is preserved.
+                </li>
+				<li>
+                    Avoid changing the names of functions, classes, variables, methods, or other identifiers in the code, as doing so could potentially cause the code to stop functioning correctly.
+                </li>
 			</ul>
 		</li>
 	</ul>
@@ -39,96 +42,24 @@
         <thead>
             <tr>
                 <th>Language</th>
-                <th>Coordinator</th>
-                <th>Sources</th>
-                <th>Translated</th>
+                <th>Code</th>
+                <th>Progress</th>
+                <th>Source</th>
             </tr>
         </thead>
         <tbody>
+            {% for lang in translations %}
             <tr>
-                <td>Spanish - Español</td>
-                <td><a target="_blank" href="{{ profile_url(path, 'Jalkhov') }}">@Jalkhov</a></td>
+                <td>{{ lang.name }}</td>
+                <td>{{ lang.code }}</td>
+                <td>{{ lang.translated_percent }}%</td>
                 <td>
-                    <a target="_blank" href="https://github.com/flaskcwg/flask-docs-es" title="Repository"><i class="fa fa-github-alt" aria-hidden="true"></i></a>
+                    <a target="_blank" href="{{ lang.weblate_url }}" title="Weblate"><i class="fa-solid fa-language" aria-hidden="true"></i></a>
                     &nbsp;
-                    <a target="_blank" href="https://flask.palletsprojects.com/es/latest/" title="Readthedocs"><i class="fa fa-book" aria-hidden="true"></i></a>
-                </td>
-                <td>
-                    <span class="chip" class="percent-badge">
-                    {% if trans_progress %}
-                        {{ trans_progress['es'] }}%
-                    {% endif %}
-                    </span>
+                    <a target="_blank" href="{{ lang.docs_url }}" title="Readthedocs"><i class="fa-solid fa-book" aria-hidden="true"></i></a>
                 </td>
             </tr>
-            <tr>
-                <td>Chinese - 简体中文</td>
-                <td><a target="_blank" href="{{ profile_url(path, 'greyli') }}">@greyli</a></td>
-                <td>
-                    <a target="_blank" href="https://github.com/flaskcwg/flask-docs-zh" title="Repository"><i class="fa fa-github-alt" aria-hidden="true"></i></a>
-                    &nbsp;
-                    <a target="_blank" href="https://flask.palletsprojects.com/zh-cn/latest/" title="Readthedocs"><i class="fa fa-book" aria-hidden="true"></i></a>
-                </td>
-                <td>
-                    <span class="chip" class="percent-badge">
-                    {% if trans_progress %}
-                        {{ trans_progress['zh'] }}%
-                    {% endif %}
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td>French - Français</td>
-                <td><a target="_blank" href="{{ profile_url(path, 'vlevieux') }}">@vlevieux</a></td>
-                <td>
-                    <a target="_blank" href="https://github.com/flaskcwg/flask-docs-fr" title="Repository"><i class="fa fa-github-alt" aria-hidden="true"></i></a>
-                    &nbsp;
-                    <a target="_blank" href="https://flask-fr.readthedocs.io/" title="Readthedocs"><i class="fa fa-book" aria-hidden="true"></i></a>
-                </td>
-                <td>
-                    <span class="chip" class="percent-badge">
-                    {% if trans_progress %}
-                        {{ trans_progress['fr'] }}%
-                    {% endif %}
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td>Persian - فارسی</td>
-                <td><a target="_blank" href="{{ profile_url(path, 'mmdbalkhi') }}">@mmdbalkhi</a></td>
-                <td>
-                    <a target="_blank" href="https://github.com/flaskcwg/flask-docs-fa" title="Repository"><i
-                            class="fa fa-github-alt" aria-hidden="true"></i></a>
-                    &nbsp;
-                    <a target="_blank" href="https://flask.palletsprojects.com/fa/latest/" title="Readthedocs"><i class="fa fa-book"
-                            aria-hidden="true"></i></a>
-                </td>
-                <td>
-                    <span class="chip" class="percent-badge">
-                        {% if trans_progress %}
-                        {{ trans_progress['fa'] }}%
-                        {% endif %}
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td>Korean - 한국어</td>
-                <td><a target="_blank" href="{{ profile_url(path, 'blingblin-g') }}">@blingblin-g</a></td>
-                <td>
-                    <a target="_blank" href="https://github.com/flaskcwg/flask-docs-ko" title="Repository"><i
-                            class="fa fa-github-alt" aria-hidden="true"></i></a>
-                    &nbsp;
-                    <a target="_blank" href="https://flask.palletsprojects.com/ko/latest/" title="Readthedocs"><i class="fa fa-book"
-                            aria-hidden="true"></i></a>
-                </td>
-                <td>
-                    <span class="chip" class="percent-badge">
-                        {% if trans_progress %}
-                        {{ trans_progress['ko'] }}%
-                        {% endif %}
-                    </span>
-                </td>
-            </tr>
+            {% endfor %}
         </tbody>
     </table>
 </div>
