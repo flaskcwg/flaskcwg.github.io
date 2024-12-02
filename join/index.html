@@ -1,29 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta charset="utf-8">
 <meta name="description" content="Flask Community Workgroup">
 <meta name="keywords" content="python, Flask, community">
 <meta name="author" content="Flask Community">
-<meta name="theme-color" content="#111" />
-<link rel="icon" href="">
-<!--
-<script type="text/javascript" src="js/script.js"></script>
--->
-
-<link rel="stylesheet" href="https://cdn.iconmonstr.com/1.3.0/css/iconmonstr-iconic-font.min.css">
-<!--https://iconmonstr.com-->
+<meta name="theme-color" content="#111">
+<link href="/static/flaskcwg-icon.png" rel="icon">
 <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre.min.css">
 <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-exp.min.css">
-<link rel="stylesheet" href="https://picturepan2.github.io/spectre/dist/docs.min.css">
 <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-icons.min.css">
-            <link href='/static/flaskcwg-icon.png' rel='icon' />
+<script src="https://kit.fontawesome.com/87e809e06c.js" crossorigin="anonymous"></script>
         
-  <title>Join</title>
+    <title>Join</title>
 
-        <!--<link rel="stylesheet" href="/static/css/styles.css">-->
         <style>
             @import url(https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap);
 hr.style-two {
@@ -163,78 +154,58 @@ a.card {
     </head>
     <body id="body-container">
         <div class="off-canvas">
-            <!-- off-screen toggle button -->
-            <a class="off-canvas-toggle btn btn-primary bg-dark btn-action show-xs show-sm" href="#sidebar-id">
+            <a class="off-canvas-toggle btn btn-primary bg-dark btn-action show-xs show-sm" href="#sidebar-id" aria-label="Abrir menú lateral">
                 <i class="icon icon-menu"></i>
             </a>
             <div id="sidebar-id" class="off-canvas-sidebar">
-  <!-- off-screen sidebar -->
-  <ul class="nav">
-    <li class="nav-item">
-      <a href="../">The Why</a>
-    </li>
-    <li class="nav-item">
-      <a href="../aim">The Aim</a>
-    </li>
-    <li class="nav-item">
-      <a href="../pallets-eco">Pallets-Eco</a>
-    </li>
-    <li class="nav-item">
-      <a href="../join">Join</a>
-    </li>
-    <li class="nav-item">
-      <a href="../translations">Translation</a>
-    </li>
-    <li class="nav-item">
-      <a href="../blog">Blog</a>
-    </li>
-    <li class="nav-item">
-      <a href="../members">Members</a>
-    </li>
-    <li class="nav-item">
-      <a href="../resources">Curated Resources</a>
-    </li>
-    <li class="nav-item">
-      <a href="../faq">FAQs</a>
-    </li>
-    <!--
-    <li class="nav-item active">
-      <a href="#">Layout</a>
-      <ul class="nav">
-        <li class="nav-item">
-          <a href="#">Flexbox grid</a>
-        </li>
-        <li class="nav-item">
-          <a href="#">Responsive</a>
-        </li>
-        <li class="nav-item">
-          <a href="#">Navbar</a>
-        </li>
-        <li class="nav-item">
-          <a href="#">Empty states</a>
-        </li>
-      </ul>
-    </li>
-    -->
-  </ul>
+    <!-- off-screen sidebar -->
+    <ul class="nav">
+		<li class="nav-item">
+		    <a href="/">The Why</a>
+		</li>
+		<li class="nav-item">
+		    <a href="/aim">The Aim</a>
+		</li>
+		<li class="nav-item">
+		    <a href="/pallets-eco">Pallets-Eco</a>
+		</li>
+		<li class="nav-item">
+		    <a href="/join">Join</a>
+		</li>
+		<li class="nav-item">
+		    <a href="/translations">Translation</a>
+		</li>
+		<li class="nav-item">
+		    <a href="/blog">Blog</a>
+		</li>
+		<li class="nav-item">
+		    <a href="/members">Members</a>
+		</li>
+		<li class="nav-item">
+		    <a href="/resources">Curated Resources</a>
+		</li>
+		<li class="nav-item">
+		    <a href="/faq">FAQs</a>
+		</li>
+	</ul>
 </div>
-            <a class="off-canvas-overlay" href="#close"></a>
+            <a class="off-canvas-overlay" href="#close" aria-label="Cerrar menú lateral"></a>
             <div class="off-canvas-content container">
                 <!-- off-screen content -->
                 <div class="columns" id="banner">
-                    <a class="col-4 col-mx-auto"href="../">
+                    <a class="col-4 col-mx-auto" href="/">
                         <img src="/static/flaskcwgbanner.png" class="img-responsive hide-sx hide-sm" alt="FlaskCWG Banner">
                     </a>
                 </div>
                 <div class="columns">
                     <header class="navbar col-8 col-mx-auto hide-sx hide-sm">
                         <section id="navbar-items" class="navbar-section">
-                            <a href="../" class="navbar-brand mr-2" style="font-weight:bolder;">FlaskCWG</a>
-                            <a class="btn btn-link " href="../members"> Members</a>
-                            <a class="btn btn-link " href="../resources"> Curated Resources</a>
-                            <a class="btn btn-link " href="../translations">Translation</a>
-                            <a class="btn btn-link " href="../blog">Blog</a>
-                            <a class="btn btn-link " href="../faq">FAQs</a>
+                            <a href="/" class="navbar-brand mr-2" style="font-weight:bolder;">FlaskCWG</a>
+                            <a class="btn btn-link " href="/members"> Members</a>
+                            <a class="btn btn-link " href="/resources"> Curated Resources</a>
+                            <a class="btn btn-link " href="/translations">Translation</a>
+                            <a class="btn btn-link " href="/blog">Blog</a>
+                            <a class="btn btn-link " href="/faq">FAQs</a>
                             <!-- menu component -->
                             <div class="dropdown">
                                 <a href="#" class="btn btn-link dropdown-toggle" tabindex="0">
@@ -242,42 +213,42 @@ a.card {
                                 </a>
                                 <ul class="menu">
                                     <li class="menu-item">
-                                        <a href="../">The Why</a>
+                                        <a href="/">The Why</a>
                                     </li>
                                     <li class="menu-item">
-                                        <a href="../aim">The Aim</a>
+                                        <a href="/aim">The Aim</a>
                                     </li>
                                     <li class="menu-item">
-                                        <a href="../pallets-eco">Pallets-Eco</a>
+                                        <a href="/pallets-eco">Pallets-Eco</a>
                                     </li>
                                 </ul>
                             </div>
                         </section>
                     </header>
                 </div>
-                <div id="main-content-container" class="columns">
-                    <div id="main-content" class="column col-8 col-sm-10 col-mx-auto">
+                <div class="columns">
+                    <div class="column col-8 col-sm-10 col-mx-auto">
                         
-<div id='join'>
-    <h2 class="text-center titles">Join the WG</h2>
-    See how to join the WG <a href="https://github.com/flaskcwg/join-requests/blob/main/README.md">here</a>
-</div>
+    <div id="join">
+        <h2 class="text-center titles">Join the WG</h2>
+        <p>
+            See how to join the WG <a href="https://github.com/flaskcwg/join-requests/blob/main/README.md">here</a>
+        </p>
+    </div>
 
                     </div>
                 </div>
                 <div class="columns">
-                    <div id="main-content" class="column col-8 col-sm-10 col-mx-auto">
+                    <div class="column col-8 col-sm-10 col-mx-auto">
                         <div id="footer">
     <div class="columns">
         <div class="column col-xs-8">
             <div class="float-left"><a href="https://github.com/flaskcwg/flaskcwg.github.io">Edit on GitHub</a> | Email: flaskcwg at python.org</div>
         </div>
         <div class="column col-xs-4">
-             <div class="float-right">Community-contributed. Not endorsed by the Pallets</div>
+            <div class="float-right">Community-contributed. Not endorsed by the Pallets</div>
         </div>
     </div>
-
-
 </div>
                     </div>
                 </div>
