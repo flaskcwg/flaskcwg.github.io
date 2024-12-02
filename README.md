@@ -2,67 +2,63 @@
 
 ## Setup Instructions
 
-* [Fork](https://github.com/flaskcwg/flaskcwg.github.io/fork) the repo
+1. **Fork the repository**
+   [Fork the repo](https://github.com/flaskcwg/flaskcwg.github.io/fork)
 
-* Clone your forked repo
-
+2. **Clone your fork**
     ```bash
     git clone https://github.com/{username}/flaskcwg.github.io.git
     cd flaskcwg.github.io
     ```
 
-* Setup the upstream to original repo
-
+3. **Set up upstream remote**
     ```bash
     git remote add upstream https://github.com/flaskcwg/flaskcwg.github.io.git
     ```
 
-* Create a [virtual environment](https://docs.python.org/3/tutorial/venv.html) and activate it
+4. **Create and activate a virtual environment**
 
-    For Linux/Mac:
+    - **Linux/Mac**:
+        ```bash
+        python -m venv env
+        source env/bin/activate
+        ```
 
-    ```bash
-    python -m venv env
-    source env/bin/activate
-    # The following also works: `. env/bin/activate`
-    ```
+    - **Windows**:
+        ```bash
+        py -m venv env
+        env\Scripts\activate.bat  # Command Prompt
+        # Or for Bash:
+        source env/Scripts/activate
+        ```
 
-    For Windows:
-
-    ```bash
-    py -m venv env
-    env\Scripts\activate.bat # if using command prompt
-    # if using bash in windows, you can also do `source env/Scripts/activate`
-    ```
-
-* Install dependencies
-
+5. **Install dependencies**
     ```bash
     python -m pip install -r requirements.txt
     ```
 
-* Run `static.py`. This will build html content in `docs/`.
-
+6. **Build the HTML content**
     ```bash
     python static.py
     ```
 
-* Run `serve.py` as shown below. Go to the IP address shown in the printout to view the generated site.
-
+7. **Serve the site**
     ```bash
     cd docs
     python serve.py
     ```
+    Access the site at the displayed IP address.
 
-* To see changes made in [`/templates`](/templates) reflect on the generated site, run `python static.py` again in separate terminal (not needed if you ran `python static.py --server` ) and refresh the url.
+8. **View template changes**
+   To reflect updates in [`/templates`](/templates), re-run `python static.py` in a separate terminal, then refresh the browser.
 
-## How does the site runs in production?
+## Production Workflow
 
-PRs are made to source branch. The source branch is automatically extrapolated to the main branch where gh-pages is deployed
+Pull requests are merged into the source branch, which is automatically deployed to the `gh-pages` branch.
 
 ## How to add a new page?
 
-In `static.py`, under generate, add another generate function:
+In `static.py`, under `generate`, add another `generate` function:
 
 ```python
 def main(args):
@@ -208,8 +204,4 @@ And hence [link demo](https://flaskcwg.github.io)
 
 ### FlaskCWG Manager
 
-With this tool you can create, edit and delete blog/faq posts, only pass `--manage` option to `static.py` and go to the given url.
-
-### Percentage of translation of flask documentation
-
-By default, when running `python static.py`, the translation percentage of the translation repositories is not updated, this is to avoid that every time you deploy locally the calculation process is not performed, to run this calculation just pass the `--with-trans-calc` parameter, i.e. `python static.py --with-trans-calc`.
+With this tool you can create, edit and delete blog/faq posts, just execute `python manage.py`.
