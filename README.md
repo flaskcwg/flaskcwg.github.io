@@ -47,8 +47,6 @@
     python static.py
     ```
 
-    > ***_NOTE:_*** If you want the files to auto regenerate on changes, run `python static.py --server` instead.
-
 * Run `serve.py` as shown below. Go to the IP address shown in the printout to view the generated site.
 
     ```bash
