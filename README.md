@@ -1,69 +1,82 @@
+
 # Flask Community Workgroup
 
 ## Setup Instructions
 
-1. **Fork the repository**
-   [Fork the repo](https://github.com/flaskcwg/flaskcwg.github.io/fork)
+### 1. **Fork the Repository**
+- [Fork the repo](https://github.com/flaskcwg/flaskcwg.github.io/fork) to your GitHub account.
 
-2. **Clone your fork**
+### 2. **Clone Your Fork**
+- Clone your fork to your local machine:
     ```bash
     git clone https://github.com/{username}/flaskcwg.github.io.git
     cd flaskcwg.github.io
     ```
 
-3. **Set up upstream remote**
+### 3. **Set Up Upstream Remote**
+- Add the original repository as an upstream remote:
     ```bash
     git remote add upstream https://github.com/flaskcwg/flaskcwg.github.io.git
     ```
 
-4. **Create and activate a virtual environment**
+### 4. **Create and Activate a Virtual Environment**
 
-    - **Linux/Mac**:
-        ```bash
-        python -m venv env
-        source env/bin/activate
-        ```
+- **Linux/Mac**:
+    ```bash
+    python -m venv env
+    source env/bin/activate
+    ```
 
-    - **Windows**:
-        ```bash
-        py -m venv env
-        env\Scripts\activate.bat  # Command Prompt
-        # Or for Bash:
-        source env/Scripts/activate
-        ```
+- **Windows**:
+    ```bash
+    py -m venv env
+    env\Scripts\activate.bat  # For Command Prompt
+    # Or for Bash:
+    source env/Scripts/activate
+    ```
 
-5. **Install dependencies**
+### 5. **Install Dependencies**
+- Install the required dependencies:
     ```bash
     python -m pip install -r requirements.txt
     ```
 
-6. **Build the HTML content**
+### 6. **Build the HTML Content**
+- Run the `static.py` script to generate the HTML content:
     ```bash
     python static.py
     ```
 
-7. **Serve the site**
+### 7. **Serve the Site**
+- Serve the site locally:
     ```bash
     cd docs
     python serve.py
     ```
-    Access the site at the displayed IP address.
+- Access the site at the IP address displayed in the terminal.
 
-8. **View template changes**
-   To reflect updates in [`/templates`](/templates), re-run `python static.py` in a separate terminal, then refresh the browser.
+### 8. **View Template Changes**
+- To apply changes made in the `/templates` directory:
+    - Re-run `python static.py` in a separate terminal.
+    - Refresh the browser to see the updates.
+
+---
 
 ## Production Workflow
 
-Pull requests are merged into the source branch, which is automatically deployed to the `gh-pages` branch.
+Pull requests are merged into the `source` branch, which is automatically deployed to the `gh-pages` branch.
 
-## How to add a new page?
+---
 
-In `static.py`, under `generate`, add another `generate` function:
+## How to Add a New Page
+
+In the `static.py` file, under the `generate` function, add another `generate` call, for example:
 
 ```python
 def main(args):
     def gen():
         generate('index.html', join(settings.OUTPUT_FOLDER, 'index.html'), **context)
+        generate('source_file.html', join(settings.OUTPUT_FOLDER, 'output_file.html'), **context)
 ```
 
 Like this:
@@ -127,7 +140,7 @@ For translation, you have lang and coordinator, the latter being optional.
     "Some more lines"],
 ```
 
-**retired:** If someomne is active or not.
+**retired:** If someone is active or not.
 
 Links are generated as links with text as the key and link as the value.
 
@@ -135,7 +148,7 @@ Links are generated as links with text as the key and link as the value.
 
 A blog post occurs in the format:
 
-````md
+````markdown
 title:   Demo blog post
 summary: A demo post
 authors: jugmac00
@@ -154,9 +167,9 @@ def x():
 And hence [link demo](https://flaskcwg.github.io)
 ````
 
-All meta keys are mandatory but summary can be kept empty
+All meta keys are mandatory but summary can be kept empty.
 
-Inside of `data/blog` create a folder with the category you want. In `settings.py` add it
+Inside of `data/blog` create a folder with the category you want. In `settings.py` add it:
 
 ```python
 BLOG_CATEGORIES = [
@@ -181,10 +194,9 @@ For authors, the author must occur in profiles.
 
 In `data/faq`, create a `.md` file with whatever name you want `.md`
 
-The content should look like this
+The content should look like this:
 
-
-````md
+````markdown
 title:   Demo faq question
 tags: demo
       flask
