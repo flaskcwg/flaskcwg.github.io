@@ -3,7 +3,7 @@ import shutil
 
 import markdown
 
-from settings import info
+from settings import INFO
 
 
 class AuthorNotFound(Exception):

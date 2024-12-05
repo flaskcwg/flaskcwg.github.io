@@ -21,7 +21,7 @@ app.config.update(
 @app.route("/")
 def index():
     posts = get_posts()
-    resources = info["resources"]
+    resources = INFO["resources"]
     current_day = datetime.date.today()
     today = datetime.date.strftime(current_day, "%B %d, %Y")
 
