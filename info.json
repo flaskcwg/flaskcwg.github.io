@@ -1,9 +1,9 @@
 {
     "head": {
         "description": "Flask Community Workgroup",
-        "keywords": "python, Flask, community",
+        "keywords": "python, flask, community, pallets",
         "author": "Flask Community",
-        "theme-color": "#111"
+        "theme-color": "#f5af19"
     },
     "profiles": {
         "greyli": {
